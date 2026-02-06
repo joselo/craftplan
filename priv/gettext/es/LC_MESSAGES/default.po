@@ -1,0 +1,175 @@
+## "msgid"s in this file come from POT (.pot) files.
+###
+### Do not add, change, or remove "msgid"s manually here as
+### they're tied to the ones in the corresponding POT file
+### (with the same domain).
+###
+### Use "mix gettext.extract --merge" or "mix gettext.merge"
+### to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:103
+#, elixir-autogen, elixir-format
+msgid "All production tasks are caught up."
+msgstr "Todas las tareas de producción están al día."
+
+#: lib/craftplan_web/live/manage/overview_live.ex:163
+#, elixir-autogen, elixir-format
+msgid "Cap"
+msgstr "Límite"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:135
+#, elixir-autogen, elixir-format
+msgid "Capacity looks balanced."
+msgstr "La capacidad parece equilibrada."
+
+#: lib/craftplan_web/live/manage/overview_live.ex:66
+#, elixir-autogen, elixir-format
+msgid "Customer"
+msgstr "Cliente"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:127
+#: lib/craftplan_web/live/manage/overview_live.ex:159
+#: lib/craftplan_web/live/manage/overview_live.ex:192
+#, elixir-autogen, elixir-format
+msgid "Day"
+msgstr "Día"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:145
+#, elixir-autogen, elixir-format
+msgid "Days over order capacity"
+msgstr "Días excediendo capacidad de pedidos"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:51
+#, elixir-autogen, elixir-format
+msgid "Deliveries scheduled for this production date."
+msgstr "Entregas programadas para esta fecha de producción."
+
+#: lib/craftplan_web/live/manage/overview_live.ex:202
+#, elixir-autogen, elixir-format
+msgid "End Balance"
+msgstr "Balance Final"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:98
+#, elixir-autogen, elixir-format
+msgid "In Progress Qty"
+msgstr "Cant. en Curso"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:195
+#, elixir-autogen, elixir-format
+msgid "Material"
+msgstr "Material"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:132
+#, elixir-autogen, elixir-format
+msgid "Max"
+msgstr "Máx"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:72
+#, elixir-autogen, elixir-format
+msgid "No orders scheduled for today."
+msgstr "No hay pedidos programados para hoy."
+
+#: lib/craftplan_web/live/manage/overview_live.ex:166
+#, elixir-autogen, elixir-format
+msgid "No upcoming days over your order capacity."
+msgstr "No hay días próximos que excedan su capacidad de pedidos."
+
+#: lib/craftplan_web/live/manage/overview_live.ex:199
+#, elixir-autogen, elixir-format
+msgid "Opening"
+msgstr "Inicial"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:162
+#, elixir-autogen, elixir-format
+msgid "Orders"
+msgstr "Pedidos"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:49
+#, elixir-autogen, elixir-format
+msgid "Orders today"
+msgstr "Pedidos de hoy"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:82
+#, elixir-autogen, elixir-format
+msgid "Outstanding today"
+msgstr "Pendientes de hoy"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:113
+#, elixir-autogen, elixir-format
+msgid "Over-capacity details"
+msgstr "Detalles de sobrecapacidad"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:96
+#: lib/craftplan_web/live/manage/overview_live.ex:130
+#, elixir-autogen, elixir-format
+msgid "Product"
+msgstr "Producto"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:37
+#, elixir-autogen, elixir-format
+msgid "Production commitments, capacity pressure, and material risks for the current cycle."
+msgstr "Compromisos de producción, presión de capacidad y riesgos de material para el ciclo actual."
+
+#: lib/craftplan_web/live/manage/overview_live.ex:116
+#, elixir-autogen, elixir-format
+msgid "Products that exceed their daily limit."
+msgstr "Productos que exceden su límite diario."
+
+#: lib/craftplan_web/live/manage/overview_live.ex:85
+#, elixir-autogen, elixir-format
+msgid "Quantities still to prep and those mid-production."
+msgstr "Cantidades aún por preparar y aquellas en producción."
+
+#: lib/craftplan_web/live/manage/overview_live.ex:63
+#, elixir-autogen, elixir-format
+msgid "Reference"
+msgstr "Referencia"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:196
+#, elixir-autogen, elixir-format
+msgid "Required"
+msgstr "Requerido"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:131
+#, elixir-autogen, elixir-format
+msgid "Scheduled"
+msgstr "Programado"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:207
+#, elixir-autogen, elixir-format
+msgid "Stock levels look healthy for the selected range."
+msgstr "Los niveles de stock parecen saludables para el rango seleccionado."
+
+#: lib/craftplan_web/live/manage/overview_live.ex:35
+#, elixir-autogen, elixir-format
+msgid "Today at a glance"
+msgstr "Resumen de hoy"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:97
+#, elixir-autogen, elixir-format
+msgid "Todo Qty"
+msgstr "Cant. por Hacer"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:67
+#, elixir-autogen, elixir-format
+msgid "Total"
+msgstr "Total"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:177
+#, elixir-autogen, elixir-format
+msgid "Upcoming material shortages"
+msgstr "Próxima escasez de material"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:148
+#, elixir-autogen, elixir-format
+msgid "When confirmed orders exceed the overall daily cap."
+msgstr "Cuando los pedidos confirmados exceden el límite diario global."
+
+#: lib/craftplan_web/live/manage/overview_live.ex:180
+#, elixir-autogen, elixir-format
+msgid "Where inventory falls short once production is applied."
+msgstr "Donde el inventario se queda corto una vez aplicada la producción."

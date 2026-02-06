@@ -1,0 +1,175 @@
+## This file is a PO Template file.
+##
+## "msgid"s here are often extracted from source code.
+## Add new messages manually only if they're dynamic
+## messages that can't be statically extracted.
+##
+## Run "mix gettext.extract" to bring this file up to
+## date. Leave "msgstr"s empty as changing them here has no
+## effect: edit them in PO (.po) files instead.
+#
+msgid ""
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:103
+#, elixir-autogen, elixir-format
+msgid "All production tasks are caught up."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:163
+#, elixir-autogen, elixir-format
+msgid "Cap"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:135
+#, elixir-autogen, elixir-format
+msgid "Capacity looks balanced."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:66
+#, elixir-autogen, elixir-format
+msgid "Customer"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:127
+#: lib/craftplan_web/live/manage/overview_live.ex:159
+#: lib/craftplan_web/live/manage/overview_live.ex:192
+#, elixir-autogen, elixir-format
+msgid "Day"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:145
+#, elixir-autogen, elixir-format
+msgid "Days over order capacity"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:51
+#, elixir-autogen, elixir-format
+msgid "Deliveries scheduled for this production date."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:202
+#, elixir-autogen, elixir-format
+msgid "End Balance"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:98
+#, elixir-autogen, elixir-format
+msgid "In Progress Qty"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:195
+#, elixir-autogen, elixir-format
+msgid "Material"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:132
+#, elixir-autogen, elixir-format
+msgid "Max"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:72
+#, elixir-autogen, elixir-format
+msgid "No orders scheduled for today."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:166
+#, elixir-autogen, elixir-format
+msgid "No upcoming days over your order capacity."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:199
+#, elixir-autogen, elixir-format
+msgid "Opening"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:162
+#, elixir-autogen, elixir-format
+msgid "Orders"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:49
+#, elixir-autogen, elixir-format
+msgid "Orders today"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:82
+#, elixir-autogen, elixir-format
+msgid "Outstanding today"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:113
+#, elixir-autogen, elixir-format
+msgid "Over-capacity details"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:96
+#: lib/craftplan_web/live/manage/overview_live.ex:130
+#, elixir-autogen, elixir-format
+msgid "Product"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:37
+#, elixir-autogen, elixir-format
+msgid "Production commitments, capacity pressure, and material risks for the current cycle."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:116
+#, elixir-autogen, elixir-format
+msgid "Products that exceed their daily limit."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:85
+#, elixir-autogen, elixir-format
+msgid "Quantities still to prep and those mid-production."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:63
+#, elixir-autogen, elixir-format
+msgid "Reference"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:196
+#, elixir-autogen, elixir-format
+msgid "Required"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:131
+#, elixir-autogen, elixir-format
+msgid "Scheduled"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:207
+#, elixir-autogen, elixir-format
+msgid "Stock levels look healthy for the selected range."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:35
+#, elixir-autogen, elixir-format
+msgid "Today at a glance"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:97
+#, elixir-autogen, elixir-format
+msgid "Todo Qty"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:67
+#, elixir-autogen, elixir-format
+msgid "Total"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:177
+#, elixir-autogen, elixir-format
+msgid "Upcoming material shortages"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:148
+#, elixir-autogen, elixir-format
+msgid "When confirmed orders exceed the overall daily cap."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/overview_live.ex:180
+#, elixir-autogen, elixir-format
+msgid "Where inventory falls short once production is applied."
+msgstr ""

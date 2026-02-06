@@ -32,9 +32,11 @@ defmodule CraftplanWeb.OverviewLive do
     ~H"""
     <Page.page>
       <.header>
-        Today at a glance
+        {gettext("Today at a glance")}
         <:subtitle>
-          Production commitments, capacity pressure, and material risks for the current cycle.
+          {gettext(
+            "Production commitments, capacity pressure, and material risks for the current cycle."
+          )}
         </:subtitle>
       </.header>
       <Page.two_column :if={@live_action == :index}>
@@ -44,9 +46,9 @@ defmodule CraftplanWeb.OverviewLive do
               <Page.surface>
                 <:header>
                   <div>
-                    <h3 class="text-sm font-semibold text-stone-900">Orders today</h3>
+                    <h3 class="text-sm font-semibold text-stone-900">{gettext("Orders today")}</h3>
                     <p class="text-xs text-stone-500">
-                      Deliveries scheduled for this production date.
+                      {gettext("Deliveries scheduled for this production date.")}
                     </p>
                   </div>
                 </:header>
@@ -58,16 +60,16 @@ defmodule CraftplanWeb.OverviewLive do
                   no_margin
                   row_click={fn row -> JS.navigate("/manage/orders/#{row.reference}") end}
                 >
-                  <:col :let={row} label="Reference">
+                  <:col :let={row} label={gettext("Reference")}>
                     <.kbd>{row.reference}</.kbd>
                   </:col>
-                  <:col :let={row} label="Customer">{row.customer}</:col>
-                  <:col :let={row} label="Total" align={:right}>
+                  <:col :let={row} label={gettext("Customer")}>{row.customer}</:col>
+                  <:col :let={row} label={gettext("Total")} align={:right}>
                     {format_money(@settings.currency, row.total)}
                   </:col>
                   <:empty>
                     <div class="rounded-md border border-dashed border-stone-200 bg-stone-50 py-6 text-center text-sm text-stone-500">
-                      No orders scheduled for today.
+                      {gettext("No orders scheduled for today.")}
                     </div>
                   </:empty>
                 </.table>
@@ -76,9 +78,11 @@ defmodule CraftplanWeb.OverviewLive do
               <Page.surface>
                 <:header>
                   <div>
-                    <h3 class="text-sm font-semibold text-stone-900">Outstanding today</h3>
+                    <h3 class="text-sm font-semibold text-stone-900">
+                      {gettext("Outstanding today")}
+                    </h3>
                     <p class="text-xs text-stone-500">
-                      Quantities still to prep and those mid-production.
+                      {gettext("Quantities still to prep and those mid-production.")}
                     </p>
                   </div>
                 </:header>
@@ -89,12 +93,14 @@ defmodule CraftplanWeb.OverviewLive do
                   zebra
                   no_margin
                 >
-                  <:col :let={row} label="Product">{row.product.name}</:col>
-                  <:col :let={row} label="Todo Qty" align={:right}>{row.todo}</:col>
-                  <:col :let={row} label="In Progress Qty" align={:right}>{row.in_progress}</:col>
+                  <:col :let={row} label={gettext("Product")}>{row.product.name}</:col>
+                  <:col :let={row} label={gettext("Todo Qty")} align={:right}>{row.todo}</:col>
+                  <:col :let={row} label={gettext("In Progress Qty")} align={:right}>
+                    {row.in_progress}
+                  </:col>
                   <:empty>
                     <div class="rounded-md border border-dashed border-stone-200 bg-stone-50 py-6 text-center text-sm text-stone-500">
-                      All production tasks are caught up.
+                      {gettext("All production tasks are caught up.")}
                     </div>
                   </:empty>
                 </.table>
@@ -103,9 +109,11 @@ defmodule CraftplanWeb.OverviewLive do
               <Page.surface>
                 <:header>
                   <div>
-                    <h3 class="text-sm font-semibold text-stone-900">Over-capacity details</h3>
+                    <h3 class="text-sm font-semibold text-stone-900">
+                      {gettext("Over-capacity details")}
+                    </h3>
                     <p class="text-xs text-stone-500">
-                      Products that exceed their daily limit.
+                      {gettext("Products that exceed their daily limit.")}
                     </p>
                   </div>
                 </:header>
@@ -116,13 +124,15 @@ defmodule CraftplanWeb.OverviewLive do
                   zebra
                   no_margin
                 >
-                  <:col :let={row} label="Day">{format_date(row.day, format: "%a %d")}</:col>
-                  <:col :let={row} label="Product">{row.product.name}</:col>
-                  <:col :let={row} label="Scheduled" align={:right}>{row.qty}</:col>
-                  <:col :let={row} label="Max" align={:right}>{row.max}</:col>
+                  <:col :let={row} label={gettext("Day")}>
+                    {format_date(row.day, format: "%a %d")}
+                  </:col>
+                  <:col :let={row} label={gettext("Product")}>{row.product.name}</:col>
+                  <:col :let={row} label={gettext("Scheduled")} align={:right}>{row.qty}</:col>
+                  <:col :let={row} label={gettext("Max")} align={:right}>{row.max}</:col>
                   <:empty>
                     <div class="w-full rounded-md border border-dashed border-stone-200 bg-stone-50 py-6 text-center text-sm text-stone-500">
-                      Capacity looks balanced.
+                      {gettext("Capacity looks balanced.")}
                     </div>
                   </:empty>
                 </.table>
@@ -131,9 +141,11 @@ defmodule CraftplanWeb.OverviewLive do
               <Page.surface>
                 <:header>
                   <div>
-                    <h3 class="text-sm font-semibold text-stone-900">Days over order capacity</h3>
+                    <h3 class="text-sm font-semibold text-stone-900">
+                      {gettext("Days over order capacity")}
+                    </h3>
                     <p class="text-xs text-stone-500">
-                      When confirmed orders exceed the overall daily cap.
+                      {gettext("When confirmed orders exceed the overall daily cap.")}
                     </p>
                   </div>
                 </:header>
@@ -144,12 +156,14 @@ defmodule CraftplanWeb.OverviewLive do
                   zebra
                   no_margin
                 >
-                  <:col :let={row} label="Day">{format_date(row.day, format: "%a %d")}</:col>
-                  <:col :let={row} label="Orders" align={:right}>{row.count}</:col>
-                  <:col :let={row} label="Cap" align={:right}>{row.cap}</:col>
+                  <:col :let={row} label={gettext("Day")}>
+                    {format_date(row.day, format: "%a %d")}
+                  </:col>
+                  <:col :let={row} label={gettext("Orders")} align={:right}>{row.count}</:col>
+                  <:col :let={row} label={gettext("Cap")} align={:right}>{row.cap}</:col>
                   <:empty>
                     <div class="rounded-md border border-dashed border-stone-200 bg-stone-50 py-6 text-center text-sm text-stone-500">
-                      No upcoming days over your order capacity.
+                      {gettext("No upcoming days over your order capacity.")}
                     </div>
                   </:empty>
                 </.table>
@@ -159,9 +173,11 @@ defmodule CraftplanWeb.OverviewLive do
               <Page.surface class="mt-4 lg:col-span-2 xl:col-span-3">
                 <:header>
                   <div>
-                    <h3 class="text-sm font-semibold text-stone-900">Upcoming material shortages</h3>
+                    <h3 class="text-sm font-semibold text-stone-900">
+                      {gettext("Upcoming material shortages")}
+                    </h3>
                     <p class="text-xs text-stone-500">
-                      Where inventory falls short once production is applied.
+                      {gettext("Where inventory falls short once production is applied.")}
                     </p>
                   </div>
                 </:header>
@@ -173,20 +189,22 @@ defmodule CraftplanWeb.OverviewLive do
                   no_margin
                   row_click={fn row -> JS.navigate("/manage/inventory/#{row.material.sku}") end}
                 >
-                  <:col :let={row} label="Day">{format_date(row.day, format: "%a %d")}</:col>
-                  <:col :let={row} label="Material">{row.material.name}</:col>
-                  <:col :let={row} label="Required" align={:right}>
+                  <:col :let={row} label={gettext("Day")}>
+                    {format_date(row.day, format: "%a %d")}
+                  </:col>
+                  <:col :let={row} label={gettext("Material")}>{row.material.name}</:col>
+                  <:col :let={row} label={gettext("Required")} align={:right}>
                     {format_amount(row.material.unit, row.required)}
                   </:col>
-                  <:col :let={row} label="Opening" align={:right}>
+                  <:col :let={row} label={gettext("Opening")} align={:right}>
                     {format_amount(row.material.unit, row.opening)}
                   </:col>
-                  <:col :let={row} label="End Balance" align={:right}>
+                  <:col :let={row} label={gettext("End Balance")} align={:right}>
                     {format_amount(row.material.unit, row.ending)}
                   </:col>
                   <:empty>
                     <div class="rounded-md border border-dashed border-stone-200 bg-stone-50 py-6 text-center text-sm text-stone-500">
-                      Stock levels look healthy for the selected range.
+                      {gettext("Stock levels look healthy for the selected range.")}
                     </div>
                   </:empty>
                 </.table>

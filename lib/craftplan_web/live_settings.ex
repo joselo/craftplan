@@ -29,6 +29,6 @@ defmodule CraftplanWeb.LiveSettings do
   end
 
   defp assign_timezone(socket, timezone) do
-    assign(socket, :time_zone, timezone)
+    assign(socket, :time_zone, timezone || "Etc/UTC")
   end
 end
