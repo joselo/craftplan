@@ -28,13 +28,13 @@ defmodule CraftplanWeb.InventoryLive.Index do
     ~H"""
     <Page.page>
       <.header>
-        Usage Forecast
+        {gettext("Usage Forecast")}
         <:subtitle>
-          Review usage forecast for materials and adjust stock levels accordingly.
+          {gettext("Review usage forecast for materials and adjust stock levels accordingly.")}
         </:subtitle>
         <:actions :if={@live_action in [:index, :forecast]}>
           <.link patch={~p"/manage/inventory/new"}>
-            <.button variant={:primary}>New Material</.button>
+            <.button variant={:primary}>{gettext("New Material")}</.button>
           </.link>
         </:actions>
       </.header>
@@ -45,9 +45,9 @@ defmodule CraftplanWeb.InventoryLive.Index do
             <Page.surface>
               <:header>
                 <div>
-                  <h3 class="text-sm font-semibold text-stone-900">Material catalog</h3>
+                  <h3 class="text-sm font-semibold text-stone-900">{gettext("Material catalog")}</h3>
                   <p class="text-xs text-stone-500">
-                    Browse SKUs, stock on hand, and pricing.
+                    {gettext("Browse SKUs, stock on hand, and pricing.")}
                   </p>
                 </div>
               </:header>
@@ -59,24 +59,24 @@ defmodule CraftplanWeb.InventoryLive.Index do
               >
                 <:empty>
                   <div class="rounded-md border border-dashed border-stone-200 bg-stone-50 py-10 text-center text-sm text-stone-500">
-                    No materials found. Add your first ingredient to start tracking stock.
+                    {gettext("No materials found. Add your first ingredient to start tracking stock.")}
                   </div>
                 </:empty>
-                <:col :let={{_, material}} label="Material">{material.name}</:col>
-                <:col :let={{_, material}} label="SKU">
+                <:col :let={{_, material}} label={gettext("Material")}>{material.name}</:col>
+                <:col :let={{_, material}} label={gettext("SKU")}>
                   <.kbd>
                     {material.sku}
                   </.kbd>
                 </:col>
-                <:col :let={{_, material}} label="Current stock">
+                <:col :let={{_, material}} label={gettext("Current stock")}>
                   {format_amount(material.unit, material.current_stock)}
                 </:col>
-                <:col :let={{_, material}} label="Price">
-                  {format_money(@settings.currency, material.price)} per {material.unit}
+                <:col :let={{_, material}} label={gettext("Price")}>
+                  {format_money(@settings.currency, material.price)} {gettext("per")} {material.unit}
                 </:col>
                 <:action :let={{_, material}}>
                   <div class="sr-only">
-                    <.link navigate={~p"/manage/inventory/#{material.sku}"}>Show</.link>
+                    <.link navigate={~p"/manage/inventory/#{material.sku}"}>{gettext("Show")}</.link>
                   </div>
                 </:action>
                 <:action :let={{_, material}}>
@@ -84,10 +84,10 @@ defmodule CraftplanWeb.InventoryLive.Index do
                     phx-click={
                       JS.push("delete", value: %{id: material.id}) |> hide("##{material.sku}")
                     }
-                    data-confirm="Are you sure?"
+                    data-confirm={gettext("Are you sure?")}
                   >
                     <.button size={:sm} variant={:danger}>
-                      Delete
+                      {gettext("Delete")}
                     </.button>
                   </.link>
                 </:action>
@@ -98,41 +98,47 @@ defmodule CraftplanWeb.InventoryLive.Index do
             <Page.surface padding="p-5">
               <:header>
                 <div>
-                  <h3 class="text-sm font-semibold text-stone-900">Quick actions</h3>
+                  <h3 class="text-sm font-semibold text-stone-900">{gettext("Quick actions")}</h3>
                   <p class="text-xs text-stone-500">
-                    Keep inventory current as production shifts.
+                    {gettext("Keep inventory current as production shifts.")}
                   </p>
                 </div>
               </:header>
               <div class="space-y-3 text-sm text-stone-600">
                 <p>
-                  Use these shortcuts to stay aligned with demand.
+                  {gettext("Use these shortcuts to stay aligned with demand.")}
                 </p>
                 <div class="space-y-2">
                   <.link
                     patch={~p"/manage/inventory/forecast"}
                     class="text-primary-600 inline-flex items-center gap-2 transition hover:text-primary-700 hover:underline"
                   >
-                    <.icon name="hero-chart-bar-square" class="h-4 w-4" /> Open usage forecast
+                    <.icon name="hero-chart-bar-square" class="h-4 w-4" /> {gettext(
+                      "Open usage forecast"
+                    )}
                   </.link>
                   <.link
                     navigate={~p"/manage/inventory/forecast/reorder"}
                     class="text-primary-600 inline-flex items-center gap-2 transition hover:text-primary-700 hover:underline"
                   >
                     <.icon name="hero-clipboard-document-check" class="h-4 w-4" />
-                    Open reorder planner
+                    {gettext("Open reorder planner")}
                   </.link>
                   <.link
                     patch={~p"/manage/overview"}
                     class="text-primary-600 inline-flex items-center gap-2 transition hover:text-primary-700 hover:underline"
                   >
-                    <.icon name="hero-arrow-path" class="h-4 w-4" /> Check production commitments
+                    <.icon name="hero-arrow-path" class="h-4 w-4" /> {gettext(
+                      "Check production commitments"
+                    )}
                   </.link>
                   <.link
                     patch={~p"/manage/settings/csv"}
                     class="text-primary-600 inline-flex items-center gap-2 transition hover:text-primary-700 hover:underline"
                   >
-                    <.icon name="hero-arrow-down-tray" class="h-4 w-4" /> Import materials via CSV
+                    <.icon name="hero-arrow-down-tray" class="h-4 w-4" /> {gettext(
+                      "Import materials via CSV"
+                    )}
                   </.link>
                 </div>
               </div>
@@ -141,54 +147,68 @@ defmodule CraftplanWeb.InventoryLive.Index do
               <:header>
                 <div>
                   <h3 class="text-sm font-semibold text-stone-900">
-                    How to read the usage forecast
+                    {gettext("How to read the usage forecast")}
                   </h3>
                   <p class="text-xs text-stone-500">
-                    These tips help you interpret the requirement chips and final balance column.
+                    {gettext(
+                      "These tips help you interpret the requirement chips and final balance column."
+                    )}
                   </p>
                 </div>
               </:header>
               <div class="space-y-4 text-sm text-stone-600">
                 <div>
-                  <p class="text-sm font-semibold text-stone-700">Need vs projected balance</p>
+                  <p class="text-sm font-semibold text-stone-700">
+                    {gettext("Need vs projected balance")}
+                  </p>
                   <p class="text-xs text-stone-500">
-                    Each chip shows the remaining balance after that day’s requirement. Click a chip to open the
-                    orders/products driving the demand.
+                    {gettext(
+                      "Each chip shows the remaining balance after that day’s requirement. Click a chip to open the orders/products driving the demand."
+                    )}
                   </p>
                 </div>
                 <div class="space-y-3">
-                  <p class="text-sm font-semibold text-stone-700">Color states</p>
+                  <p class="text-sm font-semibold text-stone-700">{gettext("Color states")}</p>
                   <div class="space-y-2 text-xs text-stone-500">
                     <div class="flex items-start gap-3">
                       <span class="mt-1 h-3 w-3 rounded-full bg-emerald-200 ring-2 ring-emerald-300" />
                       <div>
-                        <p class="font-medium text-stone-700">Balanced</p>
-                        <p>Projected balance stays above the requirement; no action needed.</p>
+                        <p class="font-medium text-stone-700">{gettext("Balanced")}</p>
+                        <p>
+                          {gettext("Projected balance stays above the requirement; no action needed.")}
+                        </p>
                       </div>
                     </div>
                     <div class="flex items-start gap-3">
                       <span class="mt-1 h-3 w-3 rounded-full bg-amber-200 ring-2 ring-amber-300" />
                       <div>
-                        <p class="font-medium text-stone-700">Watch</p>
+                        <p class="font-medium text-stone-700">{gettext("Watch")}</p>
                         <p>
-                          Requirement consumes the balance entirely. Confirm replenishment timing.
+                          {gettext(
+                            "Requirement consumes the balance entirely. Confirm replenishment timing."
+                          )}
                         </p>
                       </div>
                     </div>
                     <div class="flex items-start gap-3">
                       <span class="mt-1 h-3 w-3 rounded-full bg-rose-200 ring-2 ring-rose-300" />
                       <div>
-                        <p class="font-medium text-rose-600">Shortage</p>
-                        <p>Requirement exceeds available stock. Start a transfer or PO.</p>
+                        <p class="font-medium text-rose-600">{gettext("Shortage")}</p>
+                        <p>
+                          {gettext("Requirement exceeds available stock. Start a transfer or PO.")}
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <p class="text-sm font-semibold text-stone-700">Final balance column</p>
+                  <p class="text-sm font-semibold text-stone-700">
+                    {gettext("Final balance column")}
+                  </p>
                   <p class="text-xs text-stone-500">
-                    The last column sums each material’s total requirement in the current window so you can
-                    compare it against on-hand inventory quickly.
+                    {gettext(
+                      "The last column sums each material’s total requirement in the current window so you can compare it against on-hand inventory quickly."
+                    )}
                   </p>
                 </div>
               </div>
@@ -207,10 +227,12 @@ defmodule CraftplanWeb.InventoryLive.Index do
                 <:header>
                   <div>
                     <h3 class="text-sm font-semibold text-stone-900">
-                      Usage forecast
+                      {gettext("Usage forecast")}
                     </h3>
                     <p class="text-xs text-stone-500">
-                      Day-by-day material requirements versus stock for the selected horizon.
+                      {gettext(
+                        "Day-by-day material requirements versus stock for the selected horizon."
+                      )}
                     </p>
                   </div>
                 </:header>
@@ -235,14 +257,14 @@ defmodule CraftplanWeb.InventoryLive.Index do
                           d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                         />
                       </svg>
-                      Today
+                      {gettext("Today")}
                     </button>
                     <button
                       type="button"
                       phx-click="next_week"
                       class="flex items-center gap-2 bg-white px-3 py-1 text-xs font-medium tracking-wide text-stone-600 transition hover:bg-stone-50"
                     >
-                      Next 7 days
+                      {gettext("Next 7 days")}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="h-4 w-4"
@@ -273,7 +295,7 @@ defmodule CraftplanWeb.InventoryLive.Index do
                   <thead class="bg-stone-50 text-left text-xs font-semibold tracking-wide text-stone-500">
                     <tr>
                       <th class="sticky left-0 z-20 w-48 border-r border-stone-200 bg-white p-3 text-left">
-                        Material
+                        {gettext("Material")}
                       </th>
                       <th
                         :for={{day, _index} <- Enum.with_index(@days_range)}
@@ -296,7 +318,7 @@ defmodule CraftplanWeb.InventoryLive.Index do
                         </div>
                       </th>
                       <th class="w-1/5 border-stone-200 p-3 text-left font-normal">
-                        Final balance
+                        {gettext("Final balance")}
                       </th>
                     </tr>
                   </thead>
@@ -342,13 +364,13 @@ defmodule CraftplanWeb.InventoryLive.Index do
                             forecast_popover_class(status)
                           ]}>
                             <p class="text-stone-600">
-                              Projected balance
+                              {gettext("Projected balance")}
                               <span class="font-bold">
                                 {format_amount(material.unit, day_balance)}
                               </span>
                             </p>
                             <p class="text-stone-600">
-                              Required
+                              {gettext("Required")}
                               <span class="font-bold">
                                 {format_amount(material.unit, day_quantity)}
                               </span>
@@ -383,7 +405,7 @@ defmodule CraftplanWeb.InventoryLive.Index do
         :if={@live_action in [:new, :edit]}
         id="material-modal"
         title={@page_title}
-        description="Use this form to manage material records in your database."
+        description={gettext("Use this form to manage material records in your database.")}
         show
         on_cancel={JS.patch(~p"/manage/inventory")}
       >
@@ -411,7 +433,7 @@ defmodule CraftplanWeb.InventoryLive.Index do
         <div class="py-4">
           <div :if={@material_details && !Enum.empty?(@material_details)} class="space-y-4">
             <.table id="material-products" rows={@material_details}>
-              <:col :let={{_product, items}} label="Order References">
+              <:col :let={{_product, items}} label={gettext("Order References")}>
                 <div class="grid grid-cols-1 gap-1 text-sm">
                   <div :for={item <- items.order_items}>
                     <.link navigate={~p"/manage/orders/#{item.order.reference}"}>
@@ -422,17 +444,17 @@ defmodule CraftplanWeb.InventoryLive.Index do
                   </div>
                 </div>
               </:col>
-              <:col :let={{product, _items}} label="Product">
+              <:col :let={{product, _items}} label={gettext("Product")}>
                 <div class="font-medium">{product.name}</div>
               </:col>
-              <:col :let={{_product, items}} label="Total Required">
+              <:col :let={{_product, items}} label={gettext("Total Required")}>
                 <div class="text-sm">
                   {format_amount(@selected_material.unit, items.total_quantity)}
                 </div>
               </:col>
               <:empty>
                 <div class="rounded-md border border-dashed border-stone-200 bg-stone-50 py-6 text-center text-sm text-stone-500">
-                  No product details found for this material
+                  {gettext("No product details found for this material")}
                 </div>
               </:empty>
             </.table>
@@ -442,17 +464,17 @@ defmodule CraftplanWeb.InventoryLive.Index do
             :if={!@material_details || Enum.empty?(@material_details)}
             class="rounded-md border border-dashed border-stone-200 bg-stone-50 py-8 text-center text-sm text-stone-500"
           >
-            No details found for this material on this date
+            {gettext("No details found for this material on this date")}
           </div>
         </div>
 
         <footer class="mt-6 flex items-center justify-end gap-3">
-          <.button variant={:outline} phx-click="close_material_modal">Close</.button>
+          <.button variant={:outline} phx-click="close_material_modal">{gettext("Close")}</.button>
           <.link
             patch={~p"/manage/inventory/#{@selected_material.sku}/adjust"}
             phx-click={JS.push_focus()}
           >
-            <.button variant={:primary}>Adjust Stock</.button>
+            <.button variant={:primary}>{gettext("Adjust Stock")}</.button>
           </.link>
         </footer>
       </.modal>
@@ -492,7 +514,7 @@ defmodule CraftplanWeb.InventoryLive.Index do
 
   defp apply_action(socket, :new, _params) do
     socket
-    |> assign(:page_title, "New Material")
+    |> assign(:page_title, gettext("New Material"))
     |> assign(:material, nil)
   end
 
@@ -507,7 +529,7 @@ defmodule CraftplanWeb.InventoryLive.Index do
 
     socket
     |> stream(:materials, materials, reset: true)
-    |> assign(:page_title, "Inventory")
+    |> assign(:page_title, gettext("Inventory"))
     |> assign(:material, nil)
   end
 
@@ -517,7 +539,7 @@ defmodule CraftplanWeb.InventoryLive.Index do
     materials_requirements = prepare_materials_requirements(socket, days_range)
 
     socket
-    |> assign(:page_title, "Usage Forecast")
+    |> assign(:page_title, gettext("Usage Forecast"))
     |> assign(:material, nil)
     |> assign(:today, today)
     |> assign(:days_range, days_range)
@@ -532,7 +554,7 @@ defmodule CraftplanWeb.InventoryLive.Index do
       )
 
     socket
-    |> assign(:page_title, "Edit Material")
+    |> assign(:page_title, gettext("Edit Material"))
     |> assign(:material, material)
   end
 
@@ -674,18 +696,18 @@ defmodule CraftplanWeb.InventoryLive.Index do
 
   defp popover_label(:shortage, unit, required, balance) do
     shortfall = Decimal.max(Decimal.sub(required, balance), Decimal.new(0))
-    "Shortage of #{format_amount(unit, shortfall)}"
+    gettext("Shortage of %{amount}", amount: format_amount(unit, shortfall))
   end
 
-  defp popover_label(:watch, _unit, _required, _balance), do: "Consumes entire balance"
+  defp popover_label(:watch, _unit, _required, _balance), do: gettext("Consumes entire balance")
 
   defp popover_label(:balanced, unit, required, balance) do
     remaining = Decimal.sub(balance, required)
-    "Leaves #{format_amount(unit, remaining)} on hand"
+    gettext("Leaves %{amount} on hand", amount: format_amount(unit, remaining))
   end
 
   defp popover_label(_status, unit, _required, balance) do
-    "Balance #{format_amount(unit, balance)}"
+    gettext("Balance %{amount}", amount: format_amount(unit, balance))
   end
 
   defp inventory_trail(%{live_action: :new}),

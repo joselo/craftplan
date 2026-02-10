@@ -30,7 +30,7 @@ defmodule CraftplanWeb.InventoryLive.FormComponentMovement do
                   "flex cursor-pointer items-center rounded-l-md border-y border-l border-stone-300 px-3 py-1 text-xs font-medium disabled:cursor-default disabled:bg-stone-100 disabled:text-stone-400"
                 ]}
               >
-                Set Total
+                {gettext("Set Total")}
               </button>
               <button
                 type="button"
@@ -43,7 +43,7 @@ defmodule CraftplanWeb.InventoryLive.FormComponentMovement do
                   "flex cursor-pointer items-center border-y border-stone-300 px-3 py-1 text-xs font-medium disabled:cursor-default disabled:bg-stone-100 disabled:text-stone-400"
                 ]}
               >
-                Add
+                {gettext("Add")}
               </button>
               <button
                 type="button"
@@ -56,7 +56,7 @@ defmodule CraftplanWeb.InventoryLive.FormComponentMovement do
                   "flex cursor-pointer items-center rounded-r-md border-y border-r border-stone-300 px-3 py-1 text-xs font-medium disabled:cursor-default disabled:bg-stone-100 disabled:text-stone-400"
                 ]}
               >
-                Subtract
+                {gettext("Subtract")}
               </button>
             </div>
           </div>
@@ -68,7 +68,7 @@ defmodule CraftplanWeb.InventoryLive.FormComponentMovement do
               field={@form[:quantity]}
               type="number"
               min="0"
-              label="Quantity"
+              label={gettext("Quantity")}
               inline_label={@material.unit}
               phx-change="validate"
               id="adjustment_quantity"
@@ -82,32 +82,32 @@ defmodule CraftplanWeb.InventoryLive.FormComponentMovement do
             field={@form[:quantity]}
             type="number"
             min="0"
-            label="New Total"
+            label={gettext("New Total")}
             inline_label={@material.unit}
             phx-change="validate"
           />
         </div>
 
-        <.input field={@form[:reason]} type="textarea" label="Notes" class="mt-3" />
+        <.input field={@form[:reason]} type="textarea" label={gettext("Notes")} class="mt-3" />
         <.input field={@form[:material_id]} type="hidden" value={@material.id} />
 
         <div class="mt-4 rounded-md border border-stone-200 bg-stone-50 p-3 text-stone-700">
           <div class="text-sm">
             <span :if={is_number(@calculated_new_total)}>
-              <span class="font-medium">New stock will be:</span>
+              <span class="font-medium">{gettext("New stock will be:")}</span>
               <span class="font-bold text-stone-900">
                 {format_amount(@material.unit, @calculated_new_total)}
               </span>
             </span>
             <span :if={!is_number(@calculated_new_total)}>
-              Enter a quantity to see the new stock level
+              {gettext("Enter a quantity to see the new stock level")}
             </span>
           </div>
         </div>
 
         <:actions>
-          <.button variant={:primary} phx-disable-with="Saving...">
-            Save
+          <.button variant={:primary} phx-disable-with={gettext("Saving...")}>
+            {gettext("Save")}
           </.button>
         </:actions>
       </.simple_form>
@@ -153,7 +153,10 @@ defmodule CraftplanWeb.InventoryLive.FormComponentMovement do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Material #{socket.assigns.form.source.type}d successfully")
+         |> put_flash(
+           :info,
+           gettext("Material %{type}d successfully", type: socket.assigns.form.source.type)
+         )
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, form} ->

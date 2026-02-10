@@ -58,6 +58,9 @@ msgstr ""
 msgid "In Progress Qty"
 msgstr ""
 
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:65
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:298
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:657
 #: lib/craftplan_web/live/manage/overview_live.ex:195
 #, elixir-autogen, elixir-format
 msgid "Material"
@@ -103,6 +106,7 @@ msgstr ""
 msgid "Over-capacity details"
 msgstr ""
 
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:447
 #: lib/craftplan_web/live/manage/overview_live.ex:96
 #: lib/craftplan_web/live/manage/overview_live.ex:130
 #, elixir-autogen, elixir-format
@@ -129,6 +133,7 @@ msgstr ""
 msgid "Reference"
 msgstr ""
 
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:373
 #: lib/craftplan_web/live/manage/overview_live.ex:196
 #, elixir-autogen, elixir-format
 msgid "Required"
@@ -172,4 +177,795 @@ msgstr ""
 #: lib/craftplan_web/live/manage/overview_live.ex:180
 #, elixir-autogen, elixir-format
 msgid "Where inventory falls short once production is applied."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:809
+#, elixir-autogen, elixir-format
+msgid " days cover"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:95
+#, elixir-autogen, elixir-format
+msgid "%{days}-day"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:115
+#, elixir-autogen, elixir-format
+msgid "(session only)"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:692
+#, elixir-autogen, elixir-format
+msgid "Action"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:48
+#, elixir-autogen, elixir-format
+msgid "Actions"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:146
+#, elixir-autogen, elixir-format
+msgid "Actual weight"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:46
+#, elixir-autogen, elixir-format
+msgid "Add"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:145
+#, elixir-autogen, elixir-format
+msgid "Add Nutritional Fact"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:26
+#, elixir-autogen, elixir-format
+msgid "Add nutritional facts for this material"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:321
+#, elixir-autogen, elixir-format
+msgid "Adjust Material"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:477
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:23
+#, elixir-autogen, elixir-format
+msgid "Adjust Stock"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:159
+#, elixir-autogen, elixir-format
+msgid "Adjust Stock for %{name}"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:44
+#, elixir-autogen, elixir-format
+msgid "Adjust service level targets and forecast horizon to refresh the metrics band."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:113
+#, elixir-autogen, elixir-format
+msgid "Advanced settings"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:42
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:220
+#, elixir-autogen, elixir-format
+msgid "Allergens"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_allergens.ex:92
+#, elixir-autogen, elixir-format
+msgid "Allergens updated successfully"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:42
+#, elixir-autogen, elixir-format
+msgid "Amount"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:87
+#, elixir-autogen, elixir-format
+msgid "Are you sure?"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:666
+#, elixir-autogen, elixir-format
+msgid "Avg/day"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:710
+#, elixir-autogen, elixir-format
+msgid "Balance %{amount}"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:176
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:242
+#, elixir-autogen, elixir-format
+msgid "Balanced"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:251
+#, elixir-autogen, elixir-format
+msgid "Balances drop to zero within the horizon—start planning replenishment."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:50
+#, elixir-autogen, elixir-format
+msgid "Browse SKUs, stock on hand, and pricing."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:187
+#, elixir-autogen, elixir-format
+msgid "Cancel"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:231
+#, elixir-autogen, elixir-format
+msgid "Changing the toggles reruns the calculator with the new buffer target and number of projected days. Higher service levels increase safety stock and ROP; longer horizons include more planned demand."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:131
+#, elixir-autogen, elixir-format
+msgid "Check production commitments"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:472
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:268
+#, elixir-autogen, elixir-format
+msgid "Close"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:171
+#, elixir-autogen, elixir-format
+msgid "Color states"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:702
+#, elixir-autogen, elixir-format
+msgid "Consumes entire balance"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:681
+#, elixir-autogen, elixir-format
+msgid "Cover"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:57
+#, elixir-autogen, elixir-format
+msgid "Current Stock"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:71
+#, elixir-autogen, elixir-format
+msgid "Current stock"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:126
+#, elixir-autogen, elixir-format
+msgid "Date"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:233
+#, elixir-autogen, elixir-format
+msgid "Day-by-day material requirements versus stock for the selected horizon."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:90
+#, elixir-autogen, elixir-format
+msgid "Delete"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:669
+#, elixir-autogen, elixir-format
+msgid "Demand var"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:215
+#, elixir-autogen, elixir-format
+msgid "Details"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:756
+#, elixir-autogen, elixir-format
+msgid "Draft PO"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:165
+#, elixir-autogen, elixir-format
+msgid "Each chip shows the remaining balance after that day’s requirement. Click a chip to open the orders/products driving the demand."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:20
+#, elixir-autogen, elixir-format
+msgid "Edit"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:557
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:322
+#, elixir-autogen, elixir-format
+msgid "Edit Material"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:103
+#, elixir-autogen, elixir-format
+msgid "Enter a quantity to see the new stock level"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:39
+#, elixir-autogen, elixir-format
+msgid "Fact"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:321
+#, elixir-autogen, elixir-format
+msgid "Final balance"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:206
+#, elixir-autogen, elixir-format
+msgid "Final balance column"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_material.ex:30
+#, elixir-autogen, elixir-format
+msgid "Gram"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:98
+#, elixir-autogen, elixir-format
+msgid "Gram (g)"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:83
+#, elixir-autogen, elixir-format
+msgid "Horizon"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:57
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:219
+#, elixir-autogen, elixir-format
+msgid "How to read the metrics band"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:150
+#, elixir-autogen, elixir-format
+msgid "How to read the usage forecast"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:139
+#, elixir-autogen, elixir-format
+msgid "Import materials via CSV"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:532
+#, elixir-autogen, elixir-format
+msgid "Inventory"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:103
+#, elixir-autogen, elixir-format
+msgid "Keep inventory current as production shifts."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:97
+#, elixir-autogen, elixir-format
+msgid "Kilocalories (kcal)"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:672
+#, elixir-autogen, elixir-format
+msgid "Lead-time demand"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:706
+#, elixir-autogen, elixir-format
+msgid "Leaves %{amount} on hand"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:638
+#, elixir-autogen, elixir-format
+msgid "Loading inventory metrics…"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:131
+#, elixir-autogen, elixir-format
+msgid "Lookback days"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_material.ex:83
+#: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:158
+#, elixir-autogen, elixir-format
+msgid "Material %{type}d successfully"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:324
+#, elixir-autogen, elixir-format
+msgid "Material Allergens"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:323
+#, elixir-autogen, elixir-format
+msgid "Material Details"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:325
+#, elixir-autogen, elixir-format
+msgid "Material Nutrition"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:326
+#, elixir-autogen, elixir-format
+msgid "Material Stock"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:48
+#, elixir-autogen, elixir-format
+msgid "Material catalog"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_material.ex:49
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:63
+#, elixir-autogen, elixir-format
+msgid "Maximum Stock"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_material.ex:27
+#, elixir-autogen, elixir-format
+msgid "Measured in"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:99
+#, elixir-autogen, elixir-format
+msgid "Milligram (mg)"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_material.ex:31
+#, elixir-autogen, elixir-format
+msgid "Milliliter"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:100
+#, elixir-autogen, elixir-format
+msgid "Milliliter (ml)"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:178
+#, elixir-autogen, elixir-format
+msgid "Min samples"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_material.ex:40
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:60
+#, elixir-autogen, elixir-format
+msgid "Minimum Stock"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_material.ex:19
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:33
+#, elixir-autogen, elixir-format
+msgid "Name"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:162
+#, elixir-autogen, elixir-format
+msgid "Need vs projected balance"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:37
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:517
+#, elixir-autogen, elixir-format
+msgid "New Material"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:85
+#, elixir-autogen, elixir-format
+msgid "New Total"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:97
+#, elixir-autogen, elixir-format
+msgid "New stock will be:"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:267
+#, elixir-autogen, elixir-format
+msgid "Next 7 days"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:467
+#, elixir-autogen, elixir-format
+msgid "No details found for this material on this date"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:645
+#, elixir-autogen, elixir-format
+msgid "No forecast rows available for the selected horizon."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:62
+#, elixir-autogen, elixir-format
+msgid "No materials found. Add your first ingredient to start tracking stock."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:121
+#, elixir-autogen, elixir-format
+msgid "No movements found"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:54
+#, elixir-autogen, elixir-format
+msgid "No nutritional facts"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:457
+#, elixir-autogen, elixir-format
+msgid "No product details found for this material"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:45
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:54
+#, elixir-autogen, elixir-format
+msgid "None"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:91
+#, elixir-autogen, elixir-format
+msgid "Notes"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:48
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:225
+#, elixir-autogen, elixir-format
+msgid "Nutrition"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:24
+#, elixir-autogen, elixir-format
+msgid "Nutritional Facts"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:303
+#, elixir-autogen, elixir-format
+msgid "Nutritional facts updated successfully"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:660
+#, elixir-autogen, elixir-format
+msgid "On hand"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:663
+#, elixir-autogen, elixir-format
+msgid "On order"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:70
+#, elixir-autogen, elixir-format
+msgid "Open Purchase Orders"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:125
+#, elixir-autogen, elixir-format
+msgid "Open reorder planner"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:116
+#, elixir-autogen, elixir-format
+msgid "Open usage forecast"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:436
+#, elixir-autogen, elixir-format
+msgid "Order References"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:687
+#, elixir-autogen, elixir-format
+msgid "Order-by"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:101
+#, elixir-autogen, elixir-format
+msgid "Percent (%)"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_material.ex:32
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:102
+#, elixir-autogen, elixir-format
+msgid "Piece"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:162
+#, elixir-autogen, elixir-format
+msgid "Planned weight"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:42
+#, elixir-autogen, elixir-format
+msgid "Planning controls"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_material.ex:22
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:74
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:39
+#, elixir-autogen, elixir-format
+msgid "Price"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:367
+#, elixir-autogen, elixir-format
+msgid "Projected balance"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:259
+#, elixir-autogen, elixir-format
+msgid "Projected balance goes negative. Use the CTA to open a PO draft."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:178
+#, elixir-autogen, elixir-format
+msgid "Projected balance stays above the requirement; no action needed."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:243
+#, elixir-autogen, elixir-format
+msgid "Projected balances stay healthy across the horizon."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:73
+#, elixir-autogen, elixir-format
+msgid "Purchase Order"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:71
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:83
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:130
+#, elixir-autogen, elixir-format
+msgid "Quantity"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:101
+#, elixir-autogen, elixir-format
+msgid "Quick actions"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:678
+#, elixir-autogen, elixir-format
+msgid "ROP"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:133
+#, elixir-autogen, elixir-format
+msgid "Reason"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:120
+#, elixir-autogen, elixir-format
+msgid "Remove"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:24
+#, elixir-autogen, elixir-format
+msgid "Reorder Planner"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:187
+#, elixir-autogen, elixir-format
+msgid "Requirement consumes the balance entirely. Confirm replenishment timing."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:198
+#, elixir-autogen, elixir-format
+msgid "Requirement exceeds available stock. Start a transfer or PO."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:123
+#, elixir-autogen, elixir-format
+msgid "Reset to defaults"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:33
+#, elixir-autogen, elixir-format
+msgid "Review usage forecast for materials and adjust stock levels accordingly."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:237
+#, elixir-autogen, elixir-format
+msgid "Risk chips"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_material.ex:20
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:66
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:34
+#, elixir-autogen, elixir-format
+msgid "SKU"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:675
+#, elixir-autogen, elixir-format
+msgid "Safety stock"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:110
+#, elixir-autogen, elixir-format
+msgid "Save"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_allergens.ex:33
+#, elixir-autogen, elixir-format
+msgid "Save Allergens"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_material.ex:56
+#, elixir-autogen, elixir-format
+msgid "Save Material"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:154
+#, elixir-autogen, elixir-format
+msgid "Save Nutritional Facts"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_allergens.ex:31
+#: lib/craftplan_web/live/manage/inventory_live/form_component_material.ex:55
+#: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:109
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:153
+#, elixir-autogen, elixir-format
+msgid "Saving..."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:163
+#, elixir-autogen, elixir-format
+msgid "Select a nutritional fact to add:"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:64
+#, elixir-autogen, elixir-format
+msgid "Service level"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:229
+#, elixir-autogen, elixir-format
+msgid "Service level & horizon"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:33
+#, elixir-autogen, elixir-format
+msgid "Set Total"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:196
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:258
+#, elixir-autogen, elixir-format
+msgid "Shortage"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:699
+#, elixir-autogen, elixir-format
+msgid "Shortage of %{amount}"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:79
+#, elixir-autogen, elixir-format
+msgid "Show"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:320
+#, elixir-autogen, elixir-format
+msgid "Show Material"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:86
+#, elixir-autogen, elixir-format
+msgid "Status"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:230
+#, elixir-autogen, elixir-format
+msgid "Stock"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:684
+#, elixir-autogen, elixir-format
+msgid "Stockout"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:59
+#, elixir-autogen, elixir-format
+msgid "Subtract"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:690
+#, elixir-autogen, elixir-format
+msgid "Suggested PO"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/show.ex:78
+#, elixir-autogen, elixir-format
+msgid "Supplier"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:209
+#, elixir-autogen, elixir-format
+msgid "The last column sums each material’s total requirement in the current window so you can compare it against on-hand inventory quickly."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:193
+#, elixir-autogen, elixir-format
+msgid "These settings override your organization defaults for this session only. Changes refresh the forecast automatically."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:153
+#, elixir-autogen, elixir-format
+msgid "These tips help you interpret the requirement chips and final balance column."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:260
+#, elixir-autogen, elixir-format
+msgid "Today"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:450
+#, elixir-autogen, elixir-format
+msgid "Total Required"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:26
+#, elixir-autogen, elixir-format
+msgid "Track safety stock, reorder points, and suggested purchase quantities without leaving the dashboard."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:703
+#, elixir-autogen, elixir-format
+msgid "Unassigned"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:221
+#, elixir-autogen, elixir-format
+msgid "Understand how service level, risk states, and Suggested PO rows connect."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:45
+#, elixir-autogen, elixir-format
+msgid "Unit"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:31
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:542
+#, elixir-autogen, elixir-format
+msgid "Usage Forecast"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:230
+#, elixir-autogen, elixir-format
+msgid "Usage forecast"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:109
+#, elixir-autogen, elixir-format
+msgid "Use these shortcuts to stay aligned with demand."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:408
+#, elixir-autogen, elixir-format
+msgid "Use this form to manage material records in your database."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:32
+#, elixir-autogen, elixir-format
+msgid "View usage forecast"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:185
+#: lib/craftplan_web/live/manage/inventory_live/reorder.ex:249
+#, elixir-autogen, elixir-format
+msgid "Watch"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/inventory_live/index.ex:75
+#, elixir-autogen, elixir-format
+msgid "per"
 msgstr ""

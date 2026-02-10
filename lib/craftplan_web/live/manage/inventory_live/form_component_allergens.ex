@@ -28,9 +28,9 @@ defmodule CraftplanWeb.InventoryLive.FormComponentAllergens do
             disabled={
               MapSet.equal?(MapSet.new(@init_allergen_ids), MapSet.new(@selected_allergen_ids))
             }
-            phx-disable-with="Saving..."
+            phx-disable-with={gettext("Saving...")}
           >
-            Save Allergens
+            {gettext("Save Allergens")}
           </.button>
         </:actions>
 
@@ -89,7 +89,7 @@ defmodule CraftplanWeb.InventoryLive.FormComponentAllergens do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Allergens updated successfully")
+         |> put_flash(:info, gettext("Allergens updated successfully"))
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, form} ->

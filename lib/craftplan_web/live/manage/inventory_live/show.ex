@@ -17,10 +17,10 @@ defmodule CraftplanWeb.InventoryLive.Show do
       {@material.name}
       <:actions>
         <.link patch={~p"/manage/inventory/#{@material.sku}/edit"} phx-click={JS.push_focus()}>
-          <.button>Edit</.button>
+          <.button>{gettext("Edit")}</.button>
         </.link>
         <.link patch={~p"/manage/inventory/#{@material.sku}/adjust"} phx-click={JS.push_focus()}>
-          <.button variant={:primary}>Adjust Stock</.button>
+          <.button variant={:primary}>{gettext("Adjust Stock")}</.button>
         </.link>
       </:actions>
     </.header>
@@ -30,58 +30,60 @@ defmodule CraftplanWeb.InventoryLive.Show do
     <div class="mt-4 space-y-6">
       <.tabs_content :if={@live_action in [:details, :show]}>
         <.list>
-          <:item title="Name">{@material.name}</:item>
-          <:item title="SKU">
+          <:item title={gettext("Name")}>{@material.name}</:item>
+          <:item title={gettext("SKU")}>
             <.kbd>
               {@material.sku}
             </.kbd>
           </:item>
-          <:item title="Price">
+          <:item title={gettext("Price")}>
             {format_money(@settings.currency, @material.price)}
           </:item>
-          <:item title="Allergens">
+          <:item title={gettext("Allergens")}>
             <div class="flex-inline items-center space-x-1">
               <.badge :for={allergen <- Enum.map(@material.allergens, & &1.name)} text={allergen} />
-              <span :if={Enum.empty?(@material.allergens)}>None</span>
+              <span :if={Enum.empty?(@material.allergens)}>{gettext("None")}</span>
             </div>
           </:item>
-          <:item title="Nutrition">
+          <:item title={gettext("Nutrition")}>
             <div class="flex-inline items-center space-x-1">
               <.badge
                 :for={fact <- @material.material_nutritional_facts}
                 text={"#{fact.nutritional_fact.name}: #{fact.amount} #{fact.unit}"}
               />
-              <span :if={Enum.empty?(@material.material_nutritional_facts)}>None</span>
+              <span :if={Enum.empty?(@material.material_nutritional_facts)}>{gettext("None")}</span>
             </div>
           </:item>
-          <:item title="Current Stock">
+          <:item title={gettext("Current Stock")}>
             {format_amount(@material.unit, @material.current_stock)}
           </:item>
-          <:item title="Minimum Stock">
+          <:item title={gettext("Minimum Stock")}>
             {format_amount(@material.unit, @material.minimum_stock)}
           </:item>
-          <:item title="Maximum Stock">
+          <:item title={gettext("Maximum Stock")}>
             {format_amount(@material.unit, @material.maximum_stock)}
           </:item>
         </.list>
 
         <div :if={!Enum.empty?(@open_po_items)} class="mt-6">
-          <div class="mb-2 text-base font-medium text-stone-900">Open Purchase Orders</div>
+          <div class="mb-2 text-base font-medium text-stone-900">
+            {gettext("Open Purchase Orders")}
+          </div>
           <.table id="material-open-pos" rows={@open_po_items}>
-            <:col :let={poi} label="Purchase Order">
+            <:col :let={poi} label={gettext("Purchase Order")}>
               <.link navigate={~p"/manage/purchasing/#{poi.purchase_order.reference}"}>
                 <.kbd>{poi.purchase_order.reference}</.kbd>
               </.link>
             </:col>
-            <:col :let={poi} label="Supplier">
+            <:col :let={poi} label={gettext("Supplier")}>
               <.link navigate={~p"/manage/purchasing/suppliers"} class="hover:underline">
                 {poi.purchase_order.supplier.name}
               </.link>
             </:col>
-            <:col :let={poi} label="Quantity">
+            <:col :let={poi} label={gettext("Quantity")}>
               {format_amount(@material.unit, poi.quantity)}
             </:col>
-            <:col :let={poi} label="Status">{poi.purchase_order.status}</:col>
+            <:col :let={poi} label={gettext("Status")}>{poi.purchase_order.status}</:col>
           </.table>
         </div>
       </.tabs_content>
@@ -116,19 +118,19 @@ defmodule CraftplanWeb.InventoryLive.Show do
             <:empty>
               <div class="block py-4 pr-6">
                 <span class={["relative"]}>
-                  No movements found
+                  {gettext("No movements found")}
                 </span>
               </div>
             </:empty>
 
-            <:col :let={entry} label="Date">
+            <:col :let={entry} label={gettext("Date")}>
               {format_time(entry.inserted_at, @time_zone)}
             </:col>
 
-            <:col :let={entry} label="Quantity">
+            <:col :let={entry} label={gettext("Quantity")}>
               {format_amount(@material.unit, entry.quantity)}
             </:col>
-            <:col :let={entry} label="Reason">{entry.reason}</:col>
+            <:col :let={entry} label={gettext("Reason")}>{entry.reason}</:col>
           </.table>
         </div>
       </.tabs_content>
@@ -154,7 +156,7 @@ defmodule CraftplanWeb.InventoryLive.Show do
     </.modal>
     <.modal
       :if={@live_action == :adjust}
-      title={"Adjust Stock for #{@material.name}"}
+      title={gettext("Adjust Stock for %{name}", name: @material.name)}
       id="material-movement-modal"
       show
       on_cancel={JS.patch(~p"/manage/inventory/#{@material.sku}")}
@@ -210,22 +212,22 @@ defmodule CraftplanWeb.InventoryLive.Show do
 
     tabs_links = [
       %{
-        label: "Details",
+        label: gettext("Details"),
         navigate: ~p"/manage/inventory/#{material.sku}/details",
         active: live_action in [:details, :show]
       },
       %{
-        label: "Allergens",
+        label: gettext("Allergens"),
         navigate: ~p"/manage/inventory/#{material.sku}/allergens",
         active: live_action == :allergens
       },
       %{
-        label: "Nutrition",
+        label: gettext("Nutrition"),
         navigate: ~p"/manage/inventory/#{material.sku}/nutritional_facts",
         active: live_action == :nutritional_facts
       },
       %{
-        label: "Stock",
+        label: gettext("Stock"),
         navigate: ~p"/manage/inventory/#{material.sku}/stock",
         active: live_action == :stock
       }
@@ -315,13 +317,13 @@ defmodule CraftplanWeb.InventoryLive.Show do
     {:noreply, assign(socket, :material, material)}
   end
 
-  defp page_title(:show), do: "Show Material"
-  defp page_title(:adjust), do: "Adjust Material"
-  defp page_title(:edit), do: "Edit Material"
-  defp page_title(:details), do: "Material Details"
-  defp page_title(:allergens), do: "Material Allergens"
-  defp page_title(:nutritional_facts), do: "Material Nutrition"
-  defp page_title(:stock), do: "Material Stock"
+  defp page_title(:show), do: gettext("Show Material")
+  defp page_title(:adjust), do: gettext("Adjust Material")
+  defp page_title(:edit), do: gettext("Edit Material")
+  defp page_title(:details), do: gettext("Material Details")
+  defp page_title(:allergens), do: gettext("Material Allergens")
+  defp page_title(:nutritional_facts), do: gettext("Material Nutrition")
+  defp page_title(:stock), do: gettext("Material Stock")
 
   defp material_trail(material, :allergens) do
     [

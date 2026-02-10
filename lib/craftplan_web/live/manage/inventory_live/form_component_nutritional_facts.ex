@@ -21,8 +21,10 @@ defmodule CraftplanWeb.InventoryLive.FormComponentNutritionalFacts do
         <div class="space-y-4">
           <.input field={@form[:material_id]} type="hidden" value={@material.id} />
 
-          <h3 class="text-lg font-medium">Nutritional Facts</h3>
-          <p class="mb-4 text-sm text-stone-500">Add nutritional facts for this material</p>
+          <h3 class="text-lg font-medium">{gettext("Nutritional Facts")}</h3>
+          <p class="mb-4 text-sm text-stone-500">
+            {gettext("Add nutritional facts for this material")}
+          </p>
 
           <div id="nutritional-facts-list">
             <div
@@ -34,22 +36,22 @@ defmodule CraftplanWeb.InventoryLive.FormComponentNutritionalFacts do
                 class="col-span-4 grid grid-cols-4 border-b border-stone-300 text-left text-sm leading-6 text-stone-500"
               >
                 <div class="border-r border-stone-200 p-0 pr-6 pb-4 font-normal last:border-r-0 ">
-                  Fact
+                  {gettext("Fact")}
                 </div>
                 <div class="border-r border-stone-200 p-0 pr-6 pb-4 pl-4 font-normal last:border-r-0">
-                  Amount
+                  {gettext("Amount")}
                 </div>
                 <div class="border-r border-stone-200 p-0 pr-6 pb-4 pl-4 font-normal last:border-r-0">
-                  Unit
+                  {gettext("Unit")}
                 </div>
                 <div class="border-r border-stone-200 p-0 pr-6 pb-4 pl-4 font-normal last:border-r-0">
-                  <span class="opacity-0">Actions</span>
+                  <span class="opacity-0">{gettext("Actions")}</span>
                 </div>
               </div>
 
               <div role="row" class="col-span-4 hidden py-4 text-stone-400 last:block">
                 <div>
-                  No nutritional facts
+                  {gettext("No nutritional facts")}
                 </div>
               </div>
 
@@ -92,12 +94,12 @@ defmodule CraftplanWeb.InventoryLive.FormComponentNutritionalFacts do
                           field={fact_form[:unit]}
                           type="select"
                           options={[
-                            {"Kilocalories (kcal)", :kcal},
-                            {"Gram (g)", :gram},
-                            {"Milligram (mg)", :milligram},
-                            {"Milliliter (ml)", :milliliter},
-                            {"Percent (%)", :percent},
-                            {"Piece", :piece}
+                            {gettext("Kilocalories (kcal)"), :kcal},
+                            {gettext("Gram (g)"), :gram},
+                            {gettext("Milligram (mg)"), :milligram},
+                            {gettext("Milliliter (ml)"), :milliliter},
+                            {gettext("Percent (%)"), :percent},
+                            {gettext("Piece"), :piece}
                           ]}
                           flat={true}
                         />
@@ -115,7 +117,7 @@ defmodule CraftplanWeb.InventoryLive.FormComponentNutritionalFacts do
                           class="hidden"
                         />
                         <span class="font-semibold leading-6 text-stone-900 hover:text-stone-700">
-                          Remove
+                          {gettext("Remove")}
                         </span>
                       </label>
                     </div>
@@ -140,7 +142,7 @@ defmodule CraftplanWeb.InventoryLive.FormComponentNutritionalFacts do
                     )
                   }
                 >
-                  <.icon name="hero-plus" class="mr-2 h-4 w-4" /> Add Nutritional Fact
+                  <.icon name="hero-plus" class="mr-2 h-4 w-4" /> {gettext("Add Nutritional Fact")}
                 </button>
               </div>
             </div>
@@ -148,8 +150,8 @@ defmodule CraftplanWeb.InventoryLive.FormComponentNutritionalFacts do
         </div>
 
         <:actions>
-          <.button type="submit" variant={:primary} phx-disable-with="Saving...">
-            Save Nutritional Facts
+          <.button type="submit" variant={:primary} phx-disable-with={gettext("Saving...")}>
+            {gettext("Save Nutritional Facts")}
           </.button>
         </:actions>
       </.simple_form>
@@ -158,7 +160,7 @@ defmodule CraftplanWeb.InventoryLive.FormComponentNutritionalFacts do
         <.modal
           id="add-nutritional-fact-modal"
           show
-          title="Select a nutritional fact to add:"
+          title={gettext("Select a nutritional fact to add:")}
           on_cancel={JS.push("hide_modal", target: @myself)}
         >
           <div class="mt-4 space-y-6">
@@ -181,7 +183,9 @@ defmodule CraftplanWeb.InventoryLive.FormComponentNutritionalFacts do
             </div>
           </div>
 
-          <.button phx-click="hide_modal" phx-target={@myself} class="mt-5">Cancel</.button>
+          <.button phx-click="hide_modal" phx-target={@myself} class="mt-5">
+            {gettext("Cancel")}
+          </.button>
         </.modal>
       <% end %>
     </div>
@@ -296,7 +300,7 @@ defmodule CraftplanWeb.InventoryLive.FormComponentNutritionalFacts do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Nutritional facts updated successfully")
+         |> put_flash(:info, gettext("Nutritional facts updated successfully"))
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, form} ->

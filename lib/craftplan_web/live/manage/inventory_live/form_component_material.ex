@@ -16,24 +16,28 @@ defmodule CraftplanWeb.InventoryLive.FormComponentMaterial do
         phx-change="validate"
         phx-submit="save"
       >
-        <.input field={@form[:name]} type="text" label="Name" />
-        <.input field={@form[:sku]} type="text" label="SKU" />
+        <.input field={@form[:name]} type="text" label={gettext("Name")} />
+        <.input field={@form[:sku]} type="text" label={gettext("SKU")} />
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <.input field={@form[:price]} type="number" label="Price" step="0.001" min="0" />
+          <.input field={@form[:price]} type="number" label={gettext("Price")} step="0.001" min="0" />
 
           <.input
             field={@form[:unit]}
             type="radiogroup"
-            label="Measured in"
+            label={gettext("Measured in")}
             value={@form[:unit].value || :gram}
-            options={[{"Gram", :gram}, {"Milliliter", :milliliter}, {"Piece", :piece}]}
+            options={[
+              {gettext("Gram"), :gram},
+              {gettext("Milliliter"), :milliliter},
+              {gettext("Piece"), :piece}
+            ]}
           />
         </div>
 
         <.input
           field={@form[:minimum_stock]}
           type="number"
-          label="Minimum Stock"
+          label={gettext("Minimum Stock")}
           inline_label={@form[:unit].value || :gram}
           step="0.001"
           min="0"
@@ -42,13 +46,15 @@ defmodule CraftplanWeb.InventoryLive.FormComponentMaterial do
           field={@form[:maximum_stock]}
           inline_label={@form[:unit].value || :gram}
           type="number"
-          label="Maximum Stock"
+          label={gettext("Maximum Stock")}
           step="0.001"
           min="0"
         />
 
         <:actions>
-          <.button variant={:primary} phx-disable-with="Saving...">Save Material</.button>
+          <.button variant={:primary} phx-disable-with={gettext("Saving...")}>
+            {gettext("Save Material")}
+          </.button>
         </:actions>
       </.simple_form>
     </div>
@@ -72,7 +78,10 @@ defmodule CraftplanWeb.InventoryLive.FormComponentMaterial do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Material #{socket.assigns.form.source.type}d successfully")
+         |> put_flash(
+           :info,
+           gettext("Material %{type}d successfully", type: socket.assigns.form.source.type)
+         )
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, form} ->
