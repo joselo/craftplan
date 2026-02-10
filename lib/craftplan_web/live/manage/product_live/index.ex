@@ -12,10 +12,10 @@ defmodule CraftplanWeb.ProductLive.Index do
 
     ~H"""
     <.header>
-      Products
+      {gettext("Products")}
       <:actions>
         <.link patch={~p"/manage/products/new"}>
-          <.button variant={:primary}>New Product</.button>
+          <.button variant={:primary}>{gettext("New Product")}</.button>
         </.link>
       </:actions>
     </.header>
@@ -29,11 +29,11 @@ defmodule CraftplanWeb.ProductLive.Index do
       <:empty>
         <div class="block py-4 pr-6">
           <span class={["relative"]}>
-            No products found
+            {gettext("No products found")}
           </span>
         </div>
       </:empty>
-      <:col :let={{_, product}} label="Name">
+      <:col :let={{_, product}} label={gettext("Name")}>
         <div class="flex items-center space-x-2">
           <img
             :if={product.featured_photo != nil}
@@ -46,12 +46,12 @@ defmodule CraftplanWeb.ProductLive.Index do
           </span>
         </div>
       </:col>
-      <:col :let={{_, product}} label="SKU">
+      <:col :let={{_, product}} label={gettext("SKU")}>
         <.kbd>
           {product.sku}
         </.kbd>
       </:col>
-      <:col :let={{_, product}} label="Status">
+      <:col :let={{_, product}} label={gettext("Status")}>
         <.badge
           text={product.status}
           colors={[
@@ -60,25 +60,25 @@ defmodule CraftplanWeb.ProductLive.Index do
           ]}
         />
       </:col>
-      <:col :let={{_, product}} label="Price">
+      <:col :let={{_, product}} label={gettext("Price")}>
         {format_money(@settings.currency, product.price)}
       </:col>
 
-      <:col :let={{_, product}} label="Materials cost">
+      <:col :let={{_, product}} label={gettext("Materials cost")}>
         {format_money(@settings.currency, product.materials_cost)}
       </:col>
 
-      <:col :let={{_, product}} label="Gross profit">
+      <:col :let={{_, product}} label={gettext("Gross profit")}>
         {format_money(@settings.currency, product.gross_profit)}
       </:col>
 
       <:action :let={{_, product}}>
         <.link
           phx-click={JS.push("delete", value: %{id: product.id}) |> hide("#product-#{product.id}")}
-          data-confirm="Are you sure?"
+          data-confirm={gettext("Are you sure?")}
         >
           <.button size={:sm} variant={:danger}>
-            Delete
+            {gettext("Delete")}
           </.button>
         </.link>
       </:action>
@@ -129,7 +129,7 @@ defmodule CraftplanWeb.ProductLive.Index do
     socket =
       socket
       |> assign(:breadcrumbs, [
-        %{label: "Products", path: ~p"/manage/products", current?: true}
+        %{label: gettext("Products"), path: ~p"/manage/products", current?: true}
       ])
       |> stream(:products, results)
 
@@ -143,13 +143,13 @@ defmodule CraftplanWeb.ProductLive.Index do
 
   defp apply_action(socket, :new, _params) do
     socket
-    |> assign(:page_title, "New Product")
+    |> assign(:page_title, gettext("New Product"))
     |> assign(:product, nil)
   end
 
   defp apply_action(socket, :index, _params) do
     socket
-    |> assign(:page_title, "Catalog")
+    |> assign(:page_title, gettext("Catalog"))
     |> assign(:product, nil)
   end
 
@@ -161,11 +161,11 @@ defmodule CraftplanWeb.ProductLive.Index do
       :ok ->
         {:noreply,
          socket
-         |> put_flash(:info, "Product deleted successfully")
+         |> put_flash(:info, gettext("Product deleted successfully"))
          |> stream_delete(:products, %{id: id})}
 
       {:error, _error} ->
-        {:noreply, put_flash(socket, :error, "Failed to delete product.")}
+        {:noreply, put_flash(socket, :error, gettext("Failed to delete product."))}
     end
   end
 

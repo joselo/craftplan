@@ -22,7 +22,7 @@ defmodule CraftplanWeb.ProductLive.FormComponentPhotos do
         phx-submit="save"
       >
         <div class="space-y-4">
-          <h3 class="text-lg font-medium">Product Photos</h3>
+          <h3 class="text-lg font-medium">{gettext("Product Photos")}</h3>
 
           <div class="mb-4 hidden">
             <.live_file_input upload={@uploads.photos} />
@@ -50,7 +50,7 @@ defmodule CraftplanWeb.ProductLive.FormComponentPhotos do
                       </svg>
                     </div>
                     <div class="ml-3">
-                      <h3 class="text-sm font-medium text-yellow-800">Upload Warning</h3>
+                      <h3 class="text-sm font-medium text-yellow-800">{gettext("Upload Warning")}</h3>
                       <div class="mt-2 text-sm text-yellow-700">
                         <p>{@upload_warning}</p>
                       </div>
@@ -85,7 +85,7 @@ defmodule CraftplanWeb.ProductLive.FormComponentPhotos do
                             </div>
                           </div>
                           <p class="mt-1.5 text-xs text-stone-500">
-                            {entry.progress}% uploaded
+                            {entry.progress}% {gettext("uploaded")}
                           </p>
                         </div>
                         <div class="flex-shrink-0">
@@ -95,9 +95,9 @@ defmodule CraftplanWeb.ProductLive.FormComponentPhotos do
                             phx-click="cancel-upload"
                             phx-value-ref={entry.ref}
                             phx-target={@myself}
-                            aria-label="Cancel upload"
+                            aria-label={gettext("Cancel upload")}
                           >
-                            Cancel
+                            {gettext("Cancel")}
                           </.button>
                         </div>
                       </div>
@@ -120,7 +120,7 @@ defmodule CraftplanWeb.ProductLive.FormComponentPhotos do
 
               <%= if Enum.empty?(@uploads.photos.entries) do %>
                 <p class="py-4 text-center text-stone-500">
-                  Drop files here or click to upload
+                  {gettext("Drop files here or click to upload")}
                 </p>
               <% end %>
             </section>
@@ -128,7 +128,7 @@ defmodule CraftplanWeb.ProductLive.FormComponentPhotos do
 
           <%= if not Enum.empty?(@product_photos) or not Enum.empty?(@uploaded_files) do %>
             <div class="mt-6">
-              <h4 class="text-md mb-2 font-medium">Current Photos</h4>
+              <h4 class="text-md mb-2 font-medium">{gettext("Current Photos")}</h4>
               <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
                 <%= for photo <- @product_photos ++ @uploaded_files do %>
                   <div class="relative">
@@ -168,8 +168,8 @@ defmodule CraftplanWeb.ProductLive.FormComponentPhotos do
                         phx-target={@myself}
                       >
                         {if @form[:featured_photo].value == photo,
-                          do: "Featured",
-                          else: "Set as Featured"}
+                          do: gettext("Featured"),
+                          else: gettext("Set as Featured")}
                       </.button>
                       <.button
                         type="button"
@@ -179,7 +179,7 @@ defmodule CraftplanWeb.ProductLive.FormComponentPhotos do
                         phx-value-photo={photo}
                         phx-target={@myself}
                       >
-                        Remove
+                        {gettext("Remove")}
                       </.button>
                     </div>
                   </div>
@@ -196,7 +196,7 @@ defmodule CraftplanWeb.ProductLive.FormComponentPhotos do
             disabled={@has_changes == false}
             class={if @has_changes == false, do: "cursor-not-allowed opacity-50", else: ""}
           >
-            Save
+            {gettext("Save")}
           </.button>
         </:actions>
       </.simple_form>
@@ -314,7 +314,12 @@ defmodule CraftplanWeb.ProductLive.FormComponentPhotos do
 
           {:noreply,
            socket
-           |> put_flash(:info, "Product photos #{socket.assigns.form.source.type}d successfully")
+           |> put_flash(
+             :info,
+             gettext("Product photos %{type}d successfully",
+               type: socket.assigns.form.source.type
+             )
+           )
            |> reset_state(product)}
 
         {:error, form} ->
@@ -443,8 +448,8 @@ defmodule CraftplanWeb.ProductLive.FormComponentPhotos do
 
   defp notify_parent(msg), do: send(self(), {__MODULE__, msg})
 
-  defp error_to_string(:too_large), do: "File is too large"
-  defp error_to_string(:too_many_files), do: "You have selected too many files"
-  defp error_to_string(:not_accepted), do: "You have selected an unacceptable file type"
-  defp error_to_string(_), do: "Unknown error occurred during upload"
+  defp error_to_string(:too_large), do: gettext("File is too large")
+  defp error_to_string(:too_many_files), do: gettext("You have selected too many files")
+  defp error_to_string(:not_accepted), do: gettext("You have selected an unacceptable file type")
+  defp error_to_string(_), do: gettext("Unknown error occurred during upload")
 end

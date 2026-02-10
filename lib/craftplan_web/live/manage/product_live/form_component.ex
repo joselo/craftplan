@@ -15,32 +15,32 @@ defmodule CraftplanWeb.ProductLive.FormComponent do
         phx-change="validate"
         phx-submit="save"
       >
-        <.input field={@form[:name]} type="text" label="Name" />
-        <.input field={@form[:sku]} type="text" label="SKU" />
-        <.input field={@form[:price]} type="number" label="Price" />
+        <.input field={@form[:name]} type="text" label={gettext("Name")} />
+        <.input field={@form[:sku]} type="text" label={gettext("SKU")} />
+        <.input field={@form[:price]} type="number" label={gettext("Price")} />
 
         <.input
           field={@form[:status]}
           type="radiogroup"
-          label="Status"
+          label={gettext("Status")}
           options={[
-            {"Draft", :draft},
-            {"Testing", :testing},
-            {"Active", :active},
-            {"Paused", :paused},
-            {"Discontinued", :discontinued},
-            {"Archived", :archived}
+            {gettext("Draft"), :draft},
+            {gettext("Testing"), :testing},
+            {gettext("Active"), :active},
+            {gettext("Paused"), :paused},
+            {gettext("Discontinued"), :discontinued},
+            {gettext("Archived"), :archived}
           ]}
         />
 
         <.input
           field={@form[:selling_availability]}
           type="radiogroup"
-          label="Selling availability"
+          label={gettext("Selling availability")}
           options={[
-            {"Available", :available},
-            {"Preorder", :preorder},
-            {"Off", :off}
+            {gettext("Available"), :available},
+            {gettext("Preorder"), :preorder},
+            {gettext("Off"), :off}
           ]}
         />
 
@@ -48,11 +48,13 @@ defmodule CraftplanWeb.ProductLive.FormComponent do
           field={@form[:max_daily_quantity]}
           type="number"
           min="0"
-          label="Max units per day (0 = unlimited)"
+          label={gettext("Max units per day (0 = unlimited)")}
         />
 
         <:actions>
-          <.button variant={:primary} phx-disable-with="Saving...">Save Product</.button>
+          <.button variant={:primary} phx-disable-with={gettext("Saving...")}>
+            {gettext("Save Product")}
+          </.button>
         </:actions>
       </.simple_form>
     </div>
@@ -77,7 +79,10 @@ defmodule CraftplanWeb.ProductLive.FormComponent do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Product #{socket.assigns.form.source.type}d successfully")
+         |> put_flash(
+           :info,
+           gettext("Product %{type}d successfully", type: socket.assigns.form.source.type)
+         )
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, form} ->

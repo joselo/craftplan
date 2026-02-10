@@ -17,7 +17,7 @@ defmodule CraftplanWeb.ProductLive.Show do
       {@product.name}
       <:actions>
         <.link patch={~p"/manage/products/#{@product.sku}/edit"} phx-click={JS.push_focus()}>
-          <.button variant={:primary}>Edit product</.button>
+          <.button variant={:primary}>{gettext("Edit product")}</.button>
         </.link>
       </:actions>
     </.header>
@@ -27,7 +27,7 @@ defmodule CraftplanWeb.ProductLive.Show do
     <div class="mt-6 space-y-6">
       <.tabs_content :if={@live_action in [:details, :show]}>
         <.list>
-          <:item title="Status">
+          <:item title={gettext("Status")}>
             <.badge
               text={@product.status}
               colors={[
@@ -36,44 +36,44 @@ defmodule CraftplanWeb.ProductLive.Show do
               ]}
             />
           </:item>
-          <:item title="Availability">
+          <:item title={gettext("Availability")}>
             <.badge text={@product.selling_availability} />
           </:item>
-          <:item title="Name">{@product.name}</:item>
+          <:item title={gettext("Name")}>{@product.name}</:item>
 
-          <:item title="SKU">
+          <:item title={gettext("SKU")}>
             <.kbd>
               {@product.sku}
             </.kbd>
           </:item>
 
-          <:item title="Allergens">
+          <:item title={gettext("Allergens")}>
             <div class="flex-inline items-center space-x-1">
               <.badge :for={allergen <- Enum.map(@product.allergens, & &1.name)} text={allergen} />
-              <span :if={Enum.empty?(@product.allergens)}>None</span>
+              <span :if={Enum.empty?(@product.allergens)}>{gettext("None")}</span>
             </div>
           </:item>
 
-          <:item title="Price">
+          <:item title={gettext("Price")}>
             {format_money(@settings.currency, @product.price)}
           </:item>
 
-          <:item title="Materials cost">
+          <:item title={gettext("Materials cost")}>
             {format_money(@settings.currency, @product.materials_cost)}
           </:item>
 
-          <:item title="Gross profit">
+          <:item title={gettext("Gross profit")}>
             {format_money(@settings.currency, @product.gross_profit)}
           </:item>
 
-          <:item title="Markup percentage">
+          <:item title={gettext("Markup percentage")}>
             {format_percentage(@product.markup_percentage)}%
           </:item>
 
-          <:item title="Suggested Prices">
+          <:item title={gettext("Suggested Prices")}>
             <div class="space-y-1">
               <div>
-                <span class="text-stone-500">Retail:</span>
+                <span class="text-stone-500">{gettext("Retail")}:</span>
                 <span class="ml-2 font-medium">
                   {format_money(
                     @settings.currency,
@@ -82,7 +82,7 @@ defmodule CraftplanWeb.ProductLive.Show do
                 </span>
               </div>
               <div>
-                <span class="text-stone-500">Wholesale:</span>
+                <span class="text-stone-500">{gettext("Wholesale")}:</span>
                 <span class="ml-2 font-medium">
                   {format_money(
                     @settings.currency,
@@ -95,7 +95,7 @@ defmodule CraftplanWeb.ProductLive.Show do
 
           <:item
             :if={@product.max_daily_quantity && @product.max_daily_quantity > 0}
-            title="Max units per day"
+            title={gettext("Max units per day")}
           >
             {@product.max_daily_quantity}
           </:item>
@@ -119,14 +119,16 @@ defmodule CraftplanWeb.ProductLive.Show do
 
       <.tabs_content :if={@live_action == :nutrition}>
         <div>
-          <h3 class="my-4 text-lg font-medium">Nutritional Facts</h3>
+          <h3 class="my-4 text-lg font-medium">{gettext("Nutritional Facts")}</h3>
           <p class="mb-4 text-sm text-stone-500">
-            The nutritional information is automatically calculated from your recipe components.
+            {gettext(
+              "The nutritional information is automatically calculated from your recipe components."
+            )}
           </p>
         </div>
         <.table id="nutritional-facts" rows={@product.nutritional_facts}>
-          <:col :let={fact} label="Nutrient">{fact.name}</:col>
-          <:col :let={fact} label="Amount">{format_amount(fact.unit, fact.amount)}</:col>
+          <:col :let={fact} label={gettext("Nutrient")}>{fact.name}</:col>
+          <:col :let={fact} label={gettext("Amount")}>{format_amount(fact.unit, fact.amount)}</:col>
         </.table>
       </.tabs_content>
 
@@ -148,7 +150,7 @@ defmodule CraftplanWeb.ProductLive.Show do
       :if={@live_action == :edit}
       id="product-modal"
       title={@page_title}
-      description="Update product information and details."
+      description={gettext("Update product information and details.")}
       show
       on_cancel={JS.patch(~p"/manage/products/#{@product.sku}")}
     >
@@ -206,22 +208,22 @@ defmodule CraftplanWeb.ProductLive.Show do
 
     tabs_links = [
       %{
-        label: "Details",
+        label: gettext("Details"),
         navigate: ~p"/manage/products/#{product.sku}/details",
         active: live_action in [:details, :show]
       },
       %{
-        label: "Recipe",
+        label: gettext("Recipe"),
         navigate: ~p"/manage/products/#{product.sku}/recipe",
         active: live_action == :recipe
       },
       %{
-        label: "Nutrition",
+        label: gettext("Nutrition"),
         navigate: ~p"/manage/products/#{product.sku}/nutrition",
         active: live_action == :nutrition
       },
       %{
-        label: "Photos",
+        label: gettext("Photos"),
         navigate: ~p"/manage/products/#{product.sku}/photos",
         active: live_action == :photos
       }
@@ -255,7 +257,7 @@ defmodule CraftplanWeb.ProductLive.Show do
 
     {:noreply,
      socket
-     |> put_flash(:info, "Photos updated successfully")
+     |> put_flash(:info, gettext("Photos updated successfully"))
      |> assign(:product, product)}
   end
 
@@ -277,7 +279,7 @@ defmodule CraftplanWeb.ProductLive.Show do
 
     {:noreply,
      socket
-     |> put_flash(:info, "Recipe updated successfully")
+     |> put_flash(:info, gettext("Recipe updated successfully"))
      |> assign(:product, product)
      |> push_event("close-modal", %{id: "product-material-modal"})}
   end
@@ -316,16 +318,16 @@ defmodule CraftplanWeb.ProductLive.Show do
     end
   end
 
-  defp page_title(:show), do: "Product"
-  defp page_title(:nutrition), do: "Product Nutritional Information"
-  defp page_title(:edit), do: "Modify Product"
-  defp page_title(:recipe), do: "Product Recipe"
-  defp page_title(:details), do: "Product"
-  defp page_title(_), do: "Product"
+  defp page_title(:show), do: gettext("Product")
+  defp page_title(:nutrition), do: gettext("Product Nutritional Information")
+  defp page_title(:edit), do: gettext("Modify Product")
+  defp page_title(:recipe), do: gettext("Product Recipe")
+  defp page_title(:details), do: gettext("Product")
+  defp page_title(_), do: gettext("Product")
 
   defp product_breadcrumbs(product, live_action) do
     base = [
-      %{label: "Products", path: ~p"/manage/products", current?: false},
+      %{label: gettext("Products"), path: ~p"/manage/products", current?: false},
       %{
         label: product.name,
         path: ~p"/manage/products/#{product.sku}",
@@ -337,14 +339,18 @@ defmodule CraftplanWeb.ProductLive.Show do
       :recipe ->
         base ++
           [
-            %{label: "Recipe", path: ~p"/manage/products/#{product.sku}/recipe", current?: true}
+            %{
+              label: gettext("Recipe"),
+              path: ~p"/manage/products/#{product.sku}/recipe",
+              current?: true
+            }
           ]
 
       :nutrition ->
         base ++
           [
             %{
-              label: "Nutrition",
+              label: gettext("Nutrition"),
               path: ~p"/manage/products/#{product.sku}/nutrition",
               current?: true
             }
@@ -353,7 +359,11 @@ defmodule CraftplanWeb.ProductLive.Show do
       :photos ->
         base ++
           [
-            %{label: "Photos", path: ~p"/manage/products/#{product.sku}/photos", current?: true}
+            %{
+              label: gettext("Photos"),
+              path: ~p"/manage/products/#{product.sku}/photos",
+              current?: true
+            }
           ]
 
       _ ->
