@@ -166,7 +166,7 @@ defmodule CraftplanWeb.Layouts do
                     id="user-dropdown"
                     class="absolute right-0 mt-2 hidden w-56 rounded-md border border-stone-200 bg-white py-2 shadow-lg"
                     role="menu"
-                    aria-label="User menu"
+                    aria-label={gettext("User menu")}
                   >
                     <.link
                       :if={not @is_manage?}
@@ -174,14 +174,14 @@ defmodule CraftplanWeb.Layouts do
                       class="flex items-center gap-2 px-4 py-2 text-sm text-stone-600 transition hover:bg-stone-50 hover:text-stone-900"
                       role="menuitem"
                     >
-                      <.nav_icon name={:manage} /> Manage dashboard
+                      <.nav_icon name={:manage} /> {gettext("Manage dashboard")}
                     </.link>
                     <.link
                       href={~p"/sign-out"}
                       class="flex items-center gap-2 px-4 py-2 text-sm text-stone-600 transition hover:bg-stone-50 hover:text-stone-900"
                       role="menuitem"
                     >
-                      <.nav_icon name={:logout} /> Log out
+                      <.nav_icon name={:logout} /> {gettext("Log out")}
                     </.link>
                   </div>
                 </div>
@@ -189,7 +189,7 @@ defmodule CraftplanWeb.Layouts do
                 <div :if={is_nil(@current_user)}>
                   <.link href={~p"/sign-in"}>
                     <.button variant={:primary} size={:sm}>
-                      Log in
+                      {gettext("Log in")}
                     </.button>
                   </.link>
                 </div>
@@ -223,7 +223,7 @@ defmodule CraftplanWeb.Layouts do
     <nav class="h-[calc(100vh-4rem)] flex flex-col justify-between overflow-y-auto px-4 pt-6 pb-6 md:h-full md:pb-8">
       <div>
         <p class="text-xs font-semibold uppercase tracking-wide text-stone-400">
-          {(@is_manage? && "Manage") || "Browse"}
+          {(@is_manage? && gettext("Manage")) || gettext("Browse")}
         </p>
 
         <% primary_links = if @is_manage?, do: @manage_links, else: @shop_links %>
@@ -276,18 +276,18 @@ defmodule CraftplanWeb.Layouts do
             navigate={~p"/manage/orders"}
             class="flex items-center justify-between rounded-md border border-transparent bg-white px-3 py-2 text-sm font-medium text-stone-600 transition hover:border-stone-300 hover:text-stone-900"
           >
-            <span>Open manage</span>
+            <span>{gettext("Open manage")}</span>
             <.nav_icon name={:chevron_right} />
           </.link>
         </div>
 
         <div :if={is_nil(@current_user)} class="space-y-3">
-          <p>Ready to manage your production workflow?</p>
+          <p>{gettext("Ready to manage your production workflow?")}</p>
           <.link
             href={~p"/sign-in"}
             class="inline-flex items-center gap-2 rounded-md bg-black px-3 py-2 text-sm font-medium text-white transition hover:bg-stone-900"
           >
-            <.nav_icon name={:login} class="text-white" /> Log in
+            <.nav_icon name={:login} class="text-white" /> {gettext("Log in")}
           </.link>
         </div>
       </div>
@@ -528,56 +528,56 @@ defmodule CraftplanWeb.Layouts do
   defp manage_links do
     [
       %{
-        label: "Overview",
+        label: gettext("Overview"),
         navigate: ~p"/manage/overview",
         icon: :manage,
         nav_section: :overview,
         prefix: "/manage/overview"
       },
       %{
-        label: "Production",
+        label: gettext("Production"),
         navigate: ~p"/manage/production/schedule",
         icon: :production,
         nav_section: :production,
         prefix: "/manage/production"
       },
       %{
-        label: "Inventory",
+        label: gettext("Inventory"),
         navigate: ~p"/manage/inventory",
         icon: :inventory,
         nav_section: :inventory,
         prefix: "/manage/inventory"
       },
       %{
-        label: "Purchasing",
+        label: gettext("Purchasing"),
         navigate: ~p"/manage/purchasing",
         icon: :purchasing,
         nav_section: :purchasing,
         prefix: "/manage/purchasing"
       },
       %{
-        label: "Products",
+        label: gettext("Products"),
         navigate: ~p"/manage/products",
         icon: :products,
         nav_section: :products,
         prefix: "/manage/products"
       },
       %{
-        label: "Orders",
+        label: gettext("Orders"),
         navigate: ~p"/manage/orders",
         icon: :orders,
         nav_section: :orders,
         prefix: "/manage/orders"
       },
       %{
-        label: "Customers",
+        label: gettext("Customers"),
         navigate: ~p"/manage/customers",
         icon: :customers,
         nav_section: :customers,
         prefix: "/manage/customers"
       },
       %{
-        label: "Settings",
+        label: gettext("Settings"),
         navigate: ~p"/manage/settings",
         icon: :settings,
         nav_section: :settings,
@@ -588,9 +588,9 @@ defmodule CraftplanWeb.Layouts do
 
   defp shop_links do
     [
-      %{label: "Home", navigate: ~p"/", icon: :home, exact: "/"},
-      %{label: "Log in", navigate: ~p"/sign-in", icon: :login, exact: "/sign-in"},
-      %{label: "Reset password", navigate: ~p"/reset", icon: :settings, exact: "/reset"}
+      %{label: gettext("Home"), navigate: ~p"/", icon: :home, exact: "/"},
+      %{label: gettext("Log in"), navigate: ~p"/sign-in", icon: :login, exact: "/sign-in"},
+      %{label: gettext("Reset password"), navigate: ~p"/reset", icon: :settings, exact: "/reset"}
     ]
   end
 

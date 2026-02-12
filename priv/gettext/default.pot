@@ -95,6 +95,7 @@ msgstr ""
 msgid "Opening"
 msgstr ""
 
+#: lib/craftplan_web/components/layouts.ex:566
 #: lib/craftplan_web/live/manage/customer_live/show.ex:125
 #: lib/craftplan_web/live/manage/order_live/index.ex:46
 #: lib/craftplan_web/live/manage/order_live/index.ex:678
@@ -502,6 +503,7 @@ msgstr ""
 msgid "Import materials via CSV"
 msgstr ""
 
+#: lib/craftplan_web/components/layouts.ex:545
 #: lib/craftplan_web/live/manage/inventory_live/index.ex:532
 #, elixir-autogen, elixir-format
 msgid "Inventory"
@@ -1404,6 +1406,7 @@ msgstr ""
 msgid "Product photos %{type}d successfully"
 msgstr ""
 
+#: lib/craftplan_web/components/layouts.ex:559
 #: lib/craftplan_web/live/manage/product_live/index.ex:15
 #: lib/craftplan_web/live/manage/product_live/index.ex:132
 #: lib/craftplan_web/live/manage/product_live/show.ex:330
@@ -2079,6 +2082,7 @@ msgstr ""
 msgid "Ordered At"
 msgstr ""
 
+#: lib/craftplan_web/components/layouts.ex:531
 #: lib/craftplan_web/live/manage/purchasing_live/show.ex:108
 #, elixir-autogen, elixir-format
 msgid "Overview"
@@ -2112,6 +2116,7 @@ msgstr ""
 msgid "Purchase order saved"
 msgstr ""
 
+#: lib/craftplan_web/components/layouts.ex:552
 #: lib/craftplan_web/live/manage/purchasing_live/index.ex:18
 #, elixir-autogen, elixir-format
 msgid "Purchasing"
@@ -2209,6 +2214,7 @@ msgstr ""
 msgid "Customer saved successfully"
 msgstr ""
 
+#: lib/craftplan_web/components/layouts.ex:573
 #: lib/craftplan_web/live/manage/customer_live/index.ex:11
 #: lib/craftplan_web/live/manage/customer_live/index.ex:115
 #: lib/craftplan_web/live/manage/settings_live/index.ex:141
@@ -2665,6 +2671,7 @@ msgstr ""
 msgid "Lead time (days)"
 msgstr ""
 
+#: lib/craftplan_web/components/layouts.ex:226
 #: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:80
 #: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:87
 #, elixir-autogen, elixir-format
@@ -2880,6 +2887,7 @@ msgstr ""
 msgid "Set the default currency used across orders, invoices, and reports."
 msgstr ""
 
+#: lib/craftplan_web/components/layouts.ex:580
 #: lib/craftplan_web/live/manage/settings_live/index.ex:228
 #, elixir-autogen, elixir-format
 msgid "Settings"
@@ -2944,4 +2952,56 @@ msgstr ""
 #: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:31
 #, elixir-autogen, elixir-format
 msgid "Your new calendar subscription URL"
+msgstr ""
+
+#: lib/craftplan_web/components/layouts.ex:226
+#, elixir-autogen, elixir-format
+msgid "Browse"
+msgstr ""
+
+#: lib/craftplan_web/components/layouts.ex:591
+#, elixir-autogen, elixir-format
+msgid "Home"
+msgstr ""
+
+#: lib/craftplan_web/components/layouts.ex:192
+#: lib/craftplan_web/components/layouts.ex:290
+#: lib/craftplan_web/components/layouts.ex:592
+#, elixir-autogen, elixir-format
+msgid "Log in"
+msgstr ""
+
+#: lib/craftplan_web/components/layouts.ex:184
+#, elixir-autogen, elixir-format
+msgid "Log out"
+msgstr ""
+
+#: lib/craftplan_web/components/layouts.ex:177
+#, elixir-autogen, elixir-format
+msgid "Manage dashboard"
+msgstr ""
+
+#: lib/craftplan_web/components/layouts.ex:279
+#, elixir-autogen, elixir-format
+msgid "Open manage"
+msgstr ""
+
+#: lib/craftplan_web/components/layouts.ex:538
+#, elixir-autogen, elixir-format
+msgid "Production"
+msgstr ""
+
+#: lib/craftplan_web/components/layouts.ex:285
+#, elixir-autogen, elixir-format
+msgid "Ready to manage your production workflow?"
+msgstr ""
+
+#: lib/craftplan_web/components/layouts.ex:593
+#, elixir-autogen, elixir-format
+msgid "Reset password"
+msgstr ""
+
+#: lib/craftplan_web/components/layouts.ex:169
+#, elixir-autogen, elixir-format
+msgid "User menu"
 msgstr ""
