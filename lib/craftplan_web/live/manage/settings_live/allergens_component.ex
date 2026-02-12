@@ -13,9 +13,9 @@ defmodule CraftplanWeb.SettingsLive.AllergensComponent do
     <div class="space-y-6">
       <.header>
         <:subtitle>
-          Search and manage the allergens available across your products and materials.
+          {gettext("Search and manage the allergens available across your products and materials.")}
         </:subtitle>
-        Allergens
+        {gettext("Allergens")}
       </.header>
 
       <div class="flex flex-col gap-6 lg:flex-row">
@@ -30,14 +30,14 @@ defmodule CraftplanWeb.SettingsLive.AllergensComponent do
                 class="space-y-4"
               >
                 <label class="sr-only text-sm font-medium text-stone-700" for="allergen-filter-query">
-                  Search allergens
+                  {gettext("Search allergens")}
                 </label>
                 <input
                   id="allergen-filter-query"
                   name="query"
                   type="search"
                   value={@search_query}
-                  placeholder="Type to filter by name..."
+                  placeholder={gettext("Type to filter by name...")}
                   phx-debounce="300"
                   class="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm text-stone-900 transition focus:border-primary-400 focus:ring-primary-200/60 focus:outline-none focus:ring"
                 />
@@ -46,23 +46,27 @@ defmodule CraftplanWeb.SettingsLive.AllergensComponent do
 
             <div class="-mt-10 p-4">
               <.table id="allergens" rows={@visible_allergens} wrapper_class="mt-0">
-                <:col :let={allergen} label="Name">{allergen.name}</:col>
+                <:col :let={allergen} label={gettext("Name")}>{allergen.name}</:col>
                 <:action :let={allergen}>
                   <.link
                     phx-click={JS.push("delete", value: %{id: allergen.id}, target: @myself)}
-                    data-confirm="Are you sure you want to delete this allergen? This action cannot be undone."
+                    data-confirm={
+                      gettext(
+                        "Are you sure you want to delete this allergen? This action cannot be undone."
+                      )
+                    }
                   >
                     <.button size={:sm} variant={:danger}>
-                      Delete
+                      {gettext("Delete")}
                     </.button>
                   </.link>
                 </:action>
                 <:empty>
                   <div class="py-6 text-center text-sm text-stone-500">
                     {if String.trim(@search_query) == "" do
-                      "No allergens yet. Add your first allergen from the manage panel."
+                      gettext("No allergens yet. Add your first allergen from the manage panel.")
                     else
-                      "No allergens match your search."
+                      gettext("No allergens match your search.")
                     end}
                   </div>
                 </:empty>
@@ -73,9 +77,11 @@ defmodule CraftplanWeb.SettingsLive.AllergensComponent do
 
         <aside class="lg:w-80">
           <div class="space-y-4 rounded-md border border-gray-200 bg-white p-4">
-            <h3 class="text-sm font-semibold text-stone-800">Manage</h3>
+            <h3 class="text-sm font-semibold text-stone-800">{gettext("Manage")}</h3>
             <p class="text-sm text-stone-600">
-              Create new allergens or remove ones you no longer track. Changes apply immediately across Craftplan.
+              {gettext(
+                "Create new allergens or remove ones you no longer track. Changes apply immediately across Craftplan."
+              )}
             </p>
             <.button
               type="button"
@@ -84,7 +90,7 @@ defmodule CraftplanWeb.SettingsLive.AllergensComponent do
               phx-click="show_add_modal"
               phx-target={@myself}
             >
-              <.icon name="hero-plus" class="mr-2 h-4 w-4" /> Add Allergen
+              <.icon name="hero-plus" class="mr-2 h-4 w-4" /> {gettext("Add Allergen")}
             </.button>
           </div>
         </aside>
@@ -94,8 +100,8 @@ defmodule CraftplanWeb.SettingsLive.AllergensComponent do
         :if={@show_modal}
         id="add-allergen-modal"
         show
-        title="Add New Allergen"
-        description="Enter the name of the allergen you want to add"
+        title={gettext("Add New Allergen")}
+        description={gettext("Enter the name of the allergen you want to add")}
         on_cancel={JS.push("hide_modal", target: @myself)}
       >
         <.simple_form
@@ -105,9 +111,11 @@ defmodule CraftplanWeb.SettingsLive.AllergensComponent do
           phx-change="validate"
           phx-submit="save"
         >
-          <.input field={@form[:name]} type="text" label="Allergen name" />
+          <.input field={@form[:name]} type="text" label={gettext("Allergen name")} />
           <:actions>
-            <.button variant={:primary} phx-disable-with="Saving...">Save Allergen</.button>
+            <.button variant={:primary} phx-disable-with="Saving...">
+              {gettext("Save Allergen")}
+            </.button>
           </:actions>
         </.simple_form>
       </.modal>
@@ -153,7 +161,7 @@ defmodule CraftplanWeb.SettingsLive.AllergensComponent do
           |> assign(:allergens, allergens)
           |> assign_filtered_allergens(socket.assigns.search_query)
 
-        {:noreply, put_flash(socket, :info, "Allergen added successfully")}
+        {:noreply, put_flash(socket, :info, gettext("Allergen added successfully"))}
 
       {:error, form} ->
         {:noreply, assign(socket, :form, form)}
@@ -175,7 +183,7 @@ defmodule CraftplanWeb.SettingsLive.AllergensComponent do
       |> assign(:allergens, allergens)
       |> assign_filtered_allergens(socket.assigns.search_query)
 
-    {:noreply, put_flash(socket, :info, "Allergen deleted successfully")}
+    {:noreply, put_flash(socket, :info, gettext("Allergen deleted successfully"))}
   end
 
   @impl true

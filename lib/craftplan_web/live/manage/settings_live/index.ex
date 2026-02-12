@@ -79,9 +79,11 @@ defmodule CraftplanWeb.SettingsLive.Index do
 
       <div :if={@live_action == :csv} class="space-y-6">
         <.header>
-          Import data into Craftplan
+          {gettext("Import data into Craftplan")}
           <:subtitle>
-            Bring in your existing records. Each import walks you through column mapping so nothing gets lost.
+            {gettext(
+              "Bring in your existing records. Each import walks you through column mapping so nothing gets lost."
+            )}
           </:subtitle>
         </.header>
         <div class="flex flex-col gap-6 lg:flex-row">
@@ -115,15 +117,17 @@ defmodule CraftplanWeb.SettingsLive.Index do
             </div>
 
             <p class="mt-6 text-xs text-stone-500">
-              Need a template first? Click an import to download the matching CSV header layout.
+              {gettext(
+                "Need a template first? Click an import to download the matching CSV header layout."
+              )}
             </p>
           </section>
 
           <aside class="space-y-6 lg:w-96">
             <section class="rounded-md border border-gray-200 bg-white p-6">
-              <h3 class="text-base font-semibold text-stone-900">Export data</h3>
+              <h3 class="text-base font-semibold text-stone-900">{gettext("Export data")}</h3>
               <p class="mt-1 text-sm text-stone-600">
-                Generate a CSV extract for your reporting and accounting workflows.
+                {gettext("Generate a CSV extract for your reporting and accounting workflows.")}
               </p>
 
               <.form for={@csv_export_form} id="csv-export-form" phx-submit="csv_export">
@@ -131,11 +135,11 @@ defmodule CraftplanWeb.SettingsLive.Index do
                   <.input
                     type="select"
                     name="entity"
-                    label="Entity to export"
+                    label={gettext("Entity to export")}
                     options={[
-                      {"Orders", "orders"},
-                      {"Customers", "customers"},
-                      {"Inventory movements", "movements"}
+                      {gettext("Orders"), "orders"},
+                      {gettext("Customers"), "customers"},
+                      {gettext("Inventory movements"), "movements"}
                     ]}
                     value="orders"
                     required
@@ -143,16 +147,18 @@ defmodule CraftplanWeb.SettingsLive.Index do
                 </div>
                 <div class="mt-6 flex gap-2">
                   <.button id="csv-export-submit" variant={:primary} class="flex-1 justify-center">
-                    Export CSV
+                    {gettext("Export CSV")}
                   </.button>
                 </div>
               </.form>
             </section>
 
             <section class="border-primary-200 bg-primary-50 text-primary-800 rounded-md border border-dashed p-6 text-sm">
-              <h4 class="text-primary-900 font-semibold">Tip</h4>
+              <h4 class="text-primary-900 font-semibold">{gettext("Tip")}</h4>
               <p class="mt-2">
-                Keep a snapshot of your data by exporting on a schedule. Imports are idempotent—reimporting an updated CSV lets you keep Craftplan and your spreadsheets in sync.
+                {gettext(
+                  "Keep a snapshot of your data by exporting on a schedule. Imports are idempotent—reimporting an updated CSV lets you keep Craftplan and your spreadsheets in sync."
+                )}
               </p>
             </section>
           </aside>
@@ -219,31 +225,31 @@ defmodule CraftplanWeb.SettingsLive.Index do
   end
 
   defp apply_action(socket, :index, _params) do
-    assign(socket, :page_title, "Settings")
+    assign(socket, :page_title, gettext("Settings"))
   end
 
   defp apply_action(socket, :general, _params) do
-    assign(socket, :page_title, "General Settings")
+    assign(socket, :page_title, gettext("General Settings"))
   end
 
   defp apply_action(socket, :allergens, _params) do
-    assign(socket, :page_title, "Allergens Settings")
+    assign(socket, :page_title, gettext("Allergens Settings"))
   end
 
   defp apply_action(socket, :nutritional_facts, _params) do
-    assign(socket, :page_title, "Nutritional Facts Settings")
+    assign(socket, :page_title, gettext("Nutritional Facts Settings"))
   end
 
   defp apply_action(socket, :csv, _params) do
-    assign(socket, :page_title, "Import & Export")
+    assign(socket, :page_title, gettext("Import & Export"))
   end
 
   defp apply_action(socket, :api_keys, _params) do
-    assign(socket, :page_title, "API Keys")
+    assign(socket, :page_title, gettext("API Keys"))
   end
 
   defp apply_action(socket, :calendar_feed, _params) do
-    assign(socket, :page_title, "Calendar Feed")
+    assign(socket, :page_title, gettext("Calendar Feed"))
   end
 
   def csv_import_entities do

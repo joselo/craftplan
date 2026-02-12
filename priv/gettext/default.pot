@@ -99,6 +99,7 @@ msgstr ""
 #: lib/craftplan_web/live/manage/order_live/index.ex:46
 #: lib/craftplan_web/live/manage/order_live/index.ex:678
 #: lib/craftplan_web/live/manage/overview_live.ex:162
+#: lib/craftplan_web/live/manage/settings_live/index.ex:140
 #, elixir-autogen, elixir-format
 msgid "Orders"
 msgstr ""
@@ -252,6 +253,9 @@ msgid "Add"
 msgstr ""
 
 #: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:145
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:100
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:110
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:124
 #, elixir-autogen, elixir-format
 msgid "Add Nutritional Fact"
 msgstr ""
@@ -291,6 +295,7 @@ msgstr ""
 #: lib/craftplan_web/live/manage/inventory_live/show.ex:220
 #: lib/craftplan_web/live/manage/product_live/label.ex:37
 #: lib/craftplan_web/live/manage/product_live/show.ex:50
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:18
 #, elixir-autogen, elixir-format
 msgid "Allergens"
 msgstr ""
@@ -405,6 +410,8 @@ msgstr ""
 
 #: lib/craftplan_web/live/manage/inventory_live/index.ex:90
 #: lib/craftplan_web/live/manage/product_live/index.ex:81
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:60
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:67
 #, elixir-autogen, elixir-format
 msgid "Delete"
 msgstr ""
@@ -609,6 +616,10 @@ msgstr ""
 #: lib/craftplan_web/live/manage/product_live/show.ex:42
 #: lib/craftplan_web/live/manage/purchasing_live/supplier_form_component.ex:19
 #: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:30
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:49
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:67
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:94
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:56
 #, elixir-autogen, elixir-format
 msgid "Name"
 msgstr ""
@@ -692,6 +703,7 @@ msgstr ""
 
 #: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:24
 #: lib/craftplan_web/live/manage/product_live/show.ex:122
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:18
 #, elixir-autogen, elixir-format
 msgid "Nutritional Facts"
 msgstr ""
@@ -968,6 +980,7 @@ msgstr ""
 #: lib/craftplan_web/live/manage/purchasing_live/index.ex:36
 #: lib/craftplan_web/live/manage/purchasing_live/purchase_order_form_component.ex:29
 #: lib/craftplan_web/live/manage/purchasing_live/show.ex:36
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:81
 #, elixir-autogen, elixir-format
 msgid "Status"
 msgstr ""
@@ -1085,6 +1098,7 @@ msgid "per"
 msgstr ""
 
 #: lib/craftplan_web/live/manage/product_live/form_component.ex:29
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:92
 #, elixir-autogen, elixir-format
 msgid "Active"
 msgstr ""
@@ -2000,7 +2014,7 @@ msgstr ""
 msgid "Contact Phone"
 msgstr ""
 
-#: lib/craftplan_web/live/manage/settings_live/form_component.ex:339
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:347
 #, elixir-autogen, elixir-format
 msgid "Define the language for the interface, emails, and reports."
 msgstr ""
@@ -2029,8 +2043,8 @@ msgstr ""
 msgid "Item added to PO"
 msgstr ""
 
-#: lib/craftplan_web/live/manage/settings_live/form_component.ex:336
-#: lib/craftplan_web/live/manage/settings_live/form_component.ex:347
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:344
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:355
 #, elixir-autogen, elixir-format
 msgid "Language"
 msgstr ""
@@ -2197,6 +2211,7 @@ msgstr ""
 
 #: lib/craftplan_web/live/manage/customer_live/index.ex:11
 #: lib/craftplan_web/live/manage/customer_live/index.ex:115
+#: lib/craftplan_web/live/manage/settings_live/index.ex:141
 #, elixir-autogen, elixir-format
 msgid "Customers"
 msgstr ""
@@ -2294,4 +2309,639 @@ msgstr ""
 #: lib/craftplan_web/live/manage/customer_live/index.ex:44
 #, elixir-autogen, elixir-format
 msgid "Use this form to manage customer records in your database."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:286
+#, elixir-autogen, elixir-format
+msgid "%{count} resource"
+msgid_plural "%{count} resources"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:136
+#, elixir-autogen, elixir-format
+msgid "+"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:25
+#: lib/craftplan_web/live/manage/settings_live/index.ex:248
+#, elixir-autogen, elixir-format
+msgid "API Keys"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:219
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:227
+#, elixir-autogen, elixir-format
+msgid "API key"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:240
+#, elixir-autogen, elixir-format
+msgid "API key created"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:38
+#, elixir-autogen, elixir-format
+msgid "API key created — copy it now, it won't be shown again"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:242
+#, elixir-autogen, elixir-format
+msgid "Access key"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:93
+#, elixir-autogen, elixir-format
+msgid "Add Allergen"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:103
+#, elixir-autogen, elixir-format
+msgid "Add New Allergen"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:89
+#, elixir-autogen, elixir-format
+msgid "Add nutritional facts that you frequently reference. These appear anywhere you select nutrients."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:164
+#, elixir-autogen, elixir-format
+msgid "Allergen added successfully"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:186
+#, elixir-autogen, elixir-format
+msgid "Allergen deleted successfully"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:114
+#, elixir-autogen, elixir-format
+msgid "Allergen name"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/index.ex:236
+#, elixir-autogen, elixir-format
+msgid "Allergens Settings"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:210
+#, elixir-autogen, elixir-format
+msgid "Always"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:144
+#, elixir-autogen, elixir-format
+msgid "Apple Calendar"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:54
+#, elixir-autogen, elixir-format
+msgid "Are you sure you want to delete this allergen? This action cannot be undone."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:61
+#, elixir-autogen, elixir-format
+msgid "Are you sure you want to delete this nutritional fact? This action cannot be undone."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:102
+#, elixir-autogen, elixir-format
+msgid "Are you sure you want to revoke this API key? This action cannot be undone."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/index.ex:84
+#, elixir-autogen, elixir-format
+msgid "Bring in your existing records. Each import walks you through column mapping so nothing gets lost."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:18
+#: lib/craftplan_web/live/manage/settings_live/index.ex:252
+#, elixir-autogen, elixir-format
+msgid "Calendar Feed"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:195
+#, elixir-autogen, elixir-format
+msgid "Calendar feed generated"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:65
+#, elixir-autogen, elixir-format
+msgid "Calendar feeds"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:50
+#, elixir-autogen, elixir-format
+msgid "Choose how tax is applied and define a default rate. Rates are decimal, e.g. 0.21 for 21%."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:133
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:146
+#, elixir-autogen, elixir-format
+msgid "Click \"Generate Calendar Feed\" and copy the URL"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:86
+#, elixir-autogen, elixir-format
+msgid "Configure how orders are fulfilled and the capacity rules that inform scheduling."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:135
+#, elixir-autogen, elixir-format
+msgid "Configure the sender name and address used for outgoing emails."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:57
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:53
+#, elixir-autogen, elixir-format
+msgid "Copy"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:34
+#, elixir-autogen, elixir-format
+msgid "Copy this URL now — the full key won't be shown again."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:28
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:123
+#, elixir-autogen, elixir-format
+msgid "Create API Key"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:178
+#, elixir-autogen, elixir-format
+msgid "Create Key"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:82
+#, elixir-autogen, elixir-format
+msgid "Create new allergens or remove ones you no longer track. Changes apply immediately across Craftplan."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:98
+#, elixir-autogen, elixir-format
+msgid "Created"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:119
+#, elixir-autogen, elixir-format
+msgid "Daily capacity"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:35
+#, elixir-autogen, elixir-format
+msgid "Default currency"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:233
+#, elixir-autogen, elixir-format
+msgid "Domain"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:67
+#, elixir-autogen, elixir-format
+msgid "Each feed has its own API key. Revoking a feed disables its URL."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:161
+#, elixir-autogen, elixir-format
+msgid "Email Delivery"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:132
+#, elixir-autogen, elixir-format
+msgid "Email Sender"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:104
+#, elixir-autogen, elixir-format
+msgid "Enter the name of the allergen you want to add"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:111
+#, elixir-autogen, elixir-format
+msgid "Enter the name of the nutritional fact you want to add"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/index.ex:138
+#, elixir-autogen, elixir-format
+msgid "Entity to export"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:60
+#, elixir-autogen, elixir-format
+msgid "Exclusive (add tax)"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/index.ex:150
+#, elixir-autogen, elixir-format
+msgid "Export CSV"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/index.ex:128
+#, elixir-autogen, elixir-format
+msgid "Export data"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:198
+#, elixir-autogen, elixir-format
+msgid "Failed to create calendar feed"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:95
+#, elixir-autogen, elixir-format
+msgid "Feed URL"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:149
+#, elixir-autogen, elixir-format
+msgid "File → New Calendar Subscription"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:43
+#, elixir-autogen, elixir-format
+msgid "Filter by name..."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:104
+#, elixir-autogen, elixir-format
+msgid "Flat shipping"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:137
+#, elixir-autogen, elixir-format
+msgid "From URL"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:83
+#, elixir-autogen, elixir-format
+msgid "Fulfillment & Capacity"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:24
+#, elixir-autogen, elixir-format
+msgid "General"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/index.ex:232
+#, elixir-autogen, elixir-format
+msgid "General Settings"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:77
+#, elixir-autogen, elixir-format
+msgid "Generate Calendar Feed"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/index.ex:130
+#, elixir-autogen, elixir-format
+msgid "Generate a CSV extract for your reporting and accounting workflows."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:131
+#, elixir-autogen, elixir-format
+msgid "Google Calendar"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:127
+#, elixir-autogen, elixir-format
+msgid "How to subscribe"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:209
+#, elixir-autogen, elixir-format
+msgid "If available"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/index.ex:244
+#, elixir-autogen, elixir-format
+msgid "Import & Export"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/index.ex:82
+#, elixir-autogen, elixir-format
+msgid "Import data into Craftplan"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:148
+#, elixir-autogen, elixir-format
+msgid "In Calendar, go to"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:61
+#, elixir-autogen, elixir-format
+msgid "Inclusive (price includes tax)"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/index.ex:142
+#, elixir-autogen, elixir-format
+msgid "Inventory movements"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:16
+#, elixir-autogen, elixir-format
+msgid "Keep a central list of nutrients you add to recipes and packaging."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/index.ex:159
+#, elixir-autogen, elixir-format
+msgid "Keep a snapshot of your data by exporting on a schedule. Imports are idempotent—reimporting an updated CSV lets you keep Craftplan and your spreadsheets in sync."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:137
+#, elixir-autogen, elixir-format
+msgid "Key name"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:76
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:101
+#, elixir-autogen, elixir-format
+msgid "Last used"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:112
+#, elixir-autogen, elixir-format
+msgid "Lead time (days)"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:80
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:87
+#, elixir-autogen, elixir-format
+msgid "Manage"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:21
+#, elixir-autogen, elixir-format
+msgid "Manage API keys for programmatic access to Craftplan. Keys use scoped permissions per resource."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:124
+#, elixir-autogen, elixir-format
+msgid "Name your key and select which resources it can access"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/index.ex:120
+#, elixir-autogen, elixir-format
+msgid "Need a template first? Click an import to download the matching CSV header layout."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:79
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:104
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:211
+#, elixir-autogen, elixir-format
+msgid "Never"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:112
+#, elixir-autogen, elixir-format
+msgid "No API keys yet. Create one using the button above."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:285
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:290
+#, elixir-autogen, elixir-format
+msgid "No access"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:69
+#, elixir-autogen, elixir-format
+msgid "No allergens match your search."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:67
+#, elixir-autogen, elixir-format
+msgid "No allergens yet. Add your first allergen from the manage panel."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:84
+#, elixir-autogen, elixir-format
+msgid "No calendar feeds yet. Click \"Generate Calendar Feed\" to create one."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:76
+#, elixir-autogen, elixir-format
+msgid "No nutritional facts match your search."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:74
+#, elixir-autogen, elixir-format
+msgid "No nutritional facts yet. Add your first entry from the manage panel."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/index.ex:240
+#, elixir-autogen, elixir-format
+msgid "Nutritional Facts Settings"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:171
+#, elixir-autogen, elixir-format
+msgid "Nutritional fact added successfully"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:195
+#, elixir-autogen, elixir-format
+msgid "Nutritional fact deleted successfully"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:121
+#, elixir-autogen, elixir-format
+msgid "Nutritional fact name"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:97
+#, elixir-autogen, elixir-format
+msgid "Offer delivery"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:93
+#, elixir-autogen, elixir-format
+msgid "Offer pickup"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:134
+#, elixir-autogen, elixir-format
+msgid "Open Google Calendar Settings"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:201
+#, elixir-autogen, elixir-format
+msgid "Password"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:139
+#, elixir-autogen, elixir-format
+msgid "Paste the URL and click \"Add calendar\""
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:151
+#, elixir-autogen, elixir-format
+msgid "Paste the URL and click \"Subscribe\""
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:68
+#, elixir-autogen, elixir-format
+msgid "Prefix"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:172
+#, elixir-autogen, elixir-format
+msgid "Provider"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:160
+#, elixir-autogen, elixir-format
+msgid "Read"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:256
+#, elixir-autogen, elixir-format
+msgid "Region"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:143
+#, elixir-autogen, elixir-format
+msgid "Resource permissions"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:107
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:117
+#, elixir-autogen, elixir-format
+msgid "Revoke"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:112
+#, elixir-autogen, elixir-format
+msgid "Revoke this calendar feed? Any calendar app using this URL will stop receiving updates."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:86
+#, elixir-autogen, elixir-format
+msgid "Revoked"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:181
+#, elixir-autogen, elixir-format
+msgid "SMTP host"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:187
+#, elixir-autogen, elixir-format
+msgid "SMTP port"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:117
+#, elixir-autogen, elixir-format
+msgid "Save Allergen"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:71
+#, elixir-autogen, elixir-format
+msgid "Scopes"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:33
+#, elixir-autogen, elixir-format
+msgid "Search allergens"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:16
+#, elixir-autogen, elixir-format
+msgid "Search and manage the allergens available across your products and materials."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:36
+#, elixir-autogen, elixir-format
+msgid "Search nutritional facts"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:248
+#, elixir-autogen, elixir-format
+msgid "Secret key"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:146
+#, elixir-autogen, elixir-format
+msgid "Select read and/or write access for each resource."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:148
+#, elixir-autogen, elixir-format
+msgid "Sender email"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:142
+#, elixir-autogen, elixir-format
+msgid "Sender name"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:27
+#, elixir-autogen, elixir-format
+msgid "Set the default currency used across orders, invoices, and reports."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/index.ex:228
+#, elixir-autogen, elixir-format
+msgid "Settings"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:20
+#, elixir-autogen, elixir-format
+msgid "Subscribe to your Craftplan orders and production batches in Google Calendar, Apple Calendar, or any app that supports iCal feeds."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:213
+#, elixir-autogen, elixir-format
+msgid "TLS mode"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:47
+#, elixir-autogen, elixir-format
+msgid "Tax & Pricing"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:63
+#, elixir-autogen, elixir-format
+msgid "Tax mode"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:70
+#, elixir-autogen, elixir-format
+msgid "Tax rate"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:160
+#, elixir-autogen, elixir-format
+msgid "The feed includes order deliveries and production batch schedules from the past 30 days through the next 90 days. Your calendar app will refresh automatically."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:158
+#: lib/craftplan_web/live/manage/settings_live/index.ex:157
+#, elixir-autogen, elixir-format
+msgid "Tip"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:40
+#, elixir-autogen, elixir-format
+msgid "Type to filter by name..."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:136
+#, elixir-autogen, elixir-format
+msgid "Under \"Other calendars\", click"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:195
+#, elixir-autogen, elixir-format
+msgid "Username"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:169
+#, elixir-autogen, elixir-format
+msgid "Write"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:31
+#, elixir-autogen, elixir-format
+msgid "Your new calendar subscription URL"
 msgstr ""

@@ -21,10 +21,10 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
           >
             <div class="border-b border-stone-200 px-4 py-3">
               <h3 id="general-settings-title" class="text-base font-semibold text-stone-800">
-                General
+                {gettext("General")}
               </h3>
               <p class="mt-1 text-sm text-stone-600">
-                Set the default currency used across orders, invoices, and reports.
+                {gettext("Set the default currency used across orders, invoices, and reports.")}
               </p>
             </div>
             <div class="space-y-4 p-4">
@@ -32,7 +32,7 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
                 field={@form[:currency]}
                 type="select"
                 options={currency_options()}
-                label="Default currency"
+                label={gettext("Default currency")}
               />
             </div>
           </section>
@@ -44,10 +44,12 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
           >
             <div class="border-b border-stone-200 px-4 py-3">
               <h3 id="tax-settings-title" class="text-base font-semibold text-stone-800">
-                Tax &amp; Pricing
+                {gettext("Tax & Pricing")}
               </h3>
               <p class="mt-1 text-sm text-stone-600">
-                Choose how tax is applied and define a default rate. Rates are decimal, e.g. 0.21 for 21%.
+                {gettext(
+                  "Choose how tax is applied and define a default rate. Rates are decimal, e.g. 0.21 for 21%."
+                )}
               </p>
             </div>
             <div class="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2">
@@ -55,17 +57,17 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
                 field={@form[:tax_mode]}
                 type="select"
                 options={[
-                  {"Exclusive (add tax)", :exclusive},
-                  {"Inclusive (price includes tax)", :inclusive}
+                  {gettext("Exclusive (add tax)"), :exclusive},
+                  {gettext("Inclusive (price includes tax)"), :inclusive}
                 ]}
-                label="Tax mode"
+                label={gettext("Tax mode")}
               />
               <.input
                 field={@form[:tax_rate]}
                 type="number"
                 step="0.001"
                 min="0"
-                label="Tax rate"
+                label={gettext("Tax rate")}
                 placeholder="0.21"
               />
             </div>
@@ -78,22 +80,28 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
           >
             <div class="border-b border-stone-200 px-4 py-3">
               <h3 id="fulfillment-settings-title" class="text-base font-semibold text-stone-800">
-                Fulfillment &amp; Capacity
+                {gettext("Fulfillment & Capacity")}
               </h3>
               <p class="mt-1 text-sm text-stone-600">
-                Configure how orders are fulfilled and the capacity rules that inform scheduling.
+                {gettext(
+                  "Configure how orders are fulfilled and the capacity rules that inform scheduling."
+                )}
               </p>
             </div>
             <div class="space-y-6 p-4">
               <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                <.input field={@form[:offers_pickup]} type="checkbox" label="Offer pickup" />
-                <.input field={@form[:offers_delivery]} type="checkbox" label="Offer delivery" />
+                <.input field={@form[:offers_pickup]} type="checkbox" label={gettext("Offer pickup")} />
+                <.input
+                  field={@form[:offers_delivery]}
+                  type="checkbox"
+                  label={gettext("Offer delivery")}
+                />
                 <.input
                   field={@form[:shipping_flat]}
                   type="number"
                   step="0.01"
                   min="0"
-                  label="Flat shipping"
+                  label={gettext("Flat shipping")}
                 />
               </div>
               <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -101,14 +109,14 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
                   field={@form[:lead_time_days]}
                   type="number"
                   min="0"
-                  label="Lead time (days)"
+                  label={gettext("Lead time (days)")}
                   placeholder="e.g. 2"
                 />
                 <.input
                   field={@form[:daily_capacity]}
                   type="number"
                   min="0"
-                  label="Daily capacity"
+                  label={gettext("Daily capacity")}
                   placeholder="0 for unlimited"
                 />
               </div>
@@ -121,23 +129,23 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
           >
             <div class="border-b border-stone-200 px-4 py-3">
               <h3 id="email-sender-settings-title" class="text-base font-semibold text-stone-800">
-                Email Sender
+                {gettext("Email Sender")}
               </h3>
               <p class="mt-1 text-sm text-stone-600">
-                Configure the sender name and address used for outgoing emails.
+                {gettext("Configure the sender name and address used for outgoing emails.")}
               </p>
             </div>
             <div class="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2">
               <.input
                 field={@form[:email_from_name]}
                 type="text"
-                label="Sender name"
+                label={gettext("Sender name")}
                 placeholder="Craftplan"
               />
               <.input
                 field={@form[:email_from_address]}
                 type="email"
-                label="Sender email"
+                label={gettext("Sender email")}
                 placeholder="noreply@craftplan.app"
               />
             </div>
@@ -150,7 +158,7 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
           >
             <div class="border-b border-stone-200 px-4 py-3">
               <h3 id="email-delivery-settings-title" class="text-base font-semibold text-stone-800">
-                Email Delivery
+                {gettext("Email Delivery")}
               </h3>
               <p class="mt-1 text-sm text-stone-600">
                 Choose an email provider and configure its credentials.
@@ -161,7 +169,7 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
                 field={@form[:email_provider]}
                 type="select"
                 options={provider_options()}
-                label="Provider"
+                label={gettext("Provider")}
               />
 
               <%= case selected_provider(@form) do %>
@@ -170,13 +178,13 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
                     <.input
                       field={@form[:smtp_host]}
                       type="text"
-                      label="SMTP host"
+                      label={gettext("SMTP host")}
                       placeholder="smtp.example.com"
                     />
                     <.input
                       field={@form[:smtp_port]}
                       type="number"
-                      label="SMTP port"
+                      label={gettext("SMTP port")}
                       placeholder="587"
                     />
                   </div>
@@ -184,13 +192,13 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
                     <.input
                       field={@form[:smtp_username]}
                       type="text"
-                      label="Username"
+                      label={gettext("Username")}
                       placeholder="user@example.com"
                     />
                     <.input
                       field={@form[:smtp_password]}
                       type="password"
-                      label="Password"
+                      label={gettext("Password")}
                       placeholder="••••••••"
                     />
                   </div>
@@ -198,17 +206,17 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
                     field={@form[:smtp_tls]}
                     type="select"
                     options={[
-                      {"If available", :if_available},
-                      {"Always", :always},
-                      {"Never", :never}
+                      {gettext("If available"), :if_available},
+                      {gettext("Always"), :always},
+                      {gettext("Never"), :never}
                     ]}
-                    label="TLS mode"
+                    label={gettext("TLS mode")}
                   />
                 <% provider when provider in [:sendgrid, :postmark, :brevo] -> %>
                   <.input
                     field={@form[:email_api_key]}
                     type="password"
-                    label="API key"
+                    label={gettext("API key")}
                     placeholder="••••••••"
                   />
                 <% :mailgun -> %>
@@ -216,13 +224,13 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
                     <.input
                       field={@form[:email_api_key]}
                       type="password"
-                      label="API key"
+                      label={gettext("API key")}
                       placeholder="••••••••"
                     />
                     <.input
                       field={@form[:email_api_domain]}
                       type="text"
-                      label="Domain"
+                      label={gettext("Domain")}
                       placeholder="mg.example.com"
                     />
                   </div>
@@ -231,13 +239,13 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
                     <.input
                       field={@form[:email_api_key]}
                       type="password"
-                      label="Access key"
+                      label={gettext("Access key")}
                       placeholder="AKIA..."
                     />
                     <.input
                       field={@form[:email_api_secret]}
                       type="password"
-                      label="Secret key"
+                      label={gettext("Secret key")}
                       placeholder="••••••••"
                     />
                   </div>
@@ -245,7 +253,7 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
                     field={@form[:email_api_region]}
                     type="select"
                     options={ses_region_options()}
-                    label="Region"
+                    label={gettext("Region")}
                   />
                 <% _ -> %>
               <% end %>
