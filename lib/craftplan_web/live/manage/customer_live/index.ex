@@ -8,8 +8,8 @@ defmodule CraftplanWeb.CustomerLive.Index do
   def render(assigns) do
     ~H"""
     <.header>
-      Customers
-      <:subtitle>Manage your customer records</:subtitle>
+      {gettext("Customers")}
+      <:subtitle>{gettext("Manage your customer records")}</:subtitle>
     </.header>
 
     <.table
@@ -20,19 +20,19 @@ defmodule CraftplanWeb.CustomerLive.Index do
       <:empty>
         <div class="block py-4 pr-6">
           <span class={["relative"]}>
-            No customers found
+            {gettext("No customers found")}
           </span>
         </div>
       </:empty>
-      <:col :let={{_id, customer}} label="Name">{customer.full_name}</:col>
-      <:col :let={{_id, customer}} label="Reference">
+      <:col :let={{_id, customer}} label={gettext("Name")}>{customer.full_name}</:col>
+      <:col :let={{_id, customer}} label={gettext("Reference")}>
         <.kbd>
           {format_reference(customer.reference)}
         </.kbd>
       </:col>
-      <:col :let={{_id, customer}} label="Email">{customer.email}</:col>
-      <:col :let={{_id, customer}} label="Phone">{customer.phone}</:col>
-      <:col :let={{_id, customer}} label="Type">
+      <:col :let={{_id, customer}} label={gettext("Email")}>{customer.email}</:col>
+      <:col :let={{_id, customer}} label={gettext("Phone")}>{customer.phone}</:col>
+      <:col :let={{_id, customer}} label={gettext("Type")}>
         <.badge text={customer.type} />
       </:col>
     </.table>
@@ -41,7 +41,7 @@ defmodule CraftplanWeb.CustomerLive.Index do
       :if={@live_action in [:new, :edit]}
       id="customer-modal"
       title={@page_title}
-      description="Use this form to manage customer records in your database."
+      description={gettext("Use this form to manage customer records in your database.")}
       show
       on_cancel={JS.patch(~p"/manage/customers")}
     >
@@ -82,7 +82,7 @@ defmodule CraftplanWeb.CustomerLive.Index do
 
   defp apply_action(socket, :edit, %{"id" => id}) do
     socket
-    |> assign(:page_title, "Edit Customer")
+    |> assign(:page_title, gettext("Edit Customer"))
     |> assign(
       :customer,
       Craftplan.CRM.get_customer_by_id!(id,
@@ -94,7 +94,7 @@ defmodule CraftplanWeb.CustomerLive.Index do
 
   defp apply_action(socket, :edit, %{"reference" => reference}) do
     socket
-    |> assign(:page_title, "Edit Customer")
+    |> assign(:page_title, gettext("Edit Customer"))
     |> assign(
       :customer,
       Craftplan.CRM.get_customer_by_reference!(reference,
@@ -106,13 +106,13 @@ defmodule CraftplanWeb.CustomerLive.Index do
 
   defp apply_action(socket, :new, _params) do
     socket
-    |> assign(:page_title, "New Customer")
+    |> assign(:page_title, gettext("New Customer"))
     |> assign(:customer, nil)
   end
 
   defp apply_action(socket, :index, _params) do
     socket
-    |> assign(:page_title, "Customers")
+    |> assign(:page_title, gettext("Customers"))
     |> assign(:customer, nil)
   end
 
@@ -137,11 +137,11 @@ defmodule CraftplanWeb.CustomerLive.Index do
       :ok ->
         {:noreply,
          socket
-         |> put_flash(:info, "Customer deleted successfully")
+         |> put_flash(:info, gettext("Customer deleted successfully"))
          |> stream_delete(:customers, %{id: id})}
 
       {:error, _error} ->
-        {:noreply, put_flash(socket, :error, "Failed to delete customer.")}
+        {:noreply, put_flash(socket, :error, gettext("Failed to delete customer."))}
     end
   end
 end

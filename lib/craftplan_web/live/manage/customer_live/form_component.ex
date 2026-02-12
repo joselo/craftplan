@@ -17,45 +17,45 @@ defmodule CraftplanWeb.CustomerLive.FormComponent do
           <.input
             field={@form[:type]}
             type="radiogroup"
-            options={[{"Individual", :individual}, {"Company", :company}]}
+            options={[{gettext("Individual"), :individual}, {gettext("Company"), :company}]}
             value={@form[:type].value || :individual}
           />
 
           <div class="space-y-4">
             <div class="flex flex-row space-x-4">
-              <.input field={@form[:first_name]} type="text" label="First name" />
-              <.input field={@form[:last_name]} type="text" label="Last name" />
+              <.input field={@form[:first_name]} type="text" label={gettext("First name")} />
+              <.input field={@form[:last_name]} type="text" label={gettext("Last name")} />
             </div>
-            <.input field={@form[:email]} type="email" label="Email" />
-            <.input field={@form[:phone]} type="tel" label="Phone" />
+            <.input field={@form[:email]} type="email" label={gettext("Email")} />
+            <.input field={@form[:phone]} type="tel" label={gettext("Phone")} />
           </div>
 
           <div class="flex flex-col space-y-4">
             <div class="space-y-4">
               <label class="text-sm font-semibold leading-6 text-zinc-800">
-                Billing Address
+                {gettext("Billing Address")}
               </label>
               <.inputs_for :let={f_addr} field={@form[:billing_address]}>
                 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <.input field={f_addr[:street]} type="text" label="Street" />
-                  <.input field={f_addr[:city]} type="text" label="City" />
-                  <.input field={f_addr[:state]} type="text" label="State" />
-                  <.input field={f_addr[:zip]} type="text" label="Postal Code" />
-                  <.input field={f_addr[:country]} type="text" label="Country" />
+                  <.input field={f_addr[:street]} type="text" label={gettext("Street")} />
+                  <.input field={f_addr[:city]} type="text" label={gettext("City")} />
+                  <.input field={f_addr[:state]} type="text" label={gettext("State")} />
+                  <.input field={f_addr[:zip]} type="text" label={gettext("Postal Code")} />
+                  <.input field={f_addr[:country]} type="text" label={gettext("Country")} />
                 </div>
               </.inputs_for>
             </div>
             <div class="space-y-4">
               <label class="text-sm font-semibold leading-6 text-zinc-800">
-                Shipping Address
+                {gettext("Shipping Address")}
               </label>
               <.inputs_for :let={f_addr} field={@form[:shipping_address]}>
                 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <.input field={f_addr[:street]} type="text" label="Street" />
-                  <.input field={f_addr[:city]} type="text" label="City" />
-                  <.input field={f_addr[:state]} type="text" label="State" />
-                  <.input field={f_addr[:zip]} type="text" label="Postal Code" />
-                  <.input field={f_addr[:country]} type="text" label="Country" />
+                  <.input field={f_addr[:street]} type="text" label={gettext("Street")} />
+                  <.input field={f_addr[:city]} type="text" label={gettext("City")} />
+                  <.input field={f_addr[:state]} type="text" label={gettext("State")} />
+                  <.input field={f_addr[:zip]} type="text" label={gettext("Postal Code")} />
+                  <.input field={f_addr[:country]} type="text" label={gettext("Country")} />
                 </div>
               </.inputs_for>
             </div>
@@ -63,7 +63,9 @@ defmodule CraftplanWeb.CustomerLive.FormComponent do
         </div>
 
         <:actions>
-          <.button variant={:primary} phx-disable-with="Saving...">Save Customer</.button>
+          <.button variant={:primary} phx-disable-with={gettext("Saving...")}>
+            {gettext("Save Customer")}
+          </.button>
         </:actions>
       </.simple_form>
     </div>
@@ -87,7 +89,7 @@ defmodule CraftplanWeb.CustomerLive.FormComponent do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Customer #{socket.assigns.form.source.type}d successfully")
+         |> put_flash(:info, gettext("Customer saved successfully"))
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, form} ->

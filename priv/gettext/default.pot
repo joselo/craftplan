@@ -95,6 +95,7 @@ msgstr ""
 msgid "Opening"
 msgstr ""
 
+#: lib/craftplan_web/live/manage/customer_live/show.ex:125
 #: lib/craftplan_web/live/manage/order_live/index.ex:46
 #: lib/craftplan_web/live/manage/order_live/index.ex:678
 #: lib/craftplan_web/live/manage/overview_live.ex:162
@@ -146,6 +147,8 @@ msgstr ""
 msgid "Quantities still to prep and those mid-production."
 msgstr ""
 
+#: lib/craftplan_web/live/manage/customer_live/index.ex:28
+#: lib/craftplan_web/live/manage/customer_live/show.ex:54
 #: lib/craftplan_web/live/manage/order_live/index.ex:159
 #: lib/craftplan_web/live/manage/order_live/show.ex:57
 #: lib/craftplan_web/live/manage/overview_live.ex:63
@@ -182,6 +185,7 @@ msgstr ""
 msgid "Todo Qty"
 msgstr ""
 
+#: lib/craftplan_web/live/manage/customer_live/show.ex:72
 #: lib/craftplan_web/live/manage/order_live/form_component.ex:54
 #: lib/craftplan_web/live/manage/order_live/index.ex:391
 #: lib/craftplan_web/live/manage/order_live/invoice.ex:54
@@ -410,6 +414,7 @@ msgstr ""
 msgid "Demand var"
 msgstr ""
 
+#: lib/craftplan_web/live/manage/customer_live/show.ex:120
 #: lib/craftplan_web/live/manage/inventory_live/show.ex:215
 #: lib/craftplan_web/live/manage/order_live/show.ex:308
 #: lib/craftplan_web/live/manage/product_live/show.ex:211
@@ -593,6 +598,8 @@ msgstr ""
 msgid "Minimum Stock"
 msgstr ""
 
+#: lib/craftplan_web/live/manage/customer_live/index.ex:27
+#: lib/craftplan_web/live/manage/customer_live/show.ex:26
 #: lib/craftplan_web/live/manage/inventory_live/form_component_material.ex:19
 #: lib/craftplan_web/live/manage/inventory_live/show.ex:33
 #: lib/craftplan_web/live/manage/product_live/form_component.ex:18
@@ -892,6 +899,7 @@ msgstr ""
 msgid "Save Nutritional Facts"
 msgstr ""
 
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:66
 #: lib/craftplan_web/live/manage/inventory_live/form_component_allergens.ex:31
 #: lib/craftplan_web/live/manage/inventory_live/form_component_material.ex:55
 #: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:109
@@ -946,6 +954,7 @@ msgstr ""
 msgid "Show Material"
 msgstr ""
 
+#: lib/craftplan_web/live/manage/customer_live/show.ex:57
 #: lib/craftplan_web/live/manage/inventory_live/show.ex:86
 #: lib/craftplan_web/live/manage/order_live/index.ex:74
 #: lib/craftplan_web/live/manage/order_live/index.ex:171
@@ -1674,6 +1683,7 @@ msgstr ""
 msgid "Delivered"
 msgstr ""
 
+#: lib/craftplan_web/live/manage/customer_live/show.ex:69
 #: lib/craftplan_web/live/manage/order_live/show.ex:93
 #, elixir-autogen, elixir-format
 msgid "Delivery Date"
@@ -1762,6 +1772,7 @@ msgstr ""
 msgid "Narrow the list by customer, fulfillment status, or delivery window."
 msgstr ""
 
+#: lib/craftplan_web/live/manage/customer_live/show.ex:45
 #: lib/craftplan_web/live/manage/order_live/index.ex:672
 #, elixir-autogen, elixir-format
 msgid "New Order"
@@ -1892,6 +1903,8 @@ msgstr ""
 msgid "Shipping"
 msgstr ""
 
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:50
+#: lib/craftplan_web/live/manage/customer_live/show.ex:32
 #: lib/craftplan_web/live/manage/order_live/show.ex:81
 #, elixir-autogen, elixir-format
 msgid "Shipping Address"
@@ -1997,6 +2010,9 @@ msgstr ""
 msgid "Edit Supplier"
 msgstr ""
 
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:29
+#: lib/craftplan_web/live/manage/customer_live/index.ex:33
+#: lib/craftplan_web/live/manage/customer_live/show.ex:27
 #: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:32
 #, elixir-autogen, elixir-format
 msgid "Email"
@@ -2054,6 +2070,9 @@ msgstr ""
 msgid "Overview"
 msgstr ""
 
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:30
+#: lib/craftplan_web/live/manage/customer_live/index.ex:34
+#: lib/craftplan_web/live/manage/customer_live/show.ex:28
 #: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:33
 #, elixir-autogen, elixir-format
 msgid "Phone"
@@ -2120,4 +2139,159 @@ msgstr ""
 #: lib/craftplan_web/live/manage/purchasing_live/show.ex:129
 #, elixir-autogen, elixir-format
 msgid "Unable to load purchase order"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:36
+#: lib/craftplan_web/live/manage/customer_live/show.ex:29
+#, elixir-autogen, elixir-format
+msgid "Billing Address"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:41
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:55
+#, elixir-autogen, elixir-format
+msgid "City"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:20
+#, elixir-autogen, elixir-format
+msgid "Company"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:44
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:58
+#, elixir-autogen, elixir-format
+msgid "Country"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/show.ex:66
+#, elixir-autogen, elixir-format
+msgid "Created at"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/show.ex:145
+#: lib/craftplan_web/live/manage/customer_live/show.ex:146
+#, elixir-autogen, elixir-format
+msgid "Customer Details"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/show.ex:147
+#, elixir-autogen, elixir-format
+msgid "Customer Orders"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/show.ex:148
+#, elixir-autogen, elixir-format
+msgid "Customer Statistics"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/index.ex:140
+#, elixir-autogen, elixir-format
+msgid "Customer deleted successfully"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:92
+#, elixir-autogen, elixir-format
+msgid "Customer saved successfully"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/index.ex:11
+#: lib/craftplan_web/live/manage/customer_live/index.ex:115
+#, elixir-autogen, elixir-format
+msgid "Customers"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/index.ex:85
+#: lib/craftplan_web/live/manage/customer_live/index.ex:97
+#, elixir-autogen, elixir-format
+msgid "Edit Customer"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/index.ex:144
+#, elixir-autogen, elixir-format
+msgid "Failed to delete customer."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:26
+#, elixir-autogen, elixir-format
+msgid "First name"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:20
+#, elixir-autogen, elixir-format
+msgid "Individual"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:27
+#, elixir-autogen, elixir-format
+msgid "Last name"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/index.ex:12
+#, elixir-autogen, elixir-format
+msgid "Manage your customer records"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/index.ex:109
+#, elixir-autogen, elixir-format
+msgid "New Customer"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/index.ex:23
+#, elixir-autogen, elixir-format
+msgid "No customers found"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/show.ex:43
+#, elixir-autogen, elixir-format
+msgid "Orders History"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:43
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:57
+#, elixir-autogen, elixir-format
+msgid "Postal Code"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:67
+#, elixir-autogen, elixir-format
+msgid "Save Customer"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:42
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:56
+#, elixir-autogen, elixir-format
+msgid "State"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/show.ex:130
+#, elixir-autogen, elixir-format
+msgid "Statistics"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:40
+#: lib/craftplan_web/live/manage/customer_live/form_component.ex:54
+#, elixir-autogen, elixir-format
+msgid "Street"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/show.ex:82
+#, elixir-autogen, elixir-format
+msgid "Total Orders"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/show.ex:85
+#, elixir-autogen, elixir-format
+msgid "Total Spent"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/index.ex:35
+#: lib/craftplan_web/live/manage/customer_live/show.ex:25
+#, elixir-autogen, elixir-format
+msgid "Type"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/customer_live/index.ex:44
+#, elixir-autogen, elixir-format
+msgid "Use this form to manage customer records in your database."
 msgstr ""
