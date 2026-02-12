@@ -15,10 +15,10 @@ defmodule CraftplanWeb.PurchasingLive.Index do
 
     ~H"""
     <.header>
-      Purchasing
+      {gettext("Purchasing")}
       <:actions>
         <.link patch={~p"/manage/purchasing/new"}>
-          <.button variant={:primary}>New Purchase Order</.button>
+          <.button variant={:primary}>{gettext("New Purchase Order")}</.button>
         </.link>
       </:actions>
     </.header>
@@ -29,17 +29,17 @@ defmodule CraftplanWeb.PurchasingLive.Index do
         rows={@purchase_orders}
         row_click={fn po -> JS.navigate(~p"/manage/purchasing/#{po.reference}") end}
       >
-        <:col :let={po} label="Reference">
+        <:col :let={po} label={gettext("Reference")}>
           <.kbd>{po.reference}</.kbd>
         </:col>
-        <:col :let={po} label="Supplier">{po.supplier.name}</:col>
-        <:col :let={po} label="Status">{po.status}</:col>
-        <:col :let={po} label="Ordered">{format_time(po.ordered_at, @time_zone)}</:col>
-        <:col :let={po} label="Received">{format_time(po.received_at, @time_zone)}</:col>
+        <:col :let={po} label={gettext("Supplier")}>{po.supplier.name}</:col>
+        <:col :let={po} label={gettext("Status")}>{po.status}</:col>
+        <:col :let={po} label={gettext("Ordered")}>{format_time(po.ordered_at, @time_zone)}</:col>
+        <:col :let={po} label={gettext("Received")}>{format_time(po.received_at, @time_zone)}</:col>
 
         <:action :let={po}>
           <.link :if={po.status != :received} phx-click={JS.push("receive", value: %{id: po.id})}>
-            <.button size={:sm}>Mark Received</.button>
+            <.button size={:sm}>{gettext("Mark Received")}</.button>
           </.link>
         </:action>
       </.table>
@@ -49,7 +49,7 @@ defmodule CraftplanWeb.PurchasingLive.Index do
       :if={@live_action == :new}
       id="po-new-modal"
       show
-      title="New Purchase Order"
+      title={gettext("New Purchase Order")}
       on_cancel={JS.patch(~p"/manage/purchasing")}
     >
       <.live_component
@@ -66,7 +66,11 @@ defmodule CraftplanWeb.PurchasingLive.Index do
       :if={@live_action == :add_item}
       id="po-item-modal"
       show
-      title={"Add Item to #{if @selected_po, do: @selected_po.reference, else: "PO"}"}
+      title={
+        gettext("Add Item to %{reference}",
+          reference: if(@selected_po, do: @selected_po.reference, else: "PO")
+        )
+      }
       on_cancel={JS.patch(~p"/manage/purchasing")}
     >
       <.live_component
@@ -100,7 +104,7 @@ defmodule CraftplanWeb.PurchasingLive.Index do
 
   @impl true
   def handle_params(params, _uri, socket) do
-    socket = assign(socket, :page_title, "Purchase Orders")
+    socket = assign(socket, :page_title, gettext("Purchase Orders"))
 
     socket =
       case socket.assigns.live_action do
@@ -131,7 +135,7 @@ defmodule CraftplanWeb.PurchasingLive.Index do
     {:noreply,
      socket
      |> assign(:purchase_orders, load_purchase_orders(socket))
-     |> put_flash(:info, "Purchase order created")
+     |> put_flash(:info, gettext("Purchase order created"))
      |> push_event("close-modal", %{id: "po-new-modal"})}
   end
 
@@ -139,7 +143,7 @@ defmodule CraftplanWeb.PurchasingLive.Index do
   def handle_info({:po_item_saved, _item}, socket) do
     {:noreply,
      socket
-     |> put_flash(:info, "Item added to PO")
+     |> put_flash(:info, gettext("Item added to PO"))
      |> push_event("close-modal", %{id: "po-item-modal"})}
   end
 

@@ -19,21 +19,27 @@ defmodule CraftplanWeb.PurchasingLive.PurchaseOrderFormComponent do
         <.input
           field={@form[:supplier_id]}
           type="select"
-          label="Supplier"
+          label={gettext("Supplier")}
           options={for s <- @suppliers, do: {s.name, s.id}}
         />
 
         <.input
           field={@form[:status]}
           type="select"
-          label="Status"
-          options={[{"Draft", :draft}, {"Ordered", :ordered}, {"Received", :received}]}
+          label={gettext("Status")}
+          options={[
+            {gettext("Draft"), :draft},
+            {gettext("Ordered"), :ordered},
+            {gettext("Received"), :received}
+          ]}
         />
 
-        <.input field={@form[:ordered_at]} type="datetime-local" label="Ordered At" />
+        <.input field={@form[:ordered_at]} type="datetime-local" label={gettext("Ordered At")} />
 
         <:actions>
-          <.button variant={:primary} phx-disable-with="Saving...">Save Purchase Order</.button>
+          <.button variant={:primary} phx-disable-with={gettext("Saving...")}>
+            {gettext("Save Purchase Order")}
+          </.button>
         </:actions>
       </.simple_form>
     </div>
@@ -58,7 +64,7 @@ defmodule CraftplanWeb.PurchasingLive.PurchaseOrderFormComponent do
 
         {:noreply,
          socket
-         |> put_flash(:info, "Purchase order saved")
+         |> put_flash(:info, gettext("Purchase order saved"))
          |> push_patch(to: socket.assigns.patch)}
 
       {:error, form} ->

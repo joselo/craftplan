@@ -69,6 +69,8 @@ msgstr ""
 #: lib/craftplan_web/live/manage/order_live/show.ex:201
 #: lib/craftplan_web/live/manage/overview_live.ex:195
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:89
+#: lib/craftplan_web/live/manage/purchasing_live/purchase_order_item_form_component.ex:23
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:44
 #, elixir-autogen, elixir-format
 msgid "Material"
 msgstr ""
@@ -147,6 +149,8 @@ msgstr ""
 #: lib/craftplan_web/live/manage/order_live/index.ex:159
 #: lib/craftplan_web/live/manage/order_live/show.ex:57
 #: lib/craftplan_web/live/manage/overview_live.ex:63
+#: lib/craftplan_web/live/manage/purchasing_live/index.ex:32
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:32
 #, elixir-autogen, elixir-format
 msgid "Reference"
 msgstr ""
@@ -424,6 +428,7 @@ msgid "Each chip shows the remaining balance after that day’s requirement. Cli
 msgstr ""
 
 #: lib/craftplan_web/live/manage/inventory_live/show.ex:20
+#: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:36
 #, elixir-autogen, elixir-format
 msgid "Edit"
 msgstr ""
@@ -595,6 +600,8 @@ msgstr ""
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:672
 #: lib/craftplan_web/live/manage/product_live/index.ex:36
 #: lib/craftplan_web/live/manage/product_live/show.ex:42
+#: lib/craftplan_web/live/manage/purchasing_live/supplier_form_component.ex:19
+#: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:30
 #, elixir-autogen, elixir-format
 msgid "Name"
 msgstr ""
@@ -663,6 +670,7 @@ msgid "None"
 msgstr ""
 
 #: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:91
+#: lib/craftplan_web/live/manage/purchasing_live/supplier_form_component.ex:25
 #, elixir-autogen, elixir-format
 msgid "Notes"
 msgstr ""
@@ -785,6 +793,8 @@ msgstr ""
 #: lib/craftplan_web/live/manage/order_live/show.ex:123
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:92
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:202
+#: lib/craftplan_web/live/manage/purchasing_live/purchase_order_item_form_component.ex:30
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:45
 #, elixir-autogen, elixir-format
 msgid "Quantity"
 msgstr ""
@@ -889,6 +899,8 @@ msgstr ""
 #: lib/craftplan_web/live/manage/order_live/form_component.ex:170
 #: lib/craftplan_web/live/manage/product_live/form_component.ex:55
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:551
+#: lib/craftplan_web/live/manage/purchasing_live/purchase_order_form_component.ex:40
+#: lib/craftplan_web/live/manage/purchasing_live/supplier_form_component.ex:28
 #, elixir-autogen, elixir-format
 msgid "Saving..."
 msgstr ""
@@ -944,6 +956,9 @@ msgstr ""
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:730
 #: lib/craftplan_web/live/manage/product_live/index.ex:54
 #: lib/craftplan_web/live/manage/product_live/show.ex:30
+#: lib/craftplan_web/live/manage/purchasing_live/index.ex:36
+#: lib/craftplan_web/live/manage/purchasing_live/purchase_order_form_component.ex:29
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:36
 #, elixir-autogen, elixir-format
 msgid "Status"
 msgstr ""
@@ -969,6 +984,9 @@ msgid "Suggested PO"
 msgstr ""
 
 #: lib/craftplan_web/live/manage/inventory_live/show.ex:78
+#: lib/craftplan_web/live/manage/purchasing_live/index.ex:35
+#: lib/craftplan_web/live/manage/purchasing_live/purchase_order_form_component.ex:22
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:35
 #, elixir-autogen, elixir-format
 msgid "Supplier"
 msgstr ""
@@ -1144,6 +1162,7 @@ msgid "Discontinued"
 msgstr ""
 
 #: lib/craftplan_web/live/manage/product_live/form_component.ex:27
+#: lib/craftplan_web/live/manage/purchasing_live/purchase_order_form_component.ex:31
 #, elixir-autogen, elixir-format
 msgid "Draft"
 msgstr ""
@@ -1728,6 +1747,7 @@ msgstr ""
 
 #: lib/craftplan_web/live/manage/order_live/form_component.ex:38
 #: lib/craftplan_web/live/manage/order_live/show.ex:313
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:113
 #, elixir-autogen, elixir-format
 msgid "Items"
 msgstr ""
@@ -1914,6 +1934,8 @@ msgstr ""
 
 #: lib/craftplan_web/live/manage/order_live/invoice.ex:34
 #: lib/craftplan_web/live/manage/order_live/show.ex:124
+#: lib/craftplan_web/live/manage/purchasing_live/purchase_order_item_form_component.ex:37
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:48
 #, elixir-autogen, elixir-format
 msgid "Unit Price"
 msgstr ""
@@ -1926,4 +1948,176 @@ msgstr ""
 #: lib/craftplan_web/live/manage/order_live/index.ex:404
 #, elixir-autogen, elixir-format
 msgid "View Order Details"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/purchase_order_item_form_component.ex:44
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:19
+#, elixir-autogen, elixir-format
+msgid "Add Item"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/index.ex:70
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:60
+#, elixir-autogen, elixir-format
+msgid "Add Item to %{reference}"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/purchase_order_item_form_component.ex:43
+#, elixir-autogen, elixir-format
+msgid "Adding..."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:31
+#, elixir-autogen, elixir-format
+msgid "Contact"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/supplier_form_component.ex:24
+#, elixir-autogen, elixir-format
+msgid "Contact Email"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/supplier_form_component.ex:21
+#, elixir-autogen, elixir-format
+msgid "Contact Name"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/supplier_form_component.ex:22
+#, elixir-autogen, elixir-format
+msgid "Contact Phone"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:339
+#, elixir-autogen, elixir-format
+msgid "Define the language for the interface, emails, and reports."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:46
+#, elixir-autogen, elixir-format
+msgid "Edit Supplier"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:32
+#, elixir-autogen, elixir-format
+msgid "Email"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/purchase_order_item_form_component.ex:68
+#, elixir-autogen, elixir-format
+msgid "Item added"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/index.ex:146
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:151
+#, elixir-autogen, elixir-format
+msgid "Item added to PO"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:336
+#: lib/craftplan_web/live/manage/settings_live/form_component.ex:347
+#, elixir-autogen, elixir-format
+msgid "Language"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/index.ex:42
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:22
+#, elixir-autogen, elixir-format
+msgid "Mark Received"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/index.ex:21
+#: lib/craftplan_web/live/manage/purchasing_live/index.ex:52
+#, elixir-autogen, elixir-format
+msgid "New Purchase Order"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:20
+#: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:46
+#, elixir-autogen, elixir-format
+msgid "New Supplier"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/index.ex:37
+#: lib/craftplan_web/live/manage/purchasing_live/purchase_order_form_component.ex:32
+#, elixir-autogen, elixir-format
+msgid "Ordered"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/purchase_order_form_component.ex:37
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:37
+#, elixir-autogen, elixir-format
+msgid "Ordered At"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:108
+#, elixir-autogen, elixir-format
+msgid "Overview"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:33
+#, elixir-autogen, elixir-format
+msgid "Phone"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/index.ex:107
+#, elixir-autogen, elixir-format
+msgid "Purchase Orders"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/index.ex:138
+#, elixir-autogen, elixir-format
+msgid "Purchase order created"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:100
+#, elixir-autogen, elixir-format
+msgid "Purchase order not found"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/purchase_order_form_component.ex:67
+#, elixir-autogen, elixir-format
+msgid "Purchase order saved"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/index.ex:18
+#, elixir-autogen, elixir-format
+msgid "Purchasing"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/index.ex:38
+#: lib/craftplan_web/live/manage/purchasing_live/purchase_order_form_component.ex:33
+#, elixir-autogen, elixir-format
+msgid "Received"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:38
+#, elixir-autogen, elixir-format
+msgid "Received At"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/purchase_order_form_component.ex:41
+#, elixir-autogen, elixir-format
+msgid "Save Purchase Order"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/supplier_form_component.ex:29
+#, elixir-autogen, elixir-format
+msgid "Save Supplier"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/supplier_form_component.ex:55
+#: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:92
+#, elixir-autogen, elixir-format
+msgid "Supplier saved"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:17
+#: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:69
+#, elixir-autogen, elixir-format
+msgid "Suppliers"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/purchasing_live/show.ex:129
+#, elixir-autogen, elixir-format
+msgid "Unable to load purchase order"
 msgstr ""

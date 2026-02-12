@@ -16,10 +16,10 @@ defmodule CraftplanWeb.PurchasingLive.Show do
       {@po.reference}
       <:actions>
         <.link patch={~p"/manage/purchasing/#{@po.reference}/add_item"}>
-          <.button variant={:outline}>Add Item</.button>
+          <.button variant={:outline}>{gettext("Add Item")}</.button>
         </.link>
         <.link :if={@po.status != :received} phx-click={JS.push("receive", value: %{id: @po.id})}>
-          <.button variant={:primary}>Mark Received</.button>
+          <.button variant={:primary}>{gettext("Mark Received")}</.button>
         </.link>
       </:actions>
     </.header>
@@ -29,21 +29,23 @@ defmodule CraftplanWeb.PurchasingLive.Show do
     <div class="mt-4 space-y-4">
       <.tabs_content :if={@live_action in [:show]}>
         <.list>
-          <:item title="Reference">
+          <:item title={gettext("Reference")}>
             <.kbd>{@po.reference}</.kbd>
           </:item>
-          <:item title="Supplier">{@po.supplier.name}</:item>
-          <:item title="Status">{@po.status}</:item>
-          <:item title="Ordered At">{format_time(@po.ordered_at, @time_zone)}</:item>
-          <:item title="Received At">{format_time(@po.received_at, @time_zone)}</:item>
+          <:item title={gettext("Supplier")}>{@po.supplier.name}</:item>
+          <:item title={gettext("Status")}>{@po.status}</:item>
+          <:item title={gettext("Ordered At")}>{format_time(@po.ordered_at, @time_zone)}</:item>
+          <:item title={gettext("Received At")}>{format_time(@po.received_at, @time_zone)}</:item>
         </.list>
       </.tabs_content>
       <.tabs_content :if={@live_action not in [:show]}>
         <div>
           <.table id="po-items" rows={@po.items}>
-            <:col :let={i} label="Material">{i.material.name}</:col>
-            <:col :let={i} label="Quantity">{format_amount(i.material.unit, i.quantity)}</:col>
-            <:col :let={i} label="Unit Price">
+            <:col :let={i} label={gettext("Material")}>{i.material.name}</:col>
+            <:col :let={i} label={gettext("Quantity")}>
+              {format_amount(i.material.unit, i.quantity)}
+            </:col>
+            <:col :let={i} label={gettext("Unit Price")}>
               {format_money(@settings.currency, i.unit_price || Decimal.new(0))}
             </:col>
           </.table>
@@ -55,7 +57,7 @@ defmodule CraftplanWeb.PurchasingLive.Show do
       :if={@live_action == :add_item}
       id="po-item-modal"
       show
-      title={"Add Item to #{@po.reference}"}
+      title={gettext("Add Item to %{reference}", reference: @po.reference)}
       on_cancel={
         JS.patch(
           if @live_action in [:items, :add_item],
@@ -95,7 +97,7 @@ defmodule CraftplanWeb.PurchasingLive.Show do
       {:ok, nil} ->
         {:noreply,
          socket
-         |> put_flash(:error, "Purchase order not found")
+         |> put_flash(:error, gettext("Purchase order not found"))
          |> push_navigate(to: ~p"/manage/purchasing")}
 
       {:ok, po} ->
@@ -103,12 +105,12 @@ defmodule CraftplanWeb.PurchasingLive.Show do
 
         tabs_links = [
           %{
-            label: "Overview",
+            label: gettext("Overview"),
             navigate: ~p"/manage/purchasing/#{po.reference}",
             active: live_action == :show
           },
           %{
-            label: "Items",
+            label: gettext("Items"),
             navigate: ~p"/manage/purchasing/#{po.reference}/items",
             active: live_action in [:items, :add_item]
           }
@@ -124,7 +126,7 @@ defmodule CraftplanWeb.PurchasingLive.Show do
       {:error, _} ->
         {:noreply,
          socket
-         |> put_flash(:error, "Unable to load purchase order")
+         |> put_flash(:error, gettext("Unable to load purchase order"))
          |> push_navigate(to: ~p"/manage/purchasing")}
     end
   end
@@ -146,7 +148,7 @@ defmodule CraftplanWeb.PurchasingLive.Show do
     {:noreply,
      socket
      |> assign(:po, po)
-     |> put_flash(:info, "Item added to PO")
+     |> put_flash(:info, gettext("Item added to PO"))
      |> push_event("close-modal", %{id: "po-item-modal"})}
   end
 

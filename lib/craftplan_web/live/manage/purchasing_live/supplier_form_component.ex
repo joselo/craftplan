@@ -16,16 +16,18 @@ defmodule CraftplanWeb.PurchasingLive.SupplierFormComponent do
         phx-change="validate"
         phx-submit="save"
       >
-        <.input field={@form[:name]} type="text" label="Name" />
+        <.input field={@form[:name]} type="text" label={gettext("Name")} />
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <.input field={@form[:contact_name]} type="text" label="Contact Name" />
-          <.input field={@form[:contact_phone]} type="text" label="Contact Phone" />
+          <.input field={@form[:contact_name]} type="text" label={gettext("Contact Name")} />
+          <.input field={@form[:contact_phone]} type="text" label={gettext("Contact Phone")} />
         </div>
-        <.input field={@form[:contact_email]} type="email" label="Contact Email" />
-        <.input field={@form[:notes]} type="textarea" label="Notes" />
+        <.input field={@form[:contact_email]} type="email" label={gettext("Contact Email")} />
+        <.input field={@form[:notes]} type="textarea" label={gettext("Notes")} />
 
         <:actions>
-          <.button variant={:primary} phx-disable-with="Saving...">Save Supplier</.button>
+          <.button variant={:primary} phx-disable-with={gettext("Saving...")}>
+            {gettext("Save Supplier")}
+          </.button>
         </:actions>
       </.simple_form>
     </div>
@@ -48,7 +50,10 @@ defmodule CraftplanWeb.PurchasingLive.SupplierFormComponent do
       {:ok, supplier} ->
         send(self(), {:supplier_saved, supplier})
 
-        {:noreply, socket |> put_flash(:info, "Supplier saved") |> push_patch(to: socket.assigns.patch)}
+        {:noreply,
+         socket
+         |> put_flash(:info, gettext("Supplier saved"))
+         |> push_patch(to: socket.assigns.patch)}
 
       {:error, form} ->
         {:noreply, assign(socket, :form, form)}

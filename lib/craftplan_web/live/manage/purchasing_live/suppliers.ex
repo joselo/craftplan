@@ -14,10 +14,10 @@ defmodule CraftplanWeb.PurchasingLive.Suppliers do
 
     ~H"""
     <.header>
-      Suppliers
+      {gettext("Suppliers")}
       <:actions>
         <.link patch={~p"/manage/purchasing/suppliers/new"}>
-          <.button variant={:primary}>New Supplier</.button>
+          <.button variant={:primary}>{gettext("New Supplier")}</.button>
         </.link>
       </:actions>
     </.header>
@@ -27,13 +27,13 @@ defmodule CraftplanWeb.PurchasingLive.Suppliers do
         rows={@suppliers}
         row_click={fn sup -> JS.patch(~p"/manage/purchasing/suppliers/#{sup.id}/edit") end}
       >
-        <:col :let={s} label="Name">{s.name}</:col>
-        <:col :let={s} label="Contact">{s.contact_name}</:col>
-        <:col :let={s} label="Email">{s.contact_email}</:col>
-        <:col :let={s} label="Phone">{s.contact_phone}</:col>
+        <:col :let={s} label={gettext("Name")}>{s.name}</:col>
+        <:col :let={s} label={gettext("Contact")}>{s.contact_name}</:col>
+        <:col :let={s} label={gettext("Email")}>{s.contact_email}</:col>
+        <:col :let={s} label={gettext("Phone")}>{s.contact_phone}</:col>
         <:action :let={s}>
           <.link patch={~p"/manage/purchasing/suppliers/#{s.id}/edit"}>
-            <.button size={:sm} variant={:outline}>Edit</.button>
+            <.button size={:sm} variant={:outline}>{gettext("Edit")}</.button>
           </.link>
         </:action>
       </.table>
@@ -43,7 +43,7 @@ defmodule CraftplanWeb.PurchasingLive.Suppliers do
       :if={@live_action in [:new, :edit]}
       id="supplier-modal"
       show
-      title={if @live_action == :new, do: "New Supplier", else: "Edit Supplier"}
+      title={if @live_action == :new, do: gettext("New Supplier"), else: gettext("Edit Supplier")}
       on_cancel={JS.patch(~p"/manage/purchasing/suppliers")}
     >
       <.live_component
@@ -66,7 +66,7 @@ defmodule CraftplanWeb.PurchasingLive.Suppliers do
 
   @impl true
   def handle_params(params, _uri, socket) do
-    socket = assign(socket, :page_title, "Suppliers")
+    socket = assign(socket, :page_title, gettext("Suppliers"))
 
     socket =
       case socket.assigns.live_action do
@@ -89,7 +89,7 @@ defmodule CraftplanWeb.PurchasingLive.Suppliers do
     {:noreply,
      socket
      |> assign(:suppliers, Inventory.list_suppliers!(actor: socket.assigns.current_user))
-     |> put_flash(:info, "Supplier saved")
+     |> put_flash(:info, gettext("Supplier saved"))
      |> push_event("close-modal", %{id: "supplier-modal"})}
   end
 
