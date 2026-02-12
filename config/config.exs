@@ -39,9 +39,6 @@ config :craftplan, CraftplanWeb.Endpoint,
   pubsub_server: Craftplan.PubSub,
   live_view: [signing_salt: "vNk6HzXn"]
 
-# TODO: Set default locale to es by default
-config :craftplan, CraftplanWeb.Gettext, default_locale: "es", locales: ~w(en es)
-
 config :craftplan,
   ecto_repos: [Craftplan.Repo],
   generators: [timestamp_type: :utc_datetime],

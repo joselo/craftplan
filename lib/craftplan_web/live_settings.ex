@@ -14,6 +14,7 @@ defmodule CraftplanWeb.LiveSettings do
       socket
       |> load_settings()
       |> assign_timezone(session["timezone"])
+      |> assign_locale()
       |> then(&{:cont, &1})
     end
   end
@@ -30,5 +31,14 @@ defmodule CraftplanWeb.LiveSettings do
 
   defp assign_timezone(socket, timezone) do
     assign(socket, :time_zone, timezone || "Etc/UTC")
+  end
+
+  defp assign_locale(socket) do
+    locale = socket.assigns.settings.locale || :en
+    locale_string = to_string(locale)
+
+    Gettext.put_locale(CraftplanWeb.Gettext, locale_string)
+
+    assign(socket, :locale, locale_string)
   end
 end

@@ -10,15 +10,17 @@ defmodule CraftplanWeb.OrderLive.Invoice do
     <div class="mx-auto max-w-3xl bg-white p-6 print:m-0 print:max-w-full print:border-0 print:p-0 print:shadow-none">
       <div class="mb-6 flex items-start justify-between">
         <div>
-          <h1 class="text-2xl font-semibold">Invoice</h1>
+          <h1 class="text-2xl font-semibold">{gettext("Invoice")}</h1>
           <div class="text-sm text-stone-600">
-            Reference:
+            {gettext("Reference:")}
             <.kbd>{@order.reference}</.kbd>
           </div>
-          <div class="text-sm text-stone-600">Issued: {format_date(@now, format: "%Y-%m-%d")}</div>
+          <div class="text-sm text-stone-600">
+            {gettext("Issued:")} {format_date(@now, format: "%Y-%m-%d")}
+          </div>
         </div>
         <div class="text-right text-sm">
-          <div class="font-medium">Customer</div>
+          <div class="font-medium">{gettext("Customer")}</div>
           <div>{@order.customer.full_name}</div>
           <div>
             {@order.customer.shipping_address && @order.customer.shipping_address.full_address}
@@ -27,30 +29,38 @@ defmodule CraftplanWeb.OrderLive.Invoice do
       </div>
 
       <.table id="invoice-items" no_margin rows={@order.items}>
-        <:col :let={item} label="Product">{item.product.name}</:col>
-        <:col :let={item} label="Qty">{item.quantity}</:col>
-        <:col :let={item} label="Unit Price">
+        <:col :let={item} label={gettext("Product")}>{item.product.name}</:col>
+        <:col :let={item} label={gettext("Qty")}>{item.quantity}</:col>
+        <:col :let={item} label={gettext("Unit Price")}>
           {format_money(@settings.currency, item.unit_price)}
         </:col>
-        <:col :let={item} label="Line Total">{format_money(@settings.currency, item.cost)}</:col>
+        <:col :let={item} label={gettext("Line Total")}>
+          {format_money(@settings.currency, item.cost)}
+        </:col>
       </.table>
 
       <div class="mt-6">
         <.list>
-          <:item title="Subtotal">{format_money(@settings.currency, @order.subtotal)}</:item>
-          <:item title="Shipping">{format_money(@settings.currency, @order.shipping_total)}</:item>
-          <:item title="Tax">{format_money(@settings.currency, @order.tax_total)}</:item>
-          <:item title="Discounts">{format_money(@settings.currency, @order.discount_total)}</:item>
-          <:item title="Total">{format_money(@settings.currency, @order.total)}</:item>
+          <:item title={gettext("Subtotal")}>
+            {format_money(@settings.currency, @order.subtotal)}
+          </:item>
+          <:item title={gettext("Shipping")}>
+            {format_money(@settings.currency, @order.shipping_total)}
+          </:item>
+          <:item title={gettext("Tax")}>{format_money(@settings.currency, @order.tax_total)}</:item>
+          <:item title={gettext("Discounts")}>
+            {format_money(@settings.currency, @order.discount_total)}
+          </:item>
+          <:item title={gettext("Total")}>{format_money(@settings.currency, @order.total)}</:item>
         </.list>
       </div>
 
       <div class="mt-6 flex justify-between print:hidden">
         <.link navigate={~p"/manage/orders/#{@order.reference}"}>
-          <.button variant={:outline}>Back to Order</.button>
+          <.button variant={:outline}>{gettext("Back to Order")}</.button>
         </.link>
         <.link href={~p"/manage/orders/#{@order.reference}/invoice.pdf"} target="_blank">
-          <.button variant={:primary}>Print / Save PDF</.button>
+          <.button variant={:primary}>{gettext("Print / Save PDF")}</.button>
         </.link>
       </div>
     </div>

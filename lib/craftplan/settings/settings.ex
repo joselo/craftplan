@@ -277,5 +277,13 @@ defmodule Craftplan.Settings.Settings do
       constraints min: 7, max: 90
       description "Default forecast horizon in days for the reorder planner."
     end
+
+    attribute :locale, :atom do
+      public? true
+      allow_nil? false
+      default :en
+      constraints one_of: [:en, :es]
+      description "Default language for the application interface"
+    end
   end
 end

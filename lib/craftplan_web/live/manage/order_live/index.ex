@@ -43,15 +43,15 @@ defmodule CraftplanWeb.OrderLive.Index do
     ~H"""
     <Page.page>
       <.header>
-        Orders
+        {gettext("Orders")}
       </.header>
 
       <Page.surface>
         <:header>
           <div class="space-y-1">
-            <h2 class="text-sm font-semibold text-stone-900">Filter orders</h2>
+            <h2 class="text-sm font-semibold text-stone-900">{gettext("Filter orders")}</h2>
             <p class="text-sm text-stone-500">
-              Narrow the list by customer, fulfillment status, or delivery window.
+              {gettext("Narrow the list by customer, fulfillment status, or delivery window.")}
             </p>
           </div>
         </:header>
@@ -65,26 +65,26 @@ defmodule CraftplanWeb.OrderLive.Index do
               name="filters[customer_name]"
               id="customer_name"
               value={@filters["customer_name"]}
-              label="Customer name"
+              label={gettext("Customer name")}
               placeholder="Luca Georgino"
             />
 
             <div class="min-w-[12rem]">
               <.input
-                label="Status"
+                label={gettext("Status")}
                 type="checkdrop"
                 name="filters[status][]"
                 id="status"
                 value={@filters["status"]}
                 multiple={true}
                 options={[
-                  {"Unconfirmed", "unconfirmed"},
-                  {"Confirmed", "confirmed"},
-                  {"In Progress", "in_progress"},
-                  {"Ready", "ready"},
-                  {"Delivered", "delivered"},
-                  {"Completed", "completed"},
-                  {"Cancelled", "cancelled"}
+                  {gettext("Unconfirmed"), "unconfirmed"},
+                  {gettext("Confirmed"), "confirmed"},
+                  {gettext("In Progress"), "in_progress"},
+                  {gettext("Ready"), "ready"},
+                  {gettext("Delivered"), "delivered"},
+                  {gettext("Completed"), "completed"},
+                  {gettext("Cancelled"), "cancelled"}
                 ]}
               />
             </div>
@@ -96,12 +96,12 @@ defmodule CraftplanWeb.OrderLive.Index do
                 id="payment_status"
                 value={@filters["payment_status"]}
                 multiple={true}
-                label="Payment status"
+                label={gettext("Payment status")}
                 options={[
-                  {"Paid", "paid"},
-                  {"Pending", "pending"},
-                  {"To be Refunded", "to_be_refunded"},
-                  {"Refunded", "refunded"}
+                  {gettext("Paid"), "paid"},
+                  {gettext("Pending"), "pending"},
+                  {gettext("To be Refunded"), "to_be_refunded"},
+                  {gettext("Refunded"), "refunded"}
                 ]}
               />
             </div>
@@ -111,7 +111,7 @@ defmodule CraftplanWeb.OrderLive.Index do
               name="filters[delivery_date_start]"
               id="delivery_date_start"
               value={@filters["delivery_date_start"]}
-              label="Delivery date after"
+              label={gettext("Delivery date after")}
             />
 
             <.input
@@ -119,15 +119,17 @@ defmodule CraftplanWeb.OrderLive.Index do
               name="filters[delivery_date_end]"
               id="delivery_date_end"
               value={@filters["delivery_date_end"]}
-              label="Delivery date before"
+              label={gettext("Delivery date before")}
             />
           </Page.form_grid>
         </form>
       </Page.surface>
 
       <Page.section
-        title="Orders overview"
-        description="Toggle between table and calendar formats to manage production promises."
+        title={gettext("Orders overview")}
+        description={
+          gettext("Toggle between table and calendar formats to manage production promises.")
+        }
       >
         <:actions :if={Enum.any?(@nav_sub_links)}>
           <Page.toggle_bar links={@nav_sub_links} />
@@ -141,11 +143,11 @@ defmodule CraftplanWeb.OrderLive.Index do
           >
             <:empty>
               <div class="rounded-md border border-dashed border-stone-200 bg-stone-50 py-10 text-center text-sm text-stone-500">
-                No orders match the current filters.
+                {gettext("No orders match the current filters.")}
               </div>
             </:empty>
 
-            <:col :let={{_id, order}} label="Customer">
+            <:col :let={{_id, order}} label={gettext("Customer")}>
               <.link
                 class="hover:text-primary-600 hover:underline"
                 navigate={~p"/manage/customers/#{order.customer.reference}"}
@@ -154,19 +156,19 @@ defmodule CraftplanWeb.OrderLive.Index do
               </.link>
             </:col>
 
-            <:col :let={{_id, order}} label="Reference">
+            <:col :let={{_id, order}} label={gettext("Reference")}>
               <.kbd>{format_reference(order.reference)}</.kbd>
             </:col>
 
-            <:col :let={{_id, order}} label="Delivery date">
+            <:col :let={{_id, order}} label={gettext("Delivery date")}>
               {format_time(order.delivery_date, @time_zone)}
             </:col>
 
-            <:col :let={{_id, order}} label="Total cost">
+            <:col :let={{_id, order}} label={gettext("Total cost")}>
               {format_money(@settings.currency, order.total_cost)}
             </:col>
 
-            <:col :let={{_id, order}} label="Status">
+            <:col :let={{_id, order}} label={gettext("Status")}>
               <.badge
                 text={order.status}
                 colors={[
@@ -176,7 +178,7 @@ defmodule CraftplanWeb.OrderLive.Index do
               />
             </:col>
 
-            <:col :let={{_id, order}} label="Payment">
+            <:col :let={{_id, order}} label={gettext("Payment")}>
               <.badge text={"#{emoji_for_payment(order.payment_status)} #{order.payment_status}"} />
             </:col>
           </.table>
@@ -219,7 +221,7 @@ defmodule CraftplanWeb.OrderLive.Index do
                 phx-click="today"
                 class="border-y border-gray-300 bg-white px-3 py-1 text-xs font-medium uppercase tracking-wide text-stone-600 transition hover:bg-gray-50 disabled:cursor-default disabled:bg-gray-100 disabled:text-gray-400"
               >
-                Today
+                {gettext("Today")}
               </button>
               <button
                 type="button"
@@ -364,15 +366,15 @@ defmodule CraftplanWeb.OrderLive.Index do
       <div class="py-6">
         <div>
           <.list>
-            <:item title="Customer">
+            <:item title={gettext("Customer")}>
               {@selected_order.customer.full_name}
             </:item>
 
-            <:item title="Delivery time">
+            <:item title={gettext("Delivery time")}>
               {format_time(@selected_order.delivery_date, @time_zone)}
             </:item>
 
-            <:item title="Status">
+            <:item title={gettext("Status")}>
               <.badge
                 text={@selected_order.status}
                 colors={[
@@ -382,11 +384,11 @@ defmodule CraftplanWeb.OrderLive.Index do
               />
             </:item>
 
-            <:item title="Payment Status">
+            <:item title={gettext("Payment Status")}>
               <.badge text={"#{emoji_for_payment(@selected_order.payment_status)} #{@selected_order.payment_status}"} />
             </:item>
 
-            <:item title="Total">
+            <:item title={gettext("Total")}>
               {format_money(@settings.currency, @selected_order.total_cost)}
             </:item>
           </.list>
@@ -399,10 +401,10 @@ defmodule CraftplanWeb.OrderLive.Index do
           class="mr-2"
           phx-click={JS.navigate(~p"/manage/orders/#{@selected_order.reference}")}
         >
-          View Order Details
+          {gettext("View Order Details")}
         </.button>
         <.button variant={:outline} phx-click="close_event_modal">
-          Close
+          {gettext("Close")}
         </.button>
       </div>
     </.modal>
@@ -566,11 +568,11 @@ defmodule CraftplanWeb.OrderLive.Index do
       :ok ->
         {:noreply,
          socket
-         |> put_flash(:info, "Order deleted successfully")
+         |> put_flash(:info, gettext("Order deleted successfully"))
          |> stream_delete(:orders, %{id: id})}
 
       {:error, _error} ->
-        {:noreply, put_flash(socket, :error, "Failed to delete order.")}
+        {:noreply, put_flash(socket, :error, gettext("Failed to delete order."))}
     end
   end
 
@@ -667,13 +669,13 @@ defmodule CraftplanWeb.OrderLive.Index do
 
   defp apply_action(socket, :new, _params) do
     socket
-    |> assign(:page_title, "New Order")
+    |> assign(:page_title, gettext("New Order"))
     |> assign(:order, nil)
   end
 
   defp apply_action(socket, :index, _params) do
     socket
-    |> assign(:page_title, "Orders")
+    |> assign(:page_title, gettext("Orders"))
     |> assign(:order, nil)
   end
 

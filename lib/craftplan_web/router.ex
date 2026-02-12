@@ -41,6 +41,7 @@ defmodule CraftplanWeb.Router do
     plug :put_csp
     plug :load_from_session
     plug :put_session_timezone
+    plug CraftplanWeb.Plugs.Locale
   end
 
   pipeline :api do

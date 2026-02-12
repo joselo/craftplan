@@ -2,7 +2,7 @@ defmodule Craftplan.Cldr do
   @moduledoc false
   use Cldr,
     otp_app: :craftplan,
-    locales: ["en"],
+    locales: ["en", "es"],
     default_locale: "en",
     json_library: Jason,
     providers: [Cldr.Number],

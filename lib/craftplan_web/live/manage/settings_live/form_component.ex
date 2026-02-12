@@ -326,6 +326,28 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
               </p>
             </div>
           </section>
+          <section
+            id="locale-settings"
+            aria-labelledby="locale-settings-title"
+            class="rounded-lg border border-stone-200 bg-stone-50"
+          >
+            <div class="border-b border-stone-200 px-4 py-3">
+              <h3 id="locale-settings-title" class="text-base font-semibold text-stone-800">
+                {gettext("Language")}
+              </h3>
+              <p class="mt-1 text-sm text-stone-600">
+                {gettext("Define the language for the interface, emails, and reports.")}
+              </p>
+            </div>
+            <div class="space-y-4 p-4">
+              <.input
+                field={@form[:locale]}
+                type="select"
+                options={locale_options()}
+                label={gettext("Language")}
+              />
+            </div>
+          </section>
         </div>
 
         <:actions>
@@ -417,5 +439,12 @@ defmodule CraftplanWeb.SettingsLive.FormComponent do
          end
        end)
        |> Enum.reject(&is_nil/1))
+  end
+
+  defp locale_options do
+    [
+      {"English", :en},
+      {"Spanish", :es}
+    ]
   end
 end

@@ -26,6 +26,11 @@ msgstr "Límite"
 msgid "Capacity looks balanced."
 msgstr "La capacidad parece equilibrada."
 
+#: lib/craftplan_web/live/manage/order_live/form_component.ex:24
+#: lib/craftplan_web/live/manage/order_live/index.ex:150
+#: lib/craftplan_web/live/manage/order_live/index.ex:369
+#: lib/craftplan_web/live/manage/order_live/invoice.ex:23
+#: lib/craftplan_web/live/manage/order_live/show.ex:73
 #: lib/craftplan_web/live/manage/overview_live.ex:66
 #, elixir-autogen, elixir-format
 msgid "Customer"
@@ -61,6 +66,7 @@ msgstr "Cant. en Curso"
 #: lib/craftplan_web/live/manage/inventory_live/index.ex:65
 #: lib/craftplan_web/live/manage/inventory_live/index.ex:298
 #: lib/craftplan_web/live/manage/inventory_live/reorder.ex:657
+#: lib/craftplan_web/live/manage/order_live/show.ex:201
 #: lib/craftplan_web/live/manage/overview_live.ex:195
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:89
 #, elixir-autogen, elixir-format
@@ -87,6 +93,8 @@ msgstr "No hay días próximos que excedan su capacidad de pedidos."
 msgid "Opening"
 msgstr "Inicial"
 
+#: lib/craftplan_web/live/manage/order_live/index.ex:46
+#: lib/craftplan_web/live/manage/order_live/index.ex:678
 #: lib/craftplan_web/live/manage/overview_live.ex:162
 #, elixir-autogen, elixir-format
 msgid "Orders"
@@ -108,6 +116,9 @@ msgid "Over-capacity details"
 msgstr "Detalles de sobrecapacidad"
 
 #: lib/craftplan_web/live/manage/inventory_live/index.ex:447
+#: lib/craftplan_web/live/manage/order_live/form_component.ex:48
+#: lib/craftplan_web/live/manage/order_live/invoice.ex:32
+#: lib/craftplan_web/live/manage/order_live/show.ex:105
 #: lib/craftplan_web/live/manage/overview_live.ex:96
 #: lib/craftplan_web/live/manage/overview_live.ex:130
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:156
@@ -133,12 +144,15 @@ msgstr "Productos que exceden su límite diario."
 msgid "Quantities still to prep and those mid-production."
 msgstr "Cantidades aún por preparar y aquellas en producción."
 
+#: lib/craftplan_web/live/manage/order_live/index.ex:159
+#: lib/craftplan_web/live/manage/order_live/show.ex:57
 #: lib/craftplan_web/live/manage/overview_live.ex:63
 #, elixir-autogen, elixir-format
 msgid "Reference"
 msgstr "Referencia"
 
 #: lib/craftplan_web/live/manage/inventory_live/index.ex:373
+#: lib/craftplan_web/live/manage/order_live/show.ex:202
 #: lib/craftplan_web/live/manage/overview_live.ex:196
 #, elixir-autogen, elixir-format
 msgid "Required"
@@ -164,6 +178,11 @@ msgstr "Resumen de hoy"
 msgid "Todo Qty"
 msgstr "Cant. por Hacer"
 
+#: lib/craftplan_web/live/manage/order_live/form_component.ex:54
+#: lib/craftplan_web/live/manage/order_live/index.ex:391
+#: lib/craftplan_web/live/manage/order_live/invoice.ex:54
+#: lib/craftplan_web/live/manage/order_live/show.ex:89
+#: lib/craftplan_web/live/manage/order_live/show.ex:127
 #: lib/craftplan_web/live/manage/overview_live.ex:67
 #, elixir-autogen, elixir-format
 msgid "Total"
@@ -205,6 +224,7 @@ msgid "Action"
 msgstr "Acción"
 
 #: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:48
+#: lib/craftplan_web/live/manage/order_live/form_component.ex:57
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:101
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:354
 #, elixir-autogen, elixir-format
@@ -217,6 +237,8 @@ msgid "Actual weight"
 msgstr "Peso real"
 
 #: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:46
+#: lib/craftplan_web/live/manage/order_live/form_component.ex:155
+#: lib/craftplan_web/live/manage/order_live/show.ex:267
 #, elixir-autogen, elixir-format
 msgid "Add"
 msgstr "Agregar"
@@ -309,6 +331,7 @@ msgid "Browse SKUs, stock on hand, and pricing."
 msgstr "Examine SKUs, stock disponible y precios."
 
 #: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:187
+#: lib/craftplan_web/live/manage/order_live/show.ex:265
 #: lib/craftplan_web/live/manage/product_live/form_component_photos.ex:100
 #, elixir-autogen, elixir-format
 msgid "Cancel"
@@ -326,6 +349,8 @@ msgstr "Verificar compromisos de producción"
 
 #: lib/craftplan_web/live/manage/inventory_live/index.ex:472
 #: lib/craftplan_web/live/manage/inventory_live/reorder.ex:268
+#: lib/craftplan_web/live/manage/order_live/index.ex:407
+#: lib/craftplan_web/live/manage/order_live/show.ex:210
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:631
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:713
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:754
@@ -349,6 +374,7 @@ msgid "Cover"
 msgstr "Cobertura"
 
 #: lib/craftplan_web/live/manage/inventory_live/show.ex:57
+#: lib/craftplan_web/live/manage/order_live/show.ex:205
 #, elixir-autogen, elixir-format
 msgid "Current Stock"
 msgstr "Stock Actual"
@@ -381,6 +407,7 @@ msgid "Demand var"
 msgstr "Var demanda"
 
 #: lib/craftplan_web/live/manage/inventory_live/show.ex:215
+#: lib/craftplan_web/live/manage/order_live/show.ex:308
 #: lib/craftplan_web/live/manage/product_live/show.ex:211
 #, elixir-autogen, elixir-format
 msgid "Details"
@@ -754,6 +781,8 @@ msgstr "Orden de Compra"
 #: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:71
 #: lib/craftplan_web/live/manage/inventory_live/show.ex:83
 #: lib/craftplan_web/live/manage/inventory_live/show.ex:130
+#: lib/craftplan_web/live/manage/order_live/form_component.ex:51
+#: lib/craftplan_web/live/manage/order_live/show.ex:123
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:92
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:202
 #, elixir-autogen, elixir-format
@@ -776,6 +805,7 @@ msgid "Reason"
 msgstr "Razón"
 
 #: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:120
+#: lib/craftplan_web/live/manage/order_live/form_component.ex:120
 #: lib/craftplan_web/live/manage/product_live/form_component_photos.ex:182
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:252
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:500
@@ -856,6 +886,7 @@ msgstr "Guardar Información Nutricional"
 #: lib/craftplan_web/live/manage/inventory_live/form_component_material.ex:55
 #: lib/craftplan_web/live/manage/inventory_live/form_component_movement.ex:109
 #: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:153
+#: lib/craftplan_web/live/manage/order_live/form_component.ex:170
 #: lib/craftplan_web/live/manage/product_live/form_component.ex:55
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:551
 #, elixir-autogen, elixir-format
@@ -904,6 +935,11 @@ msgid "Show Material"
 msgstr "Mostrar Material"
 
 #: lib/craftplan_web/live/manage/inventory_live/show.ex:86
+#: lib/craftplan_web/live/manage/order_live/index.ex:74
+#: lib/craftplan_web/live/manage/order_live/index.ex:171
+#: lib/craftplan_web/live/manage/order_live/index.ex:377
+#: lib/craftplan_web/live/manage/order_live/show.ex:63
+#: lib/craftplan_web/live/manage/order_live/show.ex:130
 #: lib/craftplan_web/live/manage/product_live/form_component.ex:25
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:730
 #: lib/craftplan_web/live/manage/product_live/index.ex:54
@@ -953,6 +989,7 @@ msgid "These tips help you interpret the requirement chips and final balance col
 msgstr "Estos consejos le ayudan a interpretar las fichas de requerimiento y la columna de balance final."
 
 #: lib/craftplan_web/live/manage/inventory_live/index.ex:260
+#: lib/craftplan_web/live/manage/order_live/index.ex:224
 #, elixir-autogen, elixir-format
 msgid "Today"
 msgstr "Hoy"
@@ -1060,6 +1097,7 @@ msgstr "Disponibilidad"
 msgid "Available"
 msgstr "Disponible"
 
+#: lib/craftplan_web/live/manage/order_live/show.ex:169
 #: lib/craftplan_web/live/manage/product_live/label.ex:20
 #, elixir-autogen, elixir-format
 msgid "Batch"
@@ -1454,6 +1492,7 @@ msgstr "Costo Total"
 msgid "Track each step that consumes paid time. Override the hourly rate per step to fine-tune costs."
 msgstr "Registra cada paso que consume tiempo pagado. Personaliza la tarifa por hora en cada paso para ajustar costos."
 
+#: lib/craftplan_web/live/manage/order_live/show.ex:181
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:677
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:734
 #, elixir-autogen, elixir-format
@@ -1540,3 +1579,337 @@ msgstr "por unidad"
 #, elixir-autogen, elixir-format
 msgid "uploaded"
 msgstr "subido"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:240
+#, elixir-autogen, elixir-format
+msgid "Add Item to Batch"
+msgstr "Agregar Artículo al Lote"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:166
+#, elixir-autogen, elixir-format
+msgid "Add to Batch…"
+msgstr "Agregar a Lote…"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:418
+#, elixir-autogen, elixir-format
+msgid "Allocation added"
+msgstr "Asignación agregada"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:149
+#, elixir-autogen, elixir-format
+msgid "Allocations"
+msgstr "Asignaciones"
+
+#: lib/craftplan_web/live/manage/order_live/invoice.ex:60
+#, elixir-autogen, elixir-format
+msgid "Back to Order"
+msgstr "Volver a la Orden"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:87
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:86
+#, elixir-autogen, elixir-format
+msgid "Completed"
+msgstr "Completado"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:155
+#, elixir-autogen, elixir-format
+msgid "Completed:"
+msgstr "Completado:"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:196
+#, elixir-autogen, elixir-format
+msgid "Completing this item will consume materials per the product's BOM. Review the quantities and confirm."
+msgstr "Completar este artículo consumirá materiales según la lista de materiales del producto. Revisa las cantidades y confirma."
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:192
+#, elixir-autogen, elixir-format
+msgid "Confirm Materials Consumption"
+msgstr "Confirmar Consumo de Materiales"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:82
+#, elixir-autogen, elixir-format
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:211
+#, elixir-autogen, elixir-format
+msgid "Consume Now"
+msgstr "Consumir Ahora"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:97
+#, elixir-autogen, elixir-format
+msgid "Created At"
+msgstr "Fecha de Creación"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:68
+msgid "Customer name"
+msgstr "Nombre del cliente"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:85
+#, elixir-autogen, elixir-format
+msgid "Delivered"
+msgstr "Entregado"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:93
+#, elixir-autogen, elixir-format
+msgid "Delivery Date"
+msgstr "Fecha de Entrega"
+
+#: lib/craftplan_web/live/manage/order_live/form_component.ex:33
+#: lib/craftplan_web/live/manage/order_live/index.ex:163
+#, elixir-autogen, elixir-format
+msgid "Delivery date"
+msgstr "Fecha de entrega"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:114
+#, elixir-autogen, elixir-format
+msgid "Delivery date after"
+msgstr "Fecha de entrega desde"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:122
+#, elixir-autogen, elixir-format
+msgid "Delivery date before"
+msgstr "Fecha de entrega hasta"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:373
+#, elixir-autogen, elixir-format
+msgid "Delivery time"
+msgstr "Hora de entrega"
+
+#: lib/craftplan_web/live/manage/order_live/invoice.ex:51
+#, elixir-autogen, elixir-format
+msgid "Discounts"
+msgstr "Descuentos"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:468
+#, elixir-autogen, elixir-format
+msgid "Edit Order"
+msgstr "Editar Orden"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:44
+#, elixir-autogen, elixir-format
+msgid "Edit order"
+msgstr "Editar orden"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:425
+#, elixir-autogen, elixir-format
+msgid "Failed to add allocation:"
+msgstr "Error al agregar asignación:"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:575
+msgid "Failed to delete order."
+msgstr "Error al eliminar la orden."
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:52
+#, elixir-autogen, elixir-format
+msgid "Filter orders"
+msgstr "Filtrar órdenes"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:83
+msgid "In Progress"
+msgstr "En Progreso"
+
+#: lib/craftplan_web/live/manage/order_live/invoice.ex:13
+#, elixir-autogen, elixir-format
+msgid "Invoice"
+msgstr "Factura"
+
+#: lib/craftplan_web/live/manage/order_live/invoice.ex:19
+#, elixir-autogen, elixir-format
+msgid "Issued:"
+msgstr "Emitida:"
+
+#: lib/craftplan_web/live/manage/order_live/form_component.ex:38
+#: lib/craftplan_web/live/manage/order_live/show.ex:313
+#, elixir-autogen, elixir-format
+msgid "Items"
+msgstr "Artículos"
+
+#: lib/craftplan_web/live/manage/order_live/invoice.ex:37
+msgid "Line Total"
+msgstr "Total Línea"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:54
+#, elixir-autogen, elixir-format
+msgid "Narrow the list by customer, fulfillment status, or delivery window."
+msgstr "Filtra la lista por cliente, estado de cumplimiento o ventana de entrega."
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:672
+#, elixir-autogen, elixir-format
+msgid "New Order"
+msgstr "Nueva Orden"
+
+#: lib/craftplan_web/live/manage/order_live/form_component.ex:63
+msgid "No items"
+msgstr "Sin artículos"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:146
+#, elixir-autogen, elixir-format
+msgid "No orders match the current filters."
+msgstr "Ninguna orden coincide con los filtros actuales."
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:251
+#, elixir-autogen, elixir-format
+msgid "Open Batch"
+msgstr "Lote Abierto"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:469
+#, elixir-autogen, elixir-format
+msgid "Order Details"
+msgstr "Detalles de la Orden"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:470
+#, elixir-autogen, elixir-format
+msgid "Order Items"
+msgstr "Artículos de la Orden"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:571
+msgid "Order deleted successfully"
+msgstr "Orden eliminada correctamente"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:448
+#, elixir-autogen, elixir-format
+msgid "Order items updated successfully"
+msgstr "Artículos de la orden actualizados correctamente"
+
+#: lib/craftplan_web/live/manage/order_live/form_component.ex:225
+msgid "Order saved successfully"
+msgstr "Orden guardada correctamente"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:463
+msgid "Order updated successfully"
+msgstr "Orden actualizada correctamente"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:129
+#, elixir-autogen, elixir-format
+msgid "Orders overview"
+msgstr "Resumen de órdenes"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:101
+#, elixir-autogen, elixir-format
+msgid "Paid"
+msgstr "Pagado"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:181
+#, elixir-autogen, elixir-format
+msgid "Payment"
+msgstr "Pago"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:387
+#, elixir-autogen, elixir-format
+msgid "Payment Status"
+msgstr "Estado de Pago"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:99
+#, elixir-autogen, elixir-format
+msgid "Payment status"
+msgstr "Estado de pago"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:102
+msgid "Pending"
+msgstr "Pendiente"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:258
+#, elixir-autogen, elixir-format
+msgid "Planned Quantity"
+msgstr "Cantidad Planificada"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:152
+#, elixir-autogen, elixir-format
+msgid "Planned:"
+msgstr "Planificado:"
+
+#: lib/craftplan_web/live/manage/order_live/invoice.ex:63
+#, elixir-autogen, elixir-format
+msgid "Print / Save PDF"
+msgstr "Imprimir / Guardar PDF"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:246
+msgid "Product:"
+msgstr "Producto:"
+
+#: lib/craftplan_web/live/manage/order_live/invoice.ex:33
+#, elixir-autogen, elixir-format
+msgid "Qty"
+msgstr "Cant."
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:84
+#, elixir-autogen, elixir-format
+msgid "Ready"
+msgstr "Listo"
+
+#: lib/craftplan_web/live/manage/order_live/invoice.ex:15
+msgid "Reference:"
+msgstr "Referencia:"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:104
+#, elixir-autogen, elixir-format
+msgid "Refunded"
+msgstr "Reembolsado"
+
+#: lib/craftplan_web/live/manage/order_live/form_component.ex:172
+#, elixir-autogen, elixir-format
+msgid "Save Order"
+msgstr "Guardar Orden"
+
+#: lib/craftplan_web/live/manage/order_live/invoice.ex:47
+#, elixir-autogen, elixir-format
+msgid "Shipping"
+msgstr "Envío"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:81
+#, elixir-autogen, elixir-format
+msgid "Shipping Address"
+msgstr "Dirección de envío"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:467
+#, elixir-autogen, elixir-format
+msgid "Show Order"
+msgstr "Ver Orden"
+
+#: lib/craftplan_web/live/manage/order_live/invoice.ex:44
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#: lib/craftplan_web/live/manage/order_live/invoice.ex:50
+#, elixir-autogen, elixir-format
+msgid "Tax"
+msgstr "Impuesto"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:103
+#, elixir-autogen, elixir-format
+msgid "To be Refunded"
+msgstr "Por Reembolsar"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:131
+#, elixir-autogen, elixir-format
+msgid "Toggle between table and calendar formats to manage production promises."
+msgstr "Alterna entre tabla y calendario para gestionar las promesas de producción."
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:167
+msgid "Total cost"
+msgstr "Costo Total"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:81
+#, elixir-autogen, elixir-format
+msgid "Unconfirmed"
+msgstr "Sin confirmar"
+
+#: lib/craftplan_web/live/manage/order_live/invoice.ex:34
+#: lib/craftplan_web/live/manage/order_live/show.ex:124
+#, elixir-autogen, elixir-format
+msgid "Unit Price"
+msgstr "Precio Unitario"
+
+#: lib/craftplan_web/live/manage/order_live/show.ex:47
+#, elixir-autogen, elixir-format
+msgid "View Invoice"
+msgstr "Ver Factura"
+
+#: lib/craftplan_web/live/manage/order_live/index.ex:404
+#, elixir-autogen, elixir-format
+msgid "View Order Details"
+msgstr "Ver Detalles de la Orden"
