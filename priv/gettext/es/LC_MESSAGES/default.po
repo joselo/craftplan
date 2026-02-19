@@ -104,6 +104,8 @@ msgstr "Inicial"
 #: lib/craftplan_web/live/manage/overview_live.ex:442
 #: lib/craftplan_web/live/manage/overview_live.ex:578
 #: lib/craftplan_web/live/manage/settings_live/index.ex:140
+#: lib/craftplan_web/navigation.ex:133
+#: lib/craftplan_web/navigation.ex:149
 #, elixir-autogen, elixir-format
 msgid "Orders"
 msgstr "Pedidos"
@@ -301,6 +303,9 @@ msgstr "Configuración avanzada"
 #: lib/craftplan_web/live/manage/product_live/label.ex:37
 #: lib/craftplan_web/live/manage/product_live/show.ex:50
 #: lib/craftplan_web/live/manage/settings_live/allergens_component.ex:18
+#: lib/craftplan_web/navigation.ex:97
+#: lib/craftplan_web/navigation.ex:259
+#: lib/craftplan_web/navigation.ex:277
 #, elixir-autogen, elixir-format
 msgid "Allergens"
 msgstr "Alérgenos"
@@ -510,6 +515,7 @@ msgstr "Importar materiales vía CSV"
 
 #: lib/craftplan_web/components/layouts.ex:545
 #: lib/craftplan_web/live/manage/inventory_live/index.ex:532
+#: lib/craftplan_web/navigation.ex:174
 #, elixir-autogen, elixir-format
 msgid "Inventory"
 msgstr "Inventario"
@@ -638,6 +644,7 @@ msgstr "Necesidad vs balance proyectado"
 
 #: lib/craftplan_web/live/manage/inventory_live/index.ex:37
 #: lib/craftplan_web/live/manage/inventory_live/index.ex:517
+#: lib/craftplan_web/navigation.ex:177
 #, elixir-autogen, elixir-format
 msgid "New Material"
 msgstr "Nuevo Material"
@@ -704,6 +711,7 @@ msgstr "Notas"
 #: lib/craftplan_web/live/manage/inventory_live/show.ex:225
 #: lib/craftplan_web/live/manage/product_live/show.ex:221
 #: lib/craftplan_web/live/manage/product_live/show.ex:353
+#: lib/craftplan_web/navigation.ex:101
 #, elixir-autogen, elixir-format
 msgid "Nutrition"
 msgstr "Nutrición"
@@ -711,6 +719,8 @@ msgstr "Nutrición"
 #: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:24
 #: lib/craftplan_web/live/manage/product_live/show.ex:122
 #: lib/craftplan_web/live/manage/settings_live/nutritional_facts_component.ex:18
+#: lib/craftplan_web/navigation.ex:261
+#: lib/craftplan_web/navigation.ex:283
 #, elixir-autogen, elixir-format
 msgid "Nutritional Facts"
 msgstr "Información Nutricional"
@@ -850,6 +860,8 @@ msgid "Remove"
 msgstr "Eliminar"
 
 #: lib/craftplan_web/live/manage/inventory_live/reorder.ex:24
+#: lib/craftplan_web/navigation.ex:180
+#: lib/craftplan_web/navigation.ex:203
 #, elixir-autogen, elixir-format
 msgid "Reorder Planner"
 msgstr "Planificador de Reabastecimiento"
@@ -993,6 +1005,7 @@ msgid "Status"
 msgstr "Estado"
 
 #: lib/craftplan_web/live/manage/inventory_live/show.ex:230
+#: lib/craftplan_web/navigation.ex:105
 #, elixir-autogen, elixir-format
 msgid "Stock"
 msgstr "Stock"
@@ -1069,6 +1082,8 @@ msgstr "Unidad"
 
 #: lib/craftplan_web/live/manage/inventory_live/index.ex:31
 #: lib/craftplan_web/live/manage/inventory_live/index.ex:542
+#: lib/craftplan_web/navigation.ex:178
+#: lib/craftplan_web/navigation.ex:197
 #, elixir-autogen, elixir-format
 msgid "Usage Forecast"
 msgstr "Pronóstico de Uso"
@@ -1275,6 +1290,8 @@ msgid "Markup percentage"
 msgstr "Porcentaje de margen"
 
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:75
+#: lib/craftplan_web/navigation.ex:191
+#: lib/craftplan_web/navigation.ex:313
 #, elixir-autogen, elixir-format
 msgid "Materials"
 msgstr "Materiales"
@@ -1786,6 +1803,8 @@ msgstr "Emitida:"
 #: lib/craftplan_web/live/manage/order_live/form_component.ex:38
 #: lib/craftplan_web/live/manage/order_live/show.ex:313
 #: lib/craftplan_web/live/manage/purchasing_live/show.ex:113
+#: lib/craftplan_web/navigation.ex:89
+#: lib/craftplan_web/navigation.ex:117
 #, elixir-autogen, elixir-format
 msgid "Items"
 msgstr "Artículos"
@@ -1802,6 +1821,7 @@ msgstr "Filtra la lista por cliente, estado de cumplimiento o ventana de entrega
 
 #: lib/craftplan_web/live/manage/customer_live/show.ex:45
 #: lib/craftplan_web/live/manage/order_live/index.ex:672
+#: lib/craftplan_web/navigation.ex:152
 #, elixir-autogen, elixir-format
 msgid "New Order"
 msgstr "Nueva Orden"
@@ -1993,6 +2013,7 @@ msgstr "Ver Detalles de la Orden"
 
 #: lib/craftplan_web/live/manage/purchasing_live/purchase_order_item_form_component.ex:44
 #: lib/craftplan_web/live/manage/purchasing_live/show.ex:19
+#: lib/craftplan_web/navigation.ex:121
 #, elixir-autogen, elixir-format
 msgid "Add Item"
 msgstr "Agregar Artículo"
@@ -2071,12 +2092,14 @@ msgstr "Marcar como Recibido"
 
 #: lib/craftplan_web/live/manage/purchasing_live/index.ex:21
 #: lib/craftplan_web/live/manage/purchasing_live/index.ex:52
+#: lib/craftplan_web/navigation.ex:215
 #, elixir-autogen, elixir-format
 msgid "New Purchase Order"
 msgstr "Nueva Orden de Compra"
 
 #: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:20
 #: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:46
+#: lib/craftplan_web/navigation.ex:223
 #, elixir-autogen, elixir-format
 msgid "New Supplier"
 msgstr "Nuevo Proveedor"
@@ -2096,6 +2119,7 @@ msgstr "Ordenado el"
 #: lib/craftplan_web/components/layouts.ex:531
 #: lib/craftplan_web/live/manage/overview_live.ex:1420
 #: lib/craftplan_web/live/manage/purchasing_live/show.ex:108
+#: lib/craftplan_web/navigation.ex:143
 #, elixir-autogen, elixir-format
 msgid "Overview"
 msgstr "Resumen"
@@ -2109,6 +2133,8 @@ msgid "Phone"
 msgstr "Teléfono"
 
 #: lib/craftplan_web/live/manage/purchasing_live/index.ex:107
+#: lib/craftplan_web/navigation.ex:213
+#: lib/craftplan_web/navigation.ex:231
 #, elixir-autogen, elixir-format
 msgid "Purchase Orders"
 msgstr "Órdenes de Compra"
@@ -2130,6 +2156,7 @@ msgstr "Orden de Compra guardada"
 
 #: lib/craftplan_web/components/layouts.ex:552
 #: lib/craftplan_web/live/manage/purchasing_live/index.ex:18
+#: lib/craftplan_web/navigation.ex:210
 #, elixir-autogen, elixir-format
 msgid "Purchasing"
 msgstr "Compras"
@@ -2163,6 +2190,8 @@ msgstr "Proveedor guardado"
 
 #: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:17
 #: lib/craftplan_web/live/manage/purchasing_live/suppliers.ex:69
+#: lib/craftplan_web/navigation.ex:221
+#: lib/craftplan_web/navigation.ex:237
 #, elixir-autogen, elixir-format
 msgid "Suppliers"
 msgstr "Proveedores"
@@ -2230,6 +2259,7 @@ msgstr "Cliente guardado correctamente"
 #: lib/craftplan_web/live/manage/customer_live/index.ex:11
 #: lib/craftplan_web/live/manage/customer_live/index.ex:115
 #: lib/craftplan_web/live/manage/settings_live/index.ex:141
+#: lib/craftplan_web/navigation.ex:244
 #, elixir-autogen, elixir-format
 msgid "Customers"
 msgstr "Clientes"
@@ -2266,6 +2296,7 @@ msgid "Manage your customer records"
 msgstr "Gestiona tus registros de clientes"
 
 #: lib/craftplan_web/live/manage/customer_live/index.ex:109
+#: lib/craftplan_web/navigation.ex:247
 #, elixir-autogen, elixir-format
 msgid "New Customer"
 msgstr "Nuevo Cliente"
@@ -2298,6 +2329,7 @@ msgid "State"
 msgstr "Estado/Provincia"
 
 #: lib/craftplan_web/live/manage/customer_live/show.ex:130
+#: lib/craftplan_web/navigation.ex:137
 #, elixir-autogen, elixir-format
 msgid "Statistics"
 msgstr "Estadísticas"
@@ -2343,6 +2375,8 @@ msgstr ""
 
 #: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:25
 #: lib/craftplan_web/live/manage/settings_live/index.ex:248
+#: lib/craftplan_web/navigation.ex:265
+#: lib/craftplan_web/navigation.ex:295
 #, elixir-autogen, elixir-format
 msgid "API Keys"
 msgstr "Claves API"
@@ -2435,6 +2469,8 @@ msgstr "Trae tus registros existentes. Cada importación te guía a través del 
 
 #: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:18
 #: lib/craftplan_web/live/manage/settings_live/index.ex:252
+#: lib/craftplan_web/navigation.ex:266
+#: lib/craftplan_web/navigation.ex:301
 #, elixir-autogen, elixir-format
 msgid "Calendar Feed"
 msgstr "Feed de Calendario"
@@ -2598,11 +2634,13 @@ msgid "Fulfillment & Capacity"
 msgstr "Cumplimiento y Capacidad"
 
 #: lib/craftplan_web/live/manage/settings_live/form_component.ex:24
+#: lib/craftplan_web/navigation.ex:271
 #, elixir-autogen, elixir-format, fuzzy
 msgid "General"
 msgstr "Notas generales"
 
 #: lib/craftplan_web/live/manage/settings_live/index.ex:232
+#: lib/craftplan_web/navigation.ex:258
 #, elixir-autogen, elixir-format, fuzzy
 msgid "General Settings"
 msgstr "Notas generales"
@@ -2633,6 +2671,8 @@ msgid "If available"
 msgstr "Si está disponible"
 
 #: lib/craftplan_web/live/manage/settings_live/index.ex:244
+#: lib/craftplan_web/navigation.ex:264
+#: lib/craftplan_web/navigation.ex:289
 #, elixir-autogen, elixir-format
 msgid "Import & Export"
 msgstr "Importar y Exportar"
@@ -2665,12 +2705,12 @@ msgstr "Mantén una lista central de nutrientes que agregues a recetas y empaque
 #: lib/craftplan_web/live/manage/settings_live/index.ex:159
 #, elixir-autogen, elixir-format
 msgid "Keep a snapshot of your data by exporting on a schedule. Imports are idempotent—reimporting an updated CSV lets you keep Craftplan and your spreadsheets in sync."
-msgstr ""
+msgstr "Mantén una instantánea de tus datos exportando en un horario. Las importaciones son idempotentes—reimportar un CSV actualizado te permite sincronizar Craftplan y tus hojas de cálculo."
 
 #: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:137
 #, elixir-autogen, elixir-format
 msgid "Key name"
-msgstr ""
+msgstr "Nombre de clave"
 
 #: lib/craftplan_web/live/manage/settings_live/api_keys_component.ex:76
 #: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:101
@@ -2901,6 +2941,7 @@ msgstr "Establece la moneda predeterminada usada en órdenes, facturas y reporte
 
 #: lib/craftplan_web/components/layouts.ex:580
 #: lib/craftplan_web/live/manage/settings_live/index.ex:228
+#: lib/craftplan_web/navigation.ex:255
 #, elixir-autogen, elixir-format
 msgid "Settings"
 msgstr "Configuración"
@@ -2999,6 +3040,7 @@ msgid "Open manage"
 msgstr "Abrir gestión"
 
 #: lib/craftplan_web/components/layouts.ex:538
+#: lib/craftplan_web/navigation.ex:308
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Production"
 msgstr "Producción"
@@ -3222,3 +3264,39 @@ msgstr "pedidos"
 #, elixir-autogen, elixir-format
 msgid "pcs"
 msgstr "pzs"
+
+#: lib/craftplan_web/navigation.ex:314
+#: lib/craftplan_web/navigation.ex:332
+#, elixir-autogen, elixir-format
+msgid "Batches"
+msgstr "Lotes"
+
+#: lib/craftplan_web/navigation.ex:166
+#, elixir-autogen, elixir-format
+msgid "Calendar"
+msgstr "Calendario"
+
+#: lib/craftplan_web/navigation.ex:326
+#, elixir-autogen, elixir-format
+msgid "Daily"
+msgstr "Diario"
+
+#: lib/craftplan_web/navigation.ex:312
+#, elixir-autogen, elixir-format
+msgid "Make Sheet"
+msgstr "Hoja de Producción"
+
+#: lib/craftplan_web/navigation.ex:311
+#, elixir-autogen, elixir-format
+msgid "Schedule"
+msgstr "Programación"
+
+#: lib/craftplan_web/navigation.ex:159
+#, elixir-autogen, elixir-format
+msgid "Table"
+msgstr "Tabla"
+
+#: lib/craftplan_web/navigation.ex:320
+#, elixir-autogen, elixir-format
+msgid "Weekly"
+msgstr "Semanal"

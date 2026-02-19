@@ -86,7 +86,7 @@ defmodule CraftplanWeb.Navigation do
   end
 
   def crumb_order_items(%{reference: reference}) do
-    %{label: "Items", path: ~p"/manage/orders/#{reference}/items"}
+    %{label: gettext("Items"), path: ~p"/manage/orders/#{reference}/items"}
   end
 
   def crumb_material(%{name: name, sku: sku}) do
@@ -94,15 +94,15 @@ defmodule CraftplanWeb.Navigation do
   end
 
   def crumb_material_allergens(material) do
-    %{label: "Allergens", path: ~p"/manage/inventory/#{material.sku}/allergens"}
+    %{label: gettext("Allergens"), path: ~p"/manage/inventory/#{material.sku}/allergens"}
   end
 
   def crumb_material_nutrition(material) do
-    %{label: "Nutrition", path: ~p"/manage/inventory/#{material.sku}/nutritional_facts"}
+    %{label: gettext("Nutrition"), path: ~p"/manage/inventory/#{material.sku}/nutritional_facts"}
   end
 
   def crumb_material_stock(material) do
-    %{label: "Stock", path: ~p"/manage/inventory/#{material.sku}/stock"}
+    %{label: gettext("Stock"), path: ~p"/manage/inventory/#{material.sku}/stock"}
   end
 
   def crumb_production_batch(%{batch_code: batch_code}) do
@@ -114,11 +114,11 @@ defmodule CraftplanWeb.Navigation do
   end
 
   def crumb_purchase_order_items(%{reference: reference}) do
-    %{label: "Items", path: ~p"/manage/purchasing/#{reference}/items"}
+    %{label: gettext("Items"), path: ~p"/manage/purchasing/#{reference}/items"}
   end
 
   def crumb_purchase_order_add_item(%{reference: reference}) do
-    %{label: "Add Item", path: ~p"/manage/purchasing/#{reference}/add_item"}
+    %{label: gettext("Add Item"), path: ~p"/manage/purchasing/#{reference}/add_item"}
   end
 
   def crumb_supplier(%{name: name, id: id}) do
@@ -130,40 +130,40 @@ defmodule CraftplanWeb.Navigation do
   end
 
   def crumb_customer_orders(customer) do
-    %{label: "Orders", path: ~p"/manage/customers/#{customer.reference}/orders"}
+    %{label: gettext("Orders"), path: ~p"/manage/customers/#{customer.reference}/orders"}
   end
 
   def crumb_customer_statistics(customer) do
-    %{label: "Statistics", path: ~p"/manage/customers/#{customer.reference}/statistics"}
+    %{label: gettext("Statistics"), path: ~p"/manage/customers/#{customer.reference}/statistics"}
   end
 
   defp sections do
     %{
       overview: %{
-        label: "Overview",
+        label: gettext("Overview"),
         path: "/manage/overview",
         pages: %{},
         sub_links: []
       },
       orders: %{
-        label: "Orders",
+        label: gettext("Orders"),
         path: "/manage/orders",
         pages: %{
-          new: %{label: "New Order", path: "/manage/orders/new"},
+          new: %{label: gettext("New Order"), path: "/manage/orders/new"},
           order: &__MODULE__.crumb_order/1,
           order_items: &__MODULE__.crumb_order_items/1
         },
         sub_links: [
           %{
             key: :orders_table,
-            label: "Table",
+            label: gettext("Table"),
             navigate: "/manage/orders?view=table",
             show?: &__MODULE__.orders_nav_visible?/1,
             active?: &__MODULE__.orders_table_active?/1
           },
           %{
             key: :orders_calendar,
-            label: "Calendar",
+            label: gettext("Calendar"),
             navigate: "/manage/orders?view=calendar",
             show?: &__MODULE__.orders_nav_visible?/1,
             active?: &__MODULE__.orders_calendar_active?/1
@@ -171,12 +171,15 @@ defmodule CraftplanWeb.Navigation do
         ]
       },
       inventory: %{
-        label: "Inventory",
+        label: gettext("Inventory"),
         path: "/manage/inventory",
         pages: %{
-          new_material: %{label: "New Material", path: "/manage/inventory/new"},
-          forecast: %{label: "Usage Forecast", path: "/manage/inventory/forecast"},
-          reorder: %{label: "Reorder Planner", path: "/manage/inventory/forecast/reorder"},
+          new_material: %{label: gettext("New Material"), path: "/manage/inventory/new"},
+          forecast: %{label: gettext("Usage Forecast"), path: "/manage/inventory/forecast"},
+          reorder: %{
+            label: gettext("Reorder Planner"),
+            path: "/manage/inventory/forecast/reorder"
+          },
           material: &__MODULE__.crumb_material/1,
           material_allergens: &__MODULE__.crumb_material_allergens/1,
           material_nutrition: &__MODULE__.crumb_material_nutrition/1,
@@ -185,57 +188,63 @@ defmodule CraftplanWeb.Navigation do
         sub_links: [
           %{
             key: :materials,
-            label: "Materials",
+            label: gettext("Materials"),
             navigate: "/manage/inventory",
             active?: &__MODULE__.inventory_material_active?/1
           },
           %{
             key: :forecast,
-            label: "Usage Forecast",
+            label: gettext("Usage Forecast"),
             navigate: "/manage/inventory/forecast",
             active?: &__MODULE__.inventory_forecast_active?/1
           },
           %{
             key: :reorder,
-            label: "Reorder Planner",
+            label: gettext("Reorder Planner"),
             navigate: "/manage/inventory/forecast/reorder",
             active?: &__MODULE__.inventory_reorder_active?/1
           }
         ]
       },
       purchasing: %{
-        label: "Purchasing",
+        label: gettext("Purchasing"),
         path: "/manage/purchasing",
         pages: %{
-          purchase_orders: %{label: "Purchase Orders", path: "/manage/purchasing"},
-          new_purchase_order: %{label: "New Purchase Order", path: "/manage/purchasing/new"},
+          purchase_orders: %{label: gettext("Purchase Orders"), path: "/manage/purchasing"},
+          new_purchase_order: %{
+            label: gettext("New Purchase Order"),
+            path: "/manage/purchasing/new"
+          },
           purchase_order: &__MODULE__.crumb_purchase_order/1,
           po_items: &__MODULE__.crumb_purchase_order_items/1,
           po_add_item: &__MODULE__.crumb_purchase_order_add_item/1,
-          suppliers: %{label: "Suppliers", path: "/manage/purchasing/suppliers"},
-          new_supplier: %{label: "New Supplier", path: "/manage/purchasing/suppliers/new"},
+          suppliers: %{label: gettext("Suppliers"), path: "/manage/purchasing/suppliers"},
+          new_supplier: %{
+            label: gettext("New Supplier"),
+            path: "/manage/purchasing/suppliers/new"
+          },
           supplier: &__MODULE__.crumb_supplier/1
         },
         sub_links: [
           %{
             key: :purchase_orders,
-            label: "Purchase Orders",
+            label: gettext("Purchase Orders"),
             navigate: "/manage/purchasing",
             active?: &__MODULE__.purchasing_orders_active?/1
           },
           %{
             key: :suppliers,
-            label: "Suppliers",
+            label: gettext("Suppliers"),
             navigate: "/manage/purchasing/suppliers",
             active?: &__MODULE__.purchasing_suppliers_active?/1
           }
         ]
       },
       customers: %{
-        label: "Customers",
+        label: gettext("Customers"),
         path: "/manage/customers",
         pages: %{
-          new_customer: %{label: "New Customer", path: "/manage/customers/new"},
+          new_customer: %{label: gettext("New Customer"), path: "/manage/customers/new"},
           customer: &__MODULE__.crumb_customer/1,
           customer_orders: &__MODULE__.crumb_customer_orders/1,
           customer_statistics: &__MODULE__.crumb_customer_statistics/1
@@ -243,84 +252,84 @@ defmodule CraftplanWeb.Navigation do
         sub_links: []
       },
       settings: %{
-        label: "Settings",
+        label: gettext("Settings"),
         path: "/manage/settings",
         pages: %{
-          general: %{label: "General Settings", path: "/manage/settings/general"},
-          allergens: %{label: "Allergens", path: "/manage/settings/allergens"},
+          general: %{label: gettext("General Settings"), path: "/manage/settings/general"},
+          allergens: %{label: gettext("Allergens"), path: "/manage/settings/allergens"},
           nutritional_facts: %{
-            label: "Nutritional Facts",
+            label: gettext("Nutritional Facts"),
             path: "/manage/settings/nutritional_facts"
           },
-          csv: %{label: "Import & Export", path: "/manage/settings/csv"},
-          api_keys: %{label: "API Keys", path: "/manage/settings/api_keys"},
-          calendar_feed: %{label: "Calendar Feed", path: "/manage/settings/calendar"}
+          csv: %{label: gettext("Import & Export"), path: "/manage/settings/csv"},
+          api_keys: %{label: gettext("API Keys"), path: "/manage/settings/api_keys"},
+          calendar_feed: %{label: gettext("Calendar Feed"), path: "/manage/settings/calendar"}
         },
         sub_links: [
           %{
             key: :general,
-            label: "General",
+            label: gettext("General"),
             navigate: "/manage/settings/general",
             active?: &__MODULE__.settings_general_active?/1
           },
           %{
             key: :allergens,
-            label: "Allergens",
+            label: gettext("Allergens"),
             navigate: "/manage/settings/allergens",
             active?: &__MODULE__.settings_allergens_active?/1
           },
           %{
             key: :nutritional_facts,
-            label: "Nutritional Facts",
+            label: gettext("Nutritional Facts"),
             navigate: "/manage/settings/nutritional_facts",
             active?: &__MODULE__.settings_nutrition_active?/1
           },
           %{
             key: :csv,
-            label: "Import & Export",
+            label: gettext("Import & Export"),
             navigate: "/manage/settings/csv",
             active?: &__MODULE__.settings_csv_active?/1
           },
           %{
             key: :api_keys,
-            label: "API Keys",
+            label: gettext("API Keys"),
             navigate: "/manage/settings/api_keys",
             active?: &__MODULE__.settings_api_keys_active?/1
           },
           %{
             key: :calendar_feed,
-            label: "Calendar Feed",
+            label: gettext("Calendar Feed"),
             navigate: "/manage/settings/calendar",
             active?: &__MODULE__.settings_calendar_feed_active?/1
           }
         ]
       },
       production: %{
-        label: "Production",
+        label: gettext("Production"),
         path: "/manage/production/schedule",
         pages: %{
-          schedule: %{label: "Schedule", path: "/manage/production/schedule"},
-          make_sheet: %{label: "Make Sheet", path: "/manage/production/make_sheet"},
-          materials: %{label: "Materials", path: "/manage/production/materials"},
-          batches: %{label: "Batches", path: "/manage/production/batches"},
+          schedule: %{label: gettext("Schedule"), path: "/manage/production/schedule"},
+          make_sheet: %{label: gettext("Make Sheet"), path: "/manage/production/make_sheet"},
+          materials: %{label: gettext("Materials"), path: "/manage/production/materials"},
+          batches: %{label: gettext("Batches"), path: "/manage/production/batches"},
           batch: &__MODULE__.crumb_production_batch/1
         },
         sub_links: [
           %{
             key: :weekly,
-            label: "Weekly",
+            label: gettext("Weekly"),
             navigate: "/manage/production/schedule?view=week",
             active?: &__MODULE__.production_weekly_active?/1
           },
           %{
             key: :daily,
-            label: "Daily",
+            label: gettext("Daily"),
             navigate: "/manage/production/schedule?view=day",
             active?: &__MODULE__.production_daily_active?/1
           },
           %{
             key: :batches,
-            label: "Batches",
+            label: gettext("Batches"),
             navigate: "/manage/production/batches",
             active?: &__MODULE__.production_batches_active?/1
           }
