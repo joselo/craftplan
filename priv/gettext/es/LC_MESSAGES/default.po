@@ -39,6 +39,7 @@ msgstr "Cliente"
 #: lib/craftplan_web/live/manage/overview_live.ex:127
 #: lib/craftplan_web/live/manage/overview_live.ex:159
 #: lib/craftplan_web/live/manage/overview_live.ex:192
+#: lib/craftplan_web/live/manage/overview_live.ex:267
 #, elixir-autogen, elixir-format
 msgid "Day"
 msgstr "Día"
@@ -100,6 +101,8 @@ msgstr "Inicial"
 #: lib/craftplan_web/live/manage/order_live/index.ex:46
 #: lib/craftplan_web/live/manage/order_live/index.ex:678
 #: lib/craftplan_web/live/manage/overview_live.ex:162
+#: lib/craftplan_web/live/manage/overview_live.ex:442
+#: lib/craftplan_web/live/manage/overview_live.ex:578
 #: lib/craftplan_web/live/manage/settings_live/index.ex:140
 #, elixir-autogen, elixir-format
 msgid "Orders"
@@ -126,6 +129,7 @@ msgstr "Detalles de sobrecapacidad"
 #: lib/craftplan_web/live/manage/order_live/show.ex:105
 #: lib/craftplan_web/live/manage/overview_live.ex:96
 #: lib/craftplan_web/live/manage/overview_live.ex:130
+#: lib/craftplan_web/live/manage/overview_live.ex:783
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:156
 #: lib/craftplan_web/live/manage/product_live/show.ex:321
 #: lib/craftplan_web/live/manage/product_live/show.ex:325
@@ -346,6 +350,7 @@ msgstr "Examine SKUs, stock disponible y precios."
 
 #: lib/craftplan_web/live/manage/inventory_live/form_component_nutritional_facts.ex:187
 #: lib/craftplan_web/live/manage/order_live/show.ex:265
+#: lib/craftplan_web/live/manage/overview_live.ex:545
 #: lib/craftplan_web/live/manage/product_live/form_component_photos.ex:100
 #, elixir-autogen, elixir-format
 msgid "Cancel"
@@ -1032,6 +1037,7 @@ msgstr "Estos consejos le ayudan a interpretar las fichas de requerimiento y la 
 
 #: lib/craftplan_web/live/manage/inventory_live/index.ex:260
 #: lib/craftplan_web/live/manage/order_live/index.ex:224
+#: lib/craftplan_web/live/manage/overview_live.ex:322
 #, elixir-autogen, elixir-format
 msgid "Today"
 msgstr "Hoy"
@@ -1366,6 +1372,7 @@ msgstr "Fotos actualizadas correctamente"
 msgid "Preorder"
 msgstr "Preventa"
 
+#: lib/craftplan_web/live/manage/overview_live.ex:778
 #: lib/craftplan_web/live/manage/product_live/label.ex:44
 #, elixir-autogen, elixir-format
 msgid "Print"
@@ -1656,6 +1663,8 @@ msgid "Cancelled"
 msgstr "Cancelado"
 
 #: lib/craftplan_web/live/manage/order_live/index.ex:86
+#: lib/craftplan_web/live/manage/overview_live.ex:785
+#: lib/craftplan_web/live/manage/overview_live.ex:1443
 #, elixir-autogen, elixir-format
 msgid "Completed"
 msgstr "Completado"
@@ -1758,6 +1767,8 @@ msgid "Filter orders"
 msgstr "Filtrar órdenes"
 
 #: lib/craftplan_web/live/manage/order_live/index.ex:83
+#: lib/craftplan_web/live/manage/overview_live.ex:391
+#: lib/craftplan_web/live/manage/overview_live.ex:1442
 #, elixir-autogen, elixir-format
 msgid "In Progress"
 msgstr "En Progreso"
@@ -2083,6 +2094,7 @@ msgid "Ordered At"
 msgstr "Ordenado el"
 
 #: lib/craftplan_web/components/layouts.ex:531
+#: lib/craftplan_web/live/manage/overview_live.ex:1420
 #: lib/craftplan_web/live/manage/purchasing_live/show.ex:108
 #, elixir-autogen, elixir-format
 msgid "Overview"
@@ -2957,12 +2969,12 @@ msgstr "Tu nueva URL de suscripción al calendario"
 #: lib/craftplan_web/components/layouts.ex:226
 #, elixir-autogen, elixir-format
 msgid "Browse"
-msgstr ""
+msgstr "Explorar"
 
 #: lib/craftplan_web/components/layouts.ex:591
 #, elixir-autogen, elixir-format
 msgid "Home"
-msgstr ""
+msgstr "Inicio"
 
 #: lib/craftplan_web/components/layouts.ex:192
 #: lib/craftplan_web/components/layouts.ex:290
@@ -2982,9 +2994,9 @@ msgid "Manage dashboard"
 msgstr "Panel de control"
 
 #: lib/craftplan_web/components/layouts.ex:279
-#, elixir-autogen, elixir-format, fuzzy
+#, elixir-autogen, elixir-format
 msgid "Open manage"
-msgstr "Inicial"
+msgstr "Abrir gestión"
 
 #: lib/craftplan_web/components/layouts.ex:538
 #, elixir-autogen, elixir-format, fuzzy
@@ -3005,3 +3017,208 @@ msgstr "Restablecer contraseña"
 #, elixir-autogen, elixir-format, fuzzy
 msgid "User menu"
 msgstr "Menú de usuario"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1214
+#, elixir-autogen, elixir-format
+msgid "Batch %{code} completed — %{qty} pcs produced"
+msgstr "Lote %{code} completado — %{qty} pzs producidas"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1077
+#, elixir-autogen, elixir-format
+msgid "Batch %{code} created"
+msgstr "Lote %{code} creado"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1102
+#, elixir-autogen, elixir-format
+msgid "Batch %{code} started"
+msgstr "Lote %{code} iniciado"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:609
+#, elixir-autogen, elixir-format
+msgid "Batch All"
+msgstr "Agrupar Todo"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1135
+#, elixir-autogen, elixir-format
+msgid "Batch must be started before completing"
+msgstr "El lote debe iniciarse antes de completarse"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1116
+#: lib/craftplan_web/live/manage/overview_live.ex:1150
+#: lib/craftplan_web/live/manage/overview_live.ex:1233
+#, elixir-autogen, elixir-format
+msgid "Batch not found"
+msgstr "Lote no encontrado"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1128
+#, elixir-autogen, elixir-format
+msgid "Cannot move a batch backward"
+msgstr "No se puede mover un lote hacia atrás"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1131
+#, elixir-autogen, elixir-format
+msgid "Cannot move a completed batch"
+msgstr "No se puede mover un lote completado"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:548
+#, elixir-autogen, elixir-format
+msgid "Complete"
+msgstr "Completar"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:402
+#, elixir-autogen, elixir-format
+msgid "Done"
+msgstr "Listo"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:527
+#, elixir-autogen, elixir-format
+msgid "Duration (min)"
+msgstr "Duración (min)"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1228
+#, elixir-autogen, elixir-format
+msgid "Failed to complete batch: %{error}"
+msgstr "Error al completar lote: %{error}"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1086
+#, elixir-autogen, elixir-format
+msgid "Failed to create batch: %{error}"
+msgstr "Error al crear lote: %{error}"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1111
+#, elixir-autogen, elixir-format
+msgid "Failed to start batch: %{error}"
+msgstr "Error al iniciar lote: %{error}"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1160
+#, elixir-autogen, elixir-format
+msgid "Invalid transition"
+msgstr "Transición inválida"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:300
+#, elixir-autogen, elixir-format
+msgid "Jump to today"
+msgstr "Ir a hoy"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:493
+#, elixir-autogen, elixir-format
+msgid "Mark Done"
+msgstr "Marcar Listo"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:328
+#, elixir-autogen, elixir-format
+msgid "Next"
+msgstr "Siguiente"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:356
+#, elixir-autogen, elixir-format
+msgid "No production scheduled for this day."
+msgstr "Sin producción programada para este día."
+
+#: lib/craftplan_web/live/manage/overview_live.ex:568
+#: lib/craftplan_web/live/manage/overview_live.ex:1440
+#, elixir-autogen, elixir-format
+msgid "Not Batched"
+msgstr "Sin Agrupar"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1056
+#, elixir-autogen, elixir-format
+msgid "Nothing remaining to allocate for this product/day"
+msgstr "No queda nada por asignar para este producto/día"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:380
+#: lib/craftplan_web/live/manage/overview_live.ex:1441
+#, elixir-autogen, elixir-format
+msgid "Open"
+msgstr "Abierto"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1247
+#, elixir-autogen, elixir-format
+msgid "Over cap"
+msgstr "Sobre cap."
+
+#: lib/craftplan_web/live/manage/overview_live.ex:699
+#: lib/craftplan_web/live/manage/overview_live.ex:735
+#, elixir-autogen, elixir-format
+msgid "Over capacity"
+msgstr "Sobre capacidad"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1418
+#, elixir-autogen, elixir-format
+msgid "Plan: Inventory Forecast"
+msgstr "Plan: Pronóstico de Inventario"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1419
+#, elixir-autogen, elixir-format
+msgid "Plan: Make Sheet"
+msgstr "Plan: Hoja de Producción"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1417
+#, elixir-autogen, elixir-format
+msgid "Plan: Schedule"
+msgstr "Plan: Programación"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:276
+#, elixir-autogen, elixir-format
+msgid "Previous"
+msgstr "Anterior"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:516
+#, elixir-autogen, elixir-format
+msgid "Produced qty"
+msgstr "Cant. producida"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:480
+#, elixir-autogen, elixir-format
+msgid "Start"
+msgstr "Iniciar"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:776
+#, elixir-autogen, elixir-format
+msgid "Today's Production"
+msgstr "Producción de Hoy"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:784
+#, elixir-autogen, elixir-format
+msgid "Total Qty"
+msgstr "Cant. Total"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:367
+#: lib/craftplan_web/live/manage/overview_live.ex:708
+#, elixir-autogen, elixir-format
+msgid "Unbatched"
+msgstr "Sin Agrupar"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:1180
+#, elixir-autogen, elixir-format
+msgid "Unbatched items can only be moved to Open"
+msgstr "Los ítems sin agrupar solo se pueden mover a Abierto"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:466
+#, elixir-autogen, elixir-format
+msgid "View full batch"
+msgstr "Ver lote completo"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:255
+#, elixir-autogen, elixir-format
+msgid "Week"
+msgstr "Semana"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:529
+#, elixir-autogen, elixir-format
+msgid "optional"
+msgstr "opcional"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:436
+#: lib/craftplan_web/live/manage/overview_live.ex:573
+#: lib/craftplan_web/live/manage/overview_live.ex:1252
+#: lib/craftplan_web/live/manage/overview_live.ex:1275
+#, elixir-autogen, elixir-format
+msgid "orders"
+msgstr "pedidos"
+
+#: lib/craftplan_web/live/manage/overview_live.ex:456
+#: lib/craftplan_web/live/manage/overview_live.ex:592
+#, elixir-autogen, elixir-format
+msgid "pcs"
+msgstr "pzs"

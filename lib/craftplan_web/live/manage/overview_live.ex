@@ -252,7 +252,7 @@ defmodule CraftplanWeb.OverviewLive do
                       "bg-white text-stone-700 hover:bg-blue-50"
                   ]}
                 >
-                  Week
+                  {gettext("Week")}
                 </button>
                 <button
                   phx-click="set_schedule_view"
@@ -264,7 +264,7 @@ defmodule CraftplanWeb.OverviewLive do
                       "bg-white text-stone-700 hover:bg-blue-50"
                   ]}
                 >
-                  Day
+                  {gettext("Day")}
                 </button>
               </div>
               
@@ -273,7 +273,7 @@ defmodule CraftplanWeb.OverviewLive do
                 <button
                   phx-click="previous_week"
                   size={:sm}
-                  title="Previous"
+                  title={gettext("Previous")}
                   class="px-[6px] cursor-pointer rounded-l-md border border-stone-300 bg-white py-1 transition-colors hover:bg-stone-50 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-400"
                 >
                   <svg
@@ -297,7 +297,7 @@ defmodule CraftplanWeb.OverviewLive do
                   size={:sm}
                   variant={:outline}
                   aria-pressed={@is_today}
-                  title="Jump to today"
+                  title={gettext("Jump to today")}
                   class={[
                     "flex cursor-pointer items-center border-y border-r border-l-0 border-stone-300 bg-white px-3 py-1 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-400 disabled:cursor-default disabled:bg-stone-100 disabled:text-stone-400",
                     (@is_today && "border-blue-300 bg-blue-100 text-blue-700") ||
@@ -319,13 +319,13 @@ defmodule CraftplanWeb.OverviewLive do
                       d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                     />
                   </svg>
-                  Today
+                  {gettext("Today")}
                 </button>
 
                 <button
                   phx-click="next_week"
                   size={:sm}
-                  title="Next"
+                  title={gettext("Next")}
                   class="px-[6px] cursor-pointer rounded-r-md border border-l-0 border-stone-300 bg-white py-1 transition-colors hover:bg-stone-50 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-400"
                 >
                   <svg
@@ -353,7 +353,7 @@ defmodule CraftplanWeb.OverviewLive do
               :if={Enum.empty?(unbatched) && Enum.empty?(batched)}
               class="mt-4 rounded-md border border-dashed border-stone-200 bg-stone-50 py-6 text-center text-sm text-stone-500"
             >
-              No production scheduled for this day.
+              {gettext("No production scheduled for this day.")}
             </div>
             <div
               :if={!Enum.empty?(unbatched) || !Enum.empty?(batched)}
@@ -363,7 +363,9 @@ defmodule CraftplanWeb.OverviewLive do
             >
               <%!-- Unbatched column --%>
               <div class="kanban-column rounded-lg bg-stone-50 p-3" data-status="unbatched">
-                <h4 class="mb-2 text-xs font-semibold uppercase text-stone-400">Unbatched</h4>
+                <h4 class="mb-2 text-xs font-semibold uppercase text-stone-400">
+                  {gettext("Unbatched")}
+                </h4>
                 <div class="space-y-2">
                   <.unbatched_kanban_card
                     :for={{product, items} <- unbatched}
@@ -375,7 +377,7 @@ defmodule CraftplanWeb.OverviewLive do
               </div>
               <%!-- Open column --%>
               <div class="kanban-column bg-blue-50/50 rounded-lg p-3" data-status="open">
-                <h4 class="mb-2 text-xs font-semibold uppercase text-blue-600">Open</h4>
+                <h4 class="mb-2 text-xs font-semibold uppercase text-blue-600">{gettext("Open")}</h4>
                 <div class="space-y-2">
                   <.batch_kanban_card
                     :for={bg <- Enum.filter(batched, &(&1.status == :open))}
@@ -385,7 +387,9 @@ defmodule CraftplanWeb.OverviewLive do
               </div>
               <%!-- In Progress column --%>
               <div class="kanban-column bg-amber-50/50 rounded-lg p-3" data-status="in_progress">
-                <h4 class="mb-2 text-xs font-semibold uppercase text-amber-600">In Progress</h4>
+                <h4 class="mb-2 text-xs font-semibold uppercase text-amber-600">
+                  {gettext("In Progress")}
+                </h4>
                 <div class="space-y-2">
                   <.batch_kanban_card
                     :for={bg <- Enum.filter(batched, &(&1.status == :in_progress))}
@@ -395,7 +399,7 @@ defmodule CraftplanWeb.OverviewLive do
               </div>
               <%!-- Completed column --%>
               <div class="kanban-column bg-green-50/50 rounded-lg p-3" data-status="completed">
-                <h4 class="mb-2 text-xs font-semibold uppercase text-green-600">Done</h4>
+                <h4 class="mb-2 text-xs font-semibold uppercase text-green-600">{gettext("Done")}</h4>
                 <div class="space-y-2">
                   <.batch_kanban_card
                     :for={bg <- Enum.filter(batched, &(&1.status == :completed))}
@@ -429,13 +433,13 @@ defmodule CraftplanWeb.OverviewLive do
                   <span class="text-sm text-stone-500">
                     {format_amount(:piece, total_quantity(@selected_batch.items))} &middot; {length(
                       Enum.uniq_by(@selected_batch.items, & &1.order.id)
-                    )} orders
+                    )} {gettext("orders")}
                   </span>
                 </div>
 
                 <%!-- Order details --%>
                 <div class="space-y-2">
-                  <h4 class="text-xs font-semibold uppercase text-stone-400">Orders</h4>
+                  <h4 class="text-xs font-semibold uppercase text-stone-400">{gettext("Orders")}</h4>
                   <div
                     :for={item <- @selected_batch.items}
                     class="flex items-center justify-between rounded border border-stone-100 bg-stone-50 px-3 py-2 text-sm"
@@ -449,7 +453,7 @@ defmodule CraftplanWeb.OverviewLive do
                       </.link>
                       <span class="text-stone-500">{item.order.customer.full_name}</span>
                     </div>
-                    <span class="text-stone-700">{item.quantity} pcs</span>
+                    <span class="text-stone-700">{item.quantity} {gettext("pcs")}</span>
                   </div>
                 </div>
 
@@ -459,7 +463,7 @@ defmodule CraftplanWeb.OverviewLive do
                     navigate={~p"/manage/production/batches/#{@selected_batch.batch_code}"}
                     class="text-sm font-medium text-blue-700 hover:underline"
                   >
-                    View full batch &rarr;
+                    {gettext("View full batch")} &rarr;
                   </.link>
                   <div class="flex items-center gap-2">
                     <%= case @selected_batch.status do %>
@@ -473,7 +477,7 @@ defmodule CraftplanWeb.OverviewLive do
                             )
                           }
                         >
-                          Start
+                          {gettext("Start")}
                         </.button>
                       <% :in_progress -> %>
                         <.button
@@ -486,7 +490,7 @@ defmodule CraftplanWeb.OverviewLive do
                             )
                           }
                         >
-                          Mark Done
+                          {gettext("Mark Done")}
                         </.button>
                       <% _ -> %>
                     <% end %>
@@ -509,7 +513,7 @@ defmodule CraftplanWeb.OverviewLive do
                         <.input
                           type="number"
                           name="produced_qty"
-                          label="Produced qty"
+                          label={gettext("Produced qty")}
                           value={total_quantity(@selected_batch.items) |> Decimal.to_string()}
                           min="0"
                           step="any"
@@ -520,9 +524,9 @@ defmodule CraftplanWeb.OverviewLive do
                         <.input
                           type="number"
                           name="duration_minutes"
-                          label="Duration (min)"
+                          label={gettext("Duration (min)")}
                           value=""
-                          placeholder="optional"
+                          placeholder={gettext("optional")}
                           min="0"
                           step="any"
                         />
@@ -538,10 +542,10 @@ defmodule CraftplanWeb.OverviewLive do
                             )
                           }
                         >
-                          Cancel
+                          {gettext("Cancel")}
                         </.button>
                         <.button size={:sm} variant={:primary} type="submit">
-                          Complete
+                          {gettext("Complete")}
                         </.button>
                       </div>
                     </div>
@@ -561,17 +565,17 @@ defmodule CraftplanWeb.OverviewLive do
               <div class="space-y-4 px-4 py-3">
                 <div class="flex items-center justify-between">
                   <span class="inline-flex items-center rounded-full bg-stone-100 px-2.5 py-0.5 text-xs font-medium text-stone-600">
-                    Not Batched
+                    {gettext("Not Batched")}
                   </span>
                   <span class="text-sm text-stone-500">
                     {format_amount(:piece, total_quantity(@selected_unbatched.items))} &middot; {length(
                       Enum.uniq_by(@selected_unbatched.items, & &1.order.id)
-                    )} orders
+                    )} {gettext("orders")}
                   </span>
                 </div>
 
                 <div class="space-y-2">
-                  <h4 class="text-xs font-semibold uppercase text-stone-400">Orders</h4>
+                  <h4 class="text-xs font-semibold uppercase text-stone-400">{gettext("Orders")}</h4>
                   <div
                     :for={item <- @selected_unbatched.items}
                     class="flex items-center justify-between rounded border border-stone-100 bg-stone-50 px-3 py-2 text-sm"
@@ -585,7 +589,7 @@ defmodule CraftplanWeb.OverviewLive do
                       </.link>
                       <span class="text-stone-500">{item.order.customer.full_name}</span>
                     </div>
-                    <span class="text-stone-700">{item.quantity} pcs</span>
+                    <span class="text-stone-700">{item.quantity} {gettext("pcs")}</span>
                   </div>
                 </div>
 
@@ -602,7 +606,7 @@ defmodule CraftplanWeb.OverviewLive do
                       )
                     }
                   >
-                    Batch All
+                    {gettext("Batch All")}
                   </.button>
                 </div>
               </div>
@@ -692,7 +696,7 @@ defmodule CraftplanWeb.OverviewLive do
                             </span>
                             <.badge
                               :if={capacity_status(product, items) == :over}
-                              text="Over capacity"
+                              text={gettext("Over capacity")}
                               class="flex-shrink-0"
                             />
                           </div>
@@ -701,7 +705,7 @@ defmodule CraftplanWeb.OverviewLive do
                               {format_amount(:piece, total_quantity(items))}
                             </span>
                             <span class="text-[10px] inline-flex flex-shrink-0 items-center rounded-full bg-stone-100 px-1.5 py-0.5 font-medium text-stone-600">
-                              Unbatched
+                              {gettext("Unbatched")}
                             </span>
                           </div>
                         </div>
@@ -728,7 +732,7 @@ defmodule CraftplanWeb.OverviewLive do
                             </span>
                             <.badge
                               :if={capacity_status(batch_group.product, batch_group.items) == :over}
-                              text="Over capacity"
+                              text={gettext("Over capacity")}
                               class="flex-shrink-0"
                             />
                           </div>
@@ -769,16 +773,16 @@ defmodule CraftplanWeb.OverviewLive do
       >
         <div class="px-4 py-2 print:p-0">
           <div class="mb-3 flex items-center justify-between print:mb-2">
-            <div class="text-lg font-medium print:text-base">Today's Production</div>
+            <div class="text-lg font-medium print:text-base">{gettext("Today's Production")}</div>
             <div class="space-x-2 print:hidden">
-              <.button variant={:outline} onclick="window.print()">Print</.button>
+              <.button variant={:outline} onclick="window.print()">{gettext("Print")}</.button>
             </div>
           </div>
           <div class="rounded border border-stone-300 bg-white p-4 print:border-black">
             <.table id="make-sheet" no_margin rows={make_sheet_rows(@production_items, @today)}>
-              <:col :let={row} label="Product">{row.product.name}</:col>
-              <:col :let={row} label="Total Qty">{row.total}</:col>
-              <:col :let={row} label="Completed">{row.completed}</:col>
+              <:col :let={row} label={gettext("Product")}>{row.product.name}</:col>
+              <:col :let={row} label={gettext("Total Qty")}>{row.total}</:col>
+              <:col :let={row} label={gettext("Completed")}>{row.completed}</:col>
             </.table>
           </div>
         </div>
@@ -1049,7 +1053,7 @@ defmodule CraftplanWeb.OverviewLive do
       |> Enum.filter(fn %{remaining: r} -> Decimal.compare(r, Decimal.new(0)) == :gt end)
 
     if Enum.empty?(items_with_remaining) do
-      {:noreply, put_flash(socket, :info, "Nothing remaining to allocate for this product/day")}
+      {:noreply, put_flash(socket, :info, gettext("Nothing remaining to allocate for this product/day"))}
     else
       planned_qty =
         Enum.reduce(items_with_remaining, Decimal.new(0), fn %{remaining: r}, acc ->
@@ -1070,12 +1074,17 @@ defmodule CraftplanWeb.OverviewLive do
         {:ok, batch} ->
           {:noreply,
            socket
-           |> put_flash(:info, "Batch #{batch.batch_code} created")
+           |> put_flash(:info, gettext("Batch %{code} created", code: batch.batch_code))
            |> assign(:selected_unbatched, nil)
            |> update_for_range(socket.assigns.days_range)}
 
         {:error, error} ->
-          {:noreply, put_flash(socket, :error, "Failed to create batch: #{inspect(error)}")}
+          {:noreply,
+           put_flash(
+             socket,
+             :error,
+             gettext("Failed to create batch: %{error}", error: inspect(error))
+           )}
       end
     end
   end
@@ -1090,16 +1099,21 @@ defmodule CraftplanWeb.OverviewLive do
           {:ok, _} ->
             {:noreply,
              socket
-             |> put_flash(:info, "Batch #{batch_code} started")
+             |> put_flash(:info, gettext("Batch %{code} started", code: batch_code))
              |> assign(:selected_batch, nil)
              |> update_for_range(socket.assigns.days_range)}
 
           {:error, error} ->
-            {:noreply, put_flash(socket, :error, "Failed to start batch: #{inspect(error)}")}
+            {:noreply,
+             put_flash(
+               socket,
+               :error,
+               gettext("Failed to start batch: %{error}", error: inspect(error))
+             )}
         end
 
       {:error, _} ->
-        {:noreply, put_flash(socket, :error, "Batch not found")}
+        {:noreply, put_flash(socket, :error, gettext("Batch not found"))}
     end
   end
 
@@ -1111,14 +1125,14 @@ defmodule CraftplanWeb.OverviewLive do
 
       # Backward drags
       to == "open" && from in ["in_progress", "completed"] ->
-        {:noreply, put_flash(socket, :error, "Cannot move a batch backward")}
+        {:noreply, put_flash(socket, :error, gettext("Cannot move a batch backward"))}
 
       from == "completed" ->
-        {:noreply, put_flash(socket, :error, "Cannot move a completed batch")}
+        {:noreply, put_flash(socket, :error, gettext("Cannot move a completed batch"))}
 
       # Skip open → completed
       from == "open" && to == "completed" ->
-        {:noreply, put_flash(socket, :error, "Batch must be started before completing")}
+        {:noreply, put_flash(socket, :error, gettext("Batch must be started before completing"))}
 
       # Open → In Progress
       from == "open" && to == "in_progress" ->
@@ -1133,7 +1147,7 @@ defmodule CraftplanWeb.OverviewLive do
 
         case Enum.find(batched, &(&1.batch_code == code)) do
           nil ->
-            {:noreply, put_flash(socket, :error, "Batch not found")}
+            {:noreply, put_flash(socket, :error, gettext("Batch not found"))}
 
           batch_group ->
             {:noreply,
@@ -1143,7 +1157,7 @@ defmodule CraftplanWeb.OverviewLive do
         end
 
       true ->
-        {:noreply, put_flash(socket, :error, "Invalid transition")}
+        {:noreply, put_flash(socket, :error, gettext("Invalid transition"))}
     end
   end
 
@@ -1163,7 +1177,7 @@ defmodule CraftplanWeb.OverviewLive do
         {:noreply, socket}
 
       _ ->
-        {:noreply, put_flash(socket, :error, "Unbatched items can only be moved to Open")}
+        {:noreply, put_flash(socket, :error, gettext("Unbatched items can only be moved to Open"))}
     end
   end
 
@@ -1195,17 +1209,28 @@ defmodule CraftplanWeb.OverviewLive do
           {:ok, _} ->
             {:noreply,
              socket
-             |> put_flash(:info, "Batch #{batch_code} completed — #{produced_qty} pcs produced")
+             |> put_flash(
+               :info,
+               gettext("Batch %{code} completed — %{qty} pcs produced",
+                 code: batch_code,
+                 qty: produced_qty
+               )
+             )
              |> assign(:completing_batch_code, nil)
              |> assign(:selected_batch, nil)
              |> update_for_range(socket.assigns.days_range)}
 
           {:error, error} ->
-            {:noreply, put_flash(socket, :error, "Failed to complete batch: #{inspect(error)}")}
+            {:noreply,
+             put_flash(
+               socket,
+               :error,
+               gettext("Failed to complete batch: %{error}", error: inspect(error))
+             )}
         end
 
       {:error, _} ->
-        {:noreply, put_flash(socket, :error, "Batch not found")}
+        {:noreply, put_flash(socket, :error, gettext("Batch not found"))}
     end
   end
 
@@ -1219,12 +1244,12 @@ defmodule CraftplanWeb.OverviewLive do
     >
       <div class="flex items-center gap-2">
         <span class="text-sm font-medium text-stone-900">{@product.name}</span>
-        <.badge :if={capacity_status(@product, @items) == :over} text="Over cap" />
+        <.badge :if={capacity_status(@product, @items) == :over} text={gettext("Over cap")} />
       </div>
       <div class="mt-1.5 text-xs text-stone-500">
         {format_amount(:piece, total_quantity(@items))} &middot; {length(
           Enum.uniq_by(@items, & &1.order.id)
-        )} orders
+        )} {gettext("orders")}
       </div>
     </div>
     """
@@ -1247,7 +1272,7 @@ defmodule CraftplanWeb.OverviewLive do
       <div class="mt-1.5 text-xs text-stone-500">
         {format_amount(:piece, total_quantity(@batch_group.items))} &middot; {length(
           Enum.uniq_by(@batch_group.items, & &1.order.id)
-        )} orders
+        )} {gettext("orders")}
       </div>
     </div>
     """
@@ -1389,10 +1414,10 @@ defmodule CraftplanWeb.OverviewLive do
     )
   end
 
-  defp page_title(:schedule), do: "Plan: Schedule"
-  defp page_title(:materials), do: "Plan: Inventory Forecast"
-  defp page_title(:make_sheet), do: "Plan: Make Sheet"
-  defp page_title(_), do: "Overview"
+  defp page_title(:schedule), do: gettext("Plan: Schedule")
+  defp page_title(:materials), do: gettext("Plan: Inventory Forecast")
+  defp page_title(:make_sheet), do: gettext("Plan: Make Sheet")
+  defp page_title(_), do: gettext("Overview")
 
   defp maybe_assign_schedule_view(socket, live_action, schedule_view) do
     if live_action in [:schedule, :make_sheet] do
@@ -1412,10 +1437,10 @@ defmodule CraftplanWeb.OverviewLive do
 
   defp plan_trail(_), do: [Navigation.root(:overview)]
 
-  defp batch_status_label(:not_batched), do: "Not Batched"
-  defp batch_status_label(:open), do: "Open"
-  defp batch_status_label(:in_progress), do: "In Progress"
-  defp batch_status_label(:completed), do: "Completed"
+  defp batch_status_label(:not_batched), do: gettext("Not Batched")
+  defp batch_status_label(:open), do: gettext("Open")
+  defp batch_status_label(:in_progress), do: gettext("In Progress")
+  defp batch_status_label(:completed), do: gettext("Completed")
 
   defp batch_status_class(:not_batched), do: "bg-stone-100 text-stone-600"
   defp batch_status_class(:open), do: "bg-blue-100 text-blue-700"
