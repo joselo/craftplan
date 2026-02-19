@@ -32,6 +32,7 @@ msgstr ""
 #: lib/craftplan_web/live/manage/order_live/invoice.ex:23
 #: lib/craftplan_web/live/manage/order_live/show.ex:73
 #: lib/craftplan_web/live/manage/overview_live.ex:66
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:285
 #, elixir-autogen, elixir-format
 msgid "Customer"
 msgstr ""
@@ -70,6 +71,8 @@ msgstr ""
 #: lib/craftplan_web/live/manage/order_live/show.ex:201
 #: lib/craftplan_web/live/manage/overview_live.ex:195
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:89
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:321
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:362
 #: lib/craftplan_web/live/manage/purchasing_live/purchase_order_item_form_component.ex:23
 #: lib/craftplan_web/live/manage/purchasing_live/show.ex:44
 #, elixir-autogen, elixir-format
@@ -103,6 +106,7 @@ msgstr ""
 #: lib/craftplan_web/live/manage/overview_live.ex:162
 #: lib/craftplan_web/live/manage/overview_live.ex:442
 #: lib/craftplan_web/live/manage/overview_live.ex:578
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:342
 #: lib/craftplan_web/live/manage/settings_live/index.ex:140
 #: lib/craftplan_web/navigation.ex:133
 #: lib/craftplan_web/navigation.ex:149
@@ -136,6 +140,9 @@ msgstr ""
 #: lib/craftplan_web/live/manage/product_live/show.ex:321
 #: lib/craftplan_web/live/manage/product_live/show.ex:325
 #: lib/craftplan_web/live/manage/product_live/show.ex:326
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:108
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:128
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:95
 #, elixir-autogen, elixir-format
 msgid "Product"
 msgstr ""
@@ -829,6 +836,7 @@ msgstr ""
 #: lib/craftplan_web/live/manage/order_live/show.ex:123
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:92
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:202
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:288
 #: lib/craftplan_web/live/manage/purchasing_live/purchase_order_item_form_component.ex:30
 #: lib/craftplan_web/live/manage/purchasing_live/show.ex:45
 #, elixir-autogen, elixir-format
@@ -996,6 +1004,10 @@ msgstr ""
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:730
 #: lib/craftplan_web/live/manage/product_live/index.ex:54
 #: lib/craftplan_web/live/manage/product_live/show.ex:30
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:88
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:131
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:99
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:291
 #: lib/craftplan_web/live/manage/purchasing_live/index.ex:36
 #: lib/craftplan_web/live/manage/purchasing_live/purchase_order_form_component.ex:29
 #: lib/craftplan_web/live/manage/purchasing_live/show.ex:36
@@ -1026,6 +1038,7 @@ msgid "Suggested PO"
 msgstr ""
 
 #: lib/craftplan_web/live/manage/inventory_live/show.ex:78
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:333
 #: lib/craftplan_web/live/manage/purchasing_live/index.ex:35
 #: lib/craftplan_web/live/manage/purchasing_live/purchase_order_form_component.ex:22
 #: lib/craftplan_web/live/manage/purchasing_live/show.ex:35
@@ -1163,6 +1176,9 @@ msgstr ""
 
 #: lib/craftplan_web/live/manage/order_live/show.ex:169
 #: lib/craftplan_web/live/manage/product_live/label.ex:20
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:123
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:17
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:80
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Batch"
 msgstr ""
@@ -1564,6 +1580,7 @@ msgstr ""
 #: lib/craftplan_web/live/manage/order_live/show.ex:181
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:677
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:734
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:297
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Unit Cost"
 msgstr ""
@@ -1610,6 +1627,7 @@ msgid "Version"
 msgstr ""
 
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:748
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:153
 #, elixir-autogen, elixir-format
 msgid "View"
 msgstr ""
@@ -1640,6 +1658,7 @@ msgid "e.g. Mix dough"
 msgstr ""
 
 #: lib/craftplan_web/live/manage/product_live/form_component_recipe.ex:701
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:236
 #, elixir-autogen, elixir-format
 msgid "per unit"
 msgstr ""
@@ -1682,6 +1701,7 @@ msgstr ""
 #: lib/craftplan_web/live/manage/order_live/index.ex:86
 #: lib/craftplan_web/live/manage/overview_live.ex:785
 #: lib/craftplan_web/live/manage/overview_live.ex:1443
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:97
 #, elixir-autogen, elixir-format
 msgid "Completed"
 msgstr ""
@@ -1786,6 +1806,7 @@ msgstr ""
 #: lib/craftplan_web/live/manage/order_live/index.ex:83
 #: lib/craftplan_web/live/manage/overview_live.ex:391
 #: lib/craftplan_web/live/manage/overview_live.ex:1442
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:96
 #, elixir-autogen, elixir-format, fuzzy
 msgid "In Progress"
 msgstr ""
@@ -1810,6 +1831,7 @@ msgid "Items"
 msgstr ""
 
 #: lib/craftplan_web/live/manage/order_live/invoice.ex:37
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:294
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Line Total"
 msgstr ""
@@ -2533,6 +2555,7 @@ msgstr ""
 msgid "Create new allergens or remove ones you no longer track. Changes apply immediately across Craftplan."
 msgstr ""
 
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:148
 #: lib/craftplan_web/live/manage/settings_live/calendar_feed_component.ex:98
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Created"
@@ -3088,6 +3111,7 @@ msgstr ""
 #: lib/craftplan_web/live/manage/overview_live.ex:1116
 #: lib/craftplan_web/live/manage/overview_live.ex:1150
 #: lib/craftplan_web/live/manage/overview_live.ex:1233
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:68
 #, elixir-autogen, elixir-format
 msgid "Batch not found"
 msgstr ""
@@ -3170,6 +3194,7 @@ msgstr ""
 
 #: lib/craftplan_web/live/manage/overview_live.ex:380
 #: lib/craftplan_web/live/manage/overview_live.ex:1441
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:95
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Open"
 msgstr ""
@@ -3206,6 +3231,7 @@ msgid "Previous"
 msgstr ""
 
 #: lib/craftplan_web/live/manage/overview_live.ex:516
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:145
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Produced qty"
 msgstr ""
@@ -3265,6 +3291,7 @@ msgstr ""
 msgid "pcs"
 msgstr ""
 
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:24
 #: lib/craftplan_web/navigation.ex:314
 #: lib/craftplan_web/navigation.ex:332
 #, elixir-autogen, elixir-format, fuzzy
@@ -3299,4 +3326,271 @@ msgstr ""
 #: lib/craftplan_web/navigation.ex:320
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Weekly"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:406
+#, elixir-autogen, elixir-format
+msgid "Add process notes or deviations before printing."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:221
+#, elixir-autogen, elixir-format
+msgid "Advanced: Manual Lot Selection"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:68
+#, elixir-autogen, elixir-format
+msgid "All production batches with status and cost information."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:109
+#, elixir-autogen, elixir-format, fuzzy
+msgid "All products"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:114
+#, elixir-autogen, elixir-format
+msgid "Average Unit Cost"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:51
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Batch %{code}"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:454
+#, elixir-autogen, elixir-format
+msgid "Batch completed"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:424
+#, elixir-autogen, elixir-format
+msgid "Batch started"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:102
+#, elixir-autogen, elixir-format
+msgid "Batch status at a glance"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:98
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Canceled"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:389
+#, elixir-autogen, elixir-format
+msgid "Capture operator sign-off and observations for printable records."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:111
+#, elixir-autogen, elixir-format
+msgid "Captured from completion events"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:160
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:269
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Complete Batch"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:467
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:472
+#, elixir-autogen, elixir-format
+msgid "Complete failed: %{error}"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:189
+#, elixir-autogen, elixir-format
+msgid "Completed quantities per order item"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:387
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Compliance Notes"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:180
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Duration (minutes)"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:162
+#, elixir-autogen, elixir-format
+msgid "Enter produced quantity and optionally adjust lot allocations. Materials will be automatically consumed using FIFO (earliest expiry first) unless you override with manual lot selection."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:327
+#, elixir-autogen, elixir-format
+msgid "Expires"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:75
+#, elixir-autogen, elixir-format
+msgid "Filter batches"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:476
+#, elixir-autogen, elixir-format
+msgid "Invalid completion payload"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:130
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Labor Cost"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:324
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Lot Code"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:312
+#, elixir-autogen, elixir-format
+msgid "Lot allocations across every order item in this batch."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:368
+#, elixir-autogen, elixir-format
+msgid "Lots:"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:119
+#, elixir-autogen, elixir-format
+msgid "Material + labor + overhead"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:125
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Material Cost"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:310
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Material Lots"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:77
+#, elixir-autogen, elixir-format
+msgid "Narrow the list by status or product."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:120
+#, elixir-autogen, elixir-format, fuzzy
+msgid "No batches match the current filters."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:356
+#, elixir-autogen, elixir-format
+msgid "No lot allocations were recorded for this batch."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:230
+#, elixir-autogen, elixir-format
+msgid "No materials with available lots found for this batch."
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:403
+#, elixir-autogen, elixir-format
+msgid "Observations"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:395
+#, elixir-autogen, elixir-format
+msgid "Operator"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:280
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Order"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:135
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Overhead Cost"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:142
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Planned qty"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:86
+#, elixir-autogen, elixir-format
+msgid "Print Batch Sheet"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:104
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Produced"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:108
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Produced At"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:171
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Produced Quantity"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/index.ex:66
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Production Batches"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:339
+#, elixir-autogen, elixir-format
+msgid "Remaining"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:236
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Required:"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:146
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Start Batch"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:427
+#, elixir-autogen, elixir-format
+msgid "Start failed: %{error}"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:105
+#, elixir-autogen, elixir-format
+msgid "Total units in this batch"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:322
+#, elixir-autogen, elixir-format
+msgid "Unknown"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:336
+#, elixir-autogen, elixir-format
+msgid "Used"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:249
+#, elixir-autogen, elixir-format
+msgid "exp:"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:316
+#, elixir-autogen, elixir-format
+msgid "lots"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:199
+#, elixir-autogen, elixir-format, fuzzy
+msgid "planned:"
+msgstr ""
+
+#: lib/craftplan_web/live/manage/production_batch_live/show.ex:246
+#, elixir-autogen, elixir-format, fuzzy
+msgid "stock:"
 msgstr ""

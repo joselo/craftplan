@@ -21,7 +21,7 @@ defmodule CraftplanWeb.ProductionBatchLive.Index do
      |> assign(:batches, [])
      |> assign(:filters, @default_filters)
      |> assign(:products, products)
-     |> assign(:page_title, "Batches")}
+     |> assign(:page_title, gettext("Batches"))}
   end
 
   @impl true
@@ -63,18 +63,18 @@ defmodule CraftplanWeb.ProductionBatchLive.Index do
     ~H"""
     <Page.page>
       <.header>
-        Production Batches
+        {gettext("Production Batches")}
         <:subtitle>
-          All production batches with status and cost information.
+          {gettext("All production batches with status and cost information.")}
         </:subtitle>
       </.header>
 
       <Page.surface>
         <:header>
           <div class="space-y-1">
-            <h2 class="text-sm font-semibold text-stone-900">Filter batches</h2>
+            <h2 class="text-sm font-semibold text-stone-900">{gettext("Filter batches")}</h2>
             <p class="text-sm text-stone-500">
-              Narrow the list by status or product.
+              {gettext("Narrow the list by status or product.")}
             </p>
           </div>
         </:header>
@@ -85,17 +85,17 @@ defmodule CraftplanWeb.ProductionBatchLive.Index do
           <Page.form_grid columns={2} class="max-w-full">
             <div class="min-w-[12rem]">
               <.input
-                label="Status"
+                label={gettext("Status")}
                 type="checkdrop"
                 name="filters[status][]"
                 id="status"
                 value={@filters["status"]}
                 multiple={true}
                 options={[
-                  {"Open", "open"},
-                  {"In Progress", "in_progress"},
-                  {"Completed", "completed"},
-                  {"Canceled", "canceled"}
+                  {gettext("Open"), "open"},
+                  {gettext("In Progress"), "in_progress"},
+                  {gettext("Completed"), "completed"},
+                  {gettext("Canceled"), "canceled"}
                 ]}
               />
             </div>
@@ -105,8 +105,8 @@ defmodule CraftplanWeb.ProductionBatchLive.Index do
               name="filters[product_name]"
               id="product_name"
               value={@filters["product_name"]}
-              label="Product"
-              options={[{"All products", ""} | Enum.map(@products, &{&1.name, &1.name})]}
+              label={gettext("Product")}
+              options={[{gettext("All products"), ""} | Enum.map(@products, &{&1.name, &1.name})]}
             />
           </Page.form_grid>
         </form>
@@ -117,18 +117,18 @@ defmodule CraftplanWeb.ProductionBatchLive.Index do
           <.table id="batches-table" rows={@batches}>
             <:empty>
               <div class="rounded border border-dashed border-stone-200 bg-stone-50 py-8 text-center text-sm text-stone-500">
-                No batches match the current filters.
+                {gettext("No batches match the current filters.")}
               </div>
             </:empty>
-            <:col :let={batch} label="Batch">
+            <:col :let={batch} label={gettext("Batch")}>
               <.link navigate={~p"/manage/production/batches/#{batch.batch_code}"}>
                 <.kbd>{batch.batch_code}</.kbd>
               </.link>
             </:col>
-            <:col :let={batch} label="Product">
+            <:col :let={batch} label={gettext("Product")}>
               {(batch.product && batch.product.name) || "—"}
             </:col>
-            <:col :let={batch} label="Status">
+            <:col :let={batch} label={gettext("Status")}>
               <.badge
                 text={batch.status}
                 colors={[
@@ -139,18 +139,18 @@ defmodule CraftplanWeb.ProductionBatchLive.Index do
                 ]}
               />
             </:col>
-            <:col :let={batch} label="Planned qty">
+            <:col :let={batch} label={gettext("Planned qty")}>
               {Decimal.to_string(batch.planned_qty)}
             </:col>
-            <:col :let={batch} label="Produced qty">
+            <:col :let={batch} label={gettext("Produced qty")}>
               {if batch.status == :completed, do: Decimal.to_string(batch.produced_qty), else: "—"}
             </:col>
-            <:col :let={batch} label="Created">
+            <:col :let={batch} label={gettext("Created")}>
               {format_time(batch.inserted_at, @time_zone)}
             </:col>
             <:action :let={batch}>
               <.link navigate={~p"/manage/production/batches/#{batch.batch_code}"}>
-                <.button size={:sm} variant={:outline}>View</.button>
+                <.button size={:sm} variant={:outline}>{gettext("View")}</.button>
               </.link>
             </:action>
           </.table>

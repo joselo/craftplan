@@ -14,7 +14,7 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
     {:ok,
      socket
      |> assign(:batch_report, nil)
-     |> assign(:page_title, "Batch")
+     |> assign(:page_title, gettext("Batch"))
      |> assign(:orders, [])
      |> assign(:lots, [])
      |> assign(:materials, [])
@@ -48,7 +48,7 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
       |> assign(:totals, report.totals)
       |> assign(:produced_at, report.produced_at)
       |> assign(:production_batch, report.production_batch)
-      |> assign(:page_title, "Batch #{batch_code}")
+      |> assign(:page_title, gettext("Batch %{code}", code: batch_code))
       |> assign(:consume_materials, build_consume_materials(report.production_batch, actor))
       |> assign(
         :allocations_for_complete,
@@ -65,7 +65,7 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
     _ ->
       {:noreply,
        socket
-       |> put_flash(:error, "Batch not found")
+       |> put_flash(:error, gettext("Batch not found"))
        |> push_navigate(to: ~p"/manage/overview")}
   end
 
@@ -77,13 +77,13 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
     ~H"""
     <Page.page>
       <.header>
-        Batch {@batch_code}
+        {gettext("Batch")} {@batch_code}
         <:subtitle>
           {@product && @product.name}
         </:subtitle>
         <:actions>
           <.link href={~p"/manage/production/batches/#{@batch_code}/sheet.pdf"} target="_blank">
-            <.button variant={:primary}>Print Batch Sheet</.button>
+            <.button variant={:primary}>{gettext("Print Batch Sheet")}</.button>
           </.link>
         </:actions>
       </.header>
@@ -92,44 +92,47 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
         <Page.section class="mt-6">
           <Page.surface>
             <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              <.summary_card label="Product" value={@product && @product.name}>
+              <.summary_card label={gettext("Product")} value={@product && @product.name}>
                 <div class="text-xs text-stone-500">{@product && @product.sku}</div>
               </.summary_card>
               <.summary_card
-                label="Status"
+                label={gettext("Status")}
                 value={@production_batch && to_string(@production_batch.status)}
               >
-                <div class="text-xs text-stone-500">Batch status at a glance</div>
+                <div class="text-xs text-stone-500">{gettext("Batch status at a glance")}</div>
               </.summary_card>
-              <.summary_card label="Produced" value={format_quantity(@totals)}>
-                <div class="text-xs text-stone-500">Total units in this batch</div>
-              </.summary_card>
-              <.summary_card label="Produced At" value={format_batch_time(@produced_at, @time_zone)}>
-                <div class="text-xs text-stone-500">Captured from completion events</div>
+              <.summary_card label={gettext("Produced")} value={format_quantity(@totals)}>
+                <div class="text-xs text-stone-500">{gettext("Total units in this batch")}</div>
               </.summary_card>
               <.summary_card
-                label="Average Unit Cost"
+                label={gettext("Produced At")}
+                value={format_batch_time(@produced_at, @time_zone)}
+              >
+                <div class="text-xs text-stone-500">{gettext("Captured from completion events")}</div>
+              </.summary_card>
+              <.summary_card
+                label={gettext("Average Unit Cost")}
                 value={
                   format_money(@settings.currency, (@totals && @totals.unit_cost) || Decimal.new(0))
                 }
               >
-                <div class="text-xs text-stone-500">Material + labor + overhead</div>
+                <div class="text-xs text-stone-500">{gettext("Material + labor + overhead")}</div>
               </.summary_card>
             </div>
 
             <div class="mt-6 grid gap-4 md:grid-cols-3">
               <.cost_chip
-                label="Material Cost"
+                label={gettext("Material Cost")}
                 amount={(@totals && @totals.material_cost) || Decimal.new(0)}
                 currency={@settings.currency}
               />
               <.cost_chip
-                label="Labor Cost"
+                label={gettext("Labor Cost")}
                 amount={(@totals && @totals.labor_cost) || Decimal.new(0)}
                 currency={@settings.currency}
               />
               <.cost_chip
-                label="Overhead Cost"
+                label={gettext("Overhead Cost")}
                 amount={(@totals && @totals.overhead_cost) || Decimal.new(0)}
                 currency={@settings.currency}
               />
@@ -140,7 +143,7 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
                 variant={:outline}
                 phx-click="start_batch"
               >
-                Start Batch
+                {gettext("Start Batch")}
               </.button>
             </div>
           </Page.surface>
@@ -154,16 +157,18 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
       >
         <Page.section>
           <Page.surface>
-            <h3 class="mb-4 text-base font-semibold text-stone-900">Complete Batch</h3>
+            <h3 class="mb-4 text-base font-semibold text-stone-900">{gettext("Complete Batch")}</h3>
             <p class="mb-4 text-sm text-stone-500">
-              Enter produced quantity and optionally adjust lot allocations. Materials will be automatically consumed using FIFO (earliest expiry first) unless you override with manual lot selection.
+              {gettext(
+                "Enter produced quantity and optionally adjust lot allocations. Materials will be automatically consumed using FIFO (earliest expiry first) unless you override with manual lot selection."
+              )}
             </p>
             <.form for={%{}} id="complete-batch-form" phx-submit="complete_batch">
               <div class="grid gap-4 md:grid-cols-2">
                 <.input
                   type="number"
                   name="produced_qty"
-                  label="Produced Quantity"
+                  label={gettext("Produced Quantity")}
                   min="0"
                   step="any"
                   required
@@ -172,7 +177,7 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
                 <.input
                   type="number"
                   name="duration_minutes"
-                  label="Duration (minutes)"
+                  label={gettext("Duration (minutes)")}
                   min="0"
                   step="any"
                   value={@complete_payload["duration_minutes"]}
@@ -181,7 +186,7 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
 
               <div :if={@allocations_for_complete != []} class="mt-4">
                 <h4 class="mb-2 text-sm font-semibold text-stone-800">
-                  Completed quantities per order item
+                  {gettext("Completed quantities per order item")}
                 </h4>
                 <div
                   :for={alloc <- @allocations_for_complete}
@@ -191,7 +196,7 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
                     <span class="font-mono text-xs">{alloc.order_reference}</span>
                     <span class="ml-2 text-stone-600">{alloc.product_name}</span>
                     <span class="ml-2 text-xs text-stone-400">
-                      planned: {D.to_string(alloc.planned_qty)}
+                      {gettext("planned:")} {D.to_string(alloc.planned_qty)}
                     </span>
                   </div>
                   <.input
@@ -213,7 +218,7 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
                     checked={@show_advanced_lots}
                     class="rounded border-stone-300 text-stone-600 focus:ring-stone-500"
                   />
-                  <span>Advanced: Manual Lot Selection</span>
+                  <span>{gettext("Advanced: Manual Lot Selection")}</span>
                 </label>
               </div>
 
@@ -222,13 +227,13 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
                   :if={@consume_materials == []}
                   class="py-4 text-sm text-stone-500"
                 >
-                  No materials with available lots found for this batch.
+                  {gettext("No materials with available lots found for this batch.")}
                 </div>
                 <div :for={mat <- @consume_materials} class="mb-6">
                   <div class="mb-2 flex items-baseline justify-between">
                     <h4 class="text-sm font-semibold text-stone-800">{mat.name}</h4>
                     <span class="text-xs text-stone-500">
-                      Required: {D.to_string(mat.required_qty)} per unit
+                      {gettext("Required:")} {D.to_string(mat.required_qty)} {gettext("per unit")}
                     </span>
                   </div>
                   <div
@@ -238,10 +243,13 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
                     <div class="flex-1 text-sm">
                       <span class="font-mono text-xs">{lot.lot_code}</span>
                       <span class="ml-2 text-stone-500">
-                        stock: {D.to_string(lot.current_stock)}
+                        {gettext("stock:")} {D.to_string(lot.current_stock)}
                       </span>
                       <span :if={lot.expiry_date} class="ml-2 text-xs text-stone-400">
-                        exp: {format_short_date(lot.expiry_date, format: "%b %d, %Y", missing: "—")}
+                        {gettext("exp:")} {format_short_date(lot.expiry_date,
+                          format: "%b %d, %Y",
+                          missing: "—"
+                        )}
                       </span>
                     </div>
                     <.input
@@ -258,7 +266,7 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
               </div>
 
               <div class="mt-4 flex justify-end">
-                <.button variant={:primary} type="submit">Complete Batch</.button>
+                <.button variant={:primary} type="submit">{gettext("Complete Batch")}</.button>
               </div>
             </.form>
           </Page.surface>
@@ -269,24 +277,24 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
         <Page.section class="mt-6">
           <Page.surface>
             <.table id="batch-orders-table" rows={@orders}>
-              <:col :let={row} label="Order">
+              <:col :let={row} label={gettext("Order")}>
                 <.link navigate={~p"/manage/orders/#{row.order.reference}"}>
                   <.kbd>{format_reference(row.order.reference)}</.kbd>
                 </.link>
               </:col>
-              <:col :let={row} label="Customer">
+              <:col :let={row} label={gettext("Customer")}>
                 {row.customer_name || "—"}
               </:col>
-              <:col :let={row} label="Quantity">
+              <:col :let={row} label={gettext("Quantity")}>
                 {row.quantity}
               </:col>
-              <:col :let={row} label="Status">
+              <:col :let={row} label={gettext("Status")}>
                 <.badge text={row.status} />
               </:col>
-              <:col :let={row} label="Line Total">
+              <:col :let={row} label={gettext("Line Total")}>
                 {format_money(@settings.currency, row.line_total)}
               </:col>
-              <:col :let={row} label="Unit Cost">
+              <:col :let={row} label={gettext("Unit Cost")}>
                 {format_money(@settings.currency, row.unit_cost)}
               </:col>
             </.table>
@@ -299,36 +307,39 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
           <Page.surface>
             <div class="mb-4 flex items-center justify-between">
               <div>
-                <h3 class="text-base font-semibold text-stone-900">Material Lots</h3>
+                <h3 class="text-base font-semibold text-stone-900">{gettext("Material Lots")}</h3>
                 <p class="text-sm text-stone-500">
-                  Lot allocations across every order item in this batch.
+                  {gettext("Lot allocations across every order item in this batch.")}
                 </p>
               </div>
               <span class="text-sm text-stone-500">
-                {@lots |> length()} lots
+                {@lots |> length()} {gettext("lots")}
               </span>
             </div>
 
             <.table :if={Enum.any?(@lots)} id="batch-lots-table" rows={@lots}>
-              <:col :let={lot} label="Material">
-                {(lot.material && lot.material.name) || "Unknown"}
+              <:col :let={lot} label={gettext("Material")}>
+                {(lot.material && lot.material.name) || gettext("Unknown")}
               </:col>
-              <:col :let={lot} label="Lot Code">
+              <:col :let={lot} label={gettext("Lot Code")}>
                 <div class="font-mono text-xs">{lot.lot_code}</div>
                 <div class="text-xs text-stone-500">
-                  Expires {format_short_date(lot.expiry_date, format: "%b %d, %Y", missing: "—")}
+                  {gettext("Expires")} {format_short_date(lot.expiry_date,
+                    format: "%b %d, %Y",
+                    missing: "—"
+                  )}
                 </div>
               </:col>
-              <:col :let={lot} label="Supplier">
+              <:col :let={lot} label={gettext("Supplier")}>
                 {(lot.supplier && lot.supplier.name) || "—"}
               </:col>
-              <:col :let={lot} label="Used">
+              <:col :let={lot} label={gettext("Used")}>
                 {format_amount(lot.material && lot.material.unit, lot.quantity_used)}
               </:col>
-              <:col :let={lot} label="Remaining">
+              <:col :let={lot} label={gettext("Remaining")}>
                 {format_amount(lot.material && lot.material.unit, lot.remaining)}
               </:col>
-              <:col :let={lot} label="Orders">
+              <:col :let={lot} label={gettext("Orders")}>
                 <div class="space-y-1">
                   <div :for={entry <- lot.orders} class="text-xs text-stone-600">
                     <.kbd>{format_reference(entry.reference)}</.kbd>
@@ -342,19 +353,19 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
               :if={!Enum.any?(@lots)}
               class="rounded border border-dashed border-stone-200 bg-stone-50 p-6 text-center text-sm text-stone-500"
             >
-              No lot allocations were recorded for this batch.
+              {gettext("No lot allocations were recorded for this batch.")}
             </div>
 
             <div :if={Enum.any?(@materials)} class="mt-6 grid gap-4 md:grid-cols-3">
               <div :for={material <- @materials} class="rounded border border-stone-200 bg-white p-4">
                 <p class="text-xs uppercase tracking-wide text-stone-500">
-                  {(material.material && material.material.name) || "Material"}
+                  {(material.material && material.material.name) || gettext("Material")}
                 </p>
                 <p class="mt-2 text-lg font-semibold text-stone-900">
                   {format_amount(material.material && material.material.unit, material.quantity_used)}
                 </p>
                 <p class="text-xs text-stone-500">
-                  Lots:
+                  {gettext("Lots:")}
                   <span
                     :for={lot <- material.lots}
                     class="text-[11px] mr-2 inline-flex gap-1 text-stone-600"
@@ -373,24 +384,26 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
         <div id="batch-compliance">
           <Page.surface padding="p-6">
             <div class="mb-4">
-              <h3 class="text-base font-semibold text-stone-900">Compliance Notes</h3>
+              <h3 class="text-base font-semibold text-stone-900">{gettext("Compliance Notes")}</h3>
               <p class="text-sm text-stone-500">
-                Capture operator sign-off and observations for printable records.
+                {gettext("Capture operator sign-off and observations for printable records.")}
               </p>
             </div>
 
             <div class="space-y-4">
               <div>
-                <p class="text-xs uppercase tracking-wide text-stone-500">Operator</p>
+                <p class="text-xs uppercase tracking-wide text-stone-500">{gettext("Operator")}</p>
                 <div class="min-h-[2rem] mt-1 rounded border border-dashed border-stone-300 px-3 py-2 text-sm text-stone-700">
                   ______________________________________
                 </div>
               </div>
 
               <div>
-                <p class="text-xs uppercase tracking-wide text-stone-500">Observations</p>
+                <p class="text-xs uppercase tracking-wide text-stone-500">
+                  {gettext("Observations")}
+                </p>
                 <div class="min-h-[5rem] mt-1 rounded border border-dashed border-stone-300 px-3 py-2 text-sm text-stone-700">
-                  {(@bom && @bom.notes) || "Add process notes or deviations before printing."}
+                  {(@bom && @bom.notes) || gettext("Add process notes or deviations before printing.")}
                 </div>
               </div>
             </div>
@@ -407,8 +420,11 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
     batch = socket.assigns.production_batch
 
     case Orders.start_batch(batch, %{}, actor: actor) do
-      {:ok, _} -> refresh_and_flash(socket, "Batch started")
-      {:error, err} -> {:noreply, put_flash(socket, :error, "Start failed: #{inspect(err)}")}
+      {:ok, _} ->
+        refresh_and_flash(socket, gettext("Batch started"))
+
+      {:error, err} ->
+        {:noreply, put_flash(socket, :error, gettext("Start failed: %{error}", error: inspect(err)))}
     end
   end
 
@@ -428,11 +444,14 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
     case parse_decimal(produced_qty) do
       {:ok, qty} ->
         complete_params =
-          maybe_put_duration(%{produced_qty: qty, completed_map: completed_map, lot_plan: lot_plan}, duration)
+          maybe_put_duration(
+            %{produced_qty: qty, completed_map: completed_map, lot_plan: lot_plan},
+            duration
+          )
 
         case Orders.complete_batch(batch, complete_params, actor: actor) do
           {:ok, _} ->
-            refresh_and_flash(socket, "Batch completed")
+            refresh_and_flash(socket, gettext("Batch completed"))
 
           {:error, %Invalid{} = err} ->
             if insufficient_stock_error?(err) do
@@ -441,15 +460,20 @@ defmodule CraftplanWeb.ProductionBatchLive.Show do
                |> assign(show_advanced_lots: true)
                |> put_flash(:error, format_stock_error(err))}
             else
-              {:noreply, put_flash(socket, :error, "Complete failed: #{inspect(err)}")}
+              {:noreply,
+               put_flash(
+                 socket,
+                 :error,
+                 gettext("Complete failed: %{error}", error: inspect(err))
+               )}
             end
 
           {:error, err} ->
-            {:noreply, put_flash(socket, :error, "Complete failed: #{inspect(err)}")}
+            {:noreply, put_flash(socket, :error, gettext("Complete failed: %{error}", error: inspect(err)))}
         end
 
       _ ->
-        {:noreply, put_flash(socket, :error, "Invalid completion payload")}
+        {:noreply, put_flash(socket, :error, gettext("Invalid completion payload"))}
     end
   end
 
